@@ -1,8 +1,10 @@
 # A1 – [Create Portfolio]
 
-## Objective
+## Objectives
 
-### 1. Analyze Portfolio
+### 1. Analyze
+### 2. Decide
+### 3. Communicate
 
 ## Analyze
 
@@ -47,11 +49,8 @@
   * **Engineered Design Decision:** The patent defines specific geometric leg-length ratios ($0.3L_2 \le L_1 \le 0.5L_2$, where $L_1$ is the short leg and $L_2$ is the long leg). This design decision ensures the short leg is long enough ($\ge 50\text{ mm}$) for adequate manual grip while maintaining sufficient leverage length on the primary arm.
 
 
-
-
-
 ## Decide
-
+  A visitor must immediately understand engineering fundamentals in order tocorrectly interpret the content of this portfolio. The nested structure of this portfolio's documents is helpful for the reader, as each folder title accurately describes the containerd contents in 1-2 words. This allows for easy navigation of the portfolio's contents.
 
 ## Communicate
 
