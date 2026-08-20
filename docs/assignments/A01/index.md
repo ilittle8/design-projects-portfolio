@@ -37,6 +37,7 @@
   * **Validating Assumption:** The key material operates within its linear elastic regime Hooke's Law ($\tau = G \cdot \gamma$) under homogenous material properties, neglecting stress concentration effects at the $90^\circ$ elbow bend.
 * **Component Geometry & Function:**
 <img width="4284" height="5712" alt="IMG_5051" src="https://github.com/user-attachments/assets/655670d7-308e-4c80-b10c-6a156f9b0ab4" />
+
   * **Single-Piece Hexagonal L-Rod:** Features a constant 6-sided cross-section bent at a $90^\circ$ angle. The six flat driving faces provide broad surface contact against the fastener socket, spreading driving forces to minimize stress concentration. The $90^\circ$ elbow geometry provides dual leverage options: the long leg maximizes moment arm length for high torque output, while the short leg allows rapid engagement in confined spaces.
 * **Patent Research & Alternatives:**
   * **Patent Details:** US Patent US20160271766A1 (Inventors: Sheng-In Lin et al.).
