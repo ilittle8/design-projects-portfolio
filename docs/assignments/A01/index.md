@@ -1,4 +1,4 @@
-# A1 – [Create Portfolio]
+# A1 – Create Portfolio
 
 ## Objectives
 
@@ -8,19 +8,37 @@
 
 ## Analyze
 
-### Task A: Reviewing Portfolios
+### Task A: Portfolio Analysis
 
-#### Review 1: Jackson Hanish Portfolio
-
-Jackson Hanish's portfolio is very well organized. Each element is accessible in an average of ~10 seconds max. While his description allows the reader to get a functional and usable understanding of the work he did, his use of language would benefit from an increased level of specificity.  Particularly, in assignment 2, he says "... two design concepts were considered. The first consisted of eight total members with smaller angles forming multiple triangular sections. The second used four primary members and a top cross beam to carry the applied loads". When he says 'smaller angles', I, the reader, am immediately confused, thinking to myself: "Smaller in reference to *what?*". After some closer reading, I am able to imply that the angles in his first configuration are smaller than his second configuration, but this is not made clear. Fortunately, his use of language does not stop his work from being reproducible. He not only presents why he makes design choices, but also reveals his governing equations, statics calculations, and results within a coherent and properly dimensioned manner. Due to his excellent presentation of information, his results are completely reproducible without any intervention from Jackson Hanish himself. In his introduction, discussion, and results he maintains a professional tone that I believe any employer would find no issue with.
+<img width="863" height="413" alt="image" src="https://github.com/user-attachments/assets/6c597177-a0ea-42ac-bbd1-2305b5123a1c" />
 
 
-#### Review 2: ZachIq Portfolio
+#### Review 1: ([Jackson Hanish's Portfolio](https://instructure.charlotte.edu/eportfolios/4882/home/about-me))
 
-  One part of ZachIq's portfolio I was impressed with is how simple it is. All elements are easily accessible and, at first glance, easily understood. I am quite confident that his work can be easily accessed in under 60 seconds as a result of the intuitive structure of his portfolio. To review his methods, I viewed his pipeline named "Medium". The results given were easily reproducible, as he attached functional and runnable python code directly to his description of his pipeline. However, the process itself is not easily reproducible. His code lacks comments of any kind, making it very difficult to understand the functions of each block of his code. Overall, viewing the work as results and process combined, his work should be considered reproducible, but only with assistance from the creator. Unfortunately, his listing does not show his decision making process in writing the code, only the final results of his project. It is hard to gather any information about why one function was chosen over another or how the API interacts with his code. ZachIq's use of language has a sharp turn from overly casual to fairly professional between his 'README' and his project descriptions. For example, his 'README' file for his portfolio features his dog as well as phrases like "Don't be --evil-- boring"; the tone of his project contents lends to a "business casual" impression, though. In these project descriptions, he uses proper english and is clear and concise, but typically uses phrases like "I've" instead of "I have", and other common shortenings of language. This specific use of language generally acceptable within the workplace, though.
+- Jackson Hanish's portfolio is very well organized. Each element is accessible in an average of ~10 seconds max. While his description allows the reader to get a functional and usable understanding of the work he did, his use of language would benefit from an increased level of specificity.  I
+
+- In assignment 2, he says "... two design concepts were considered. The first consisted of eight total members with smaller angles forming multiple triangular sections. The second used four primary members and a top cross beam to carry the applied loads". When he says 'smaller angles', I, the reader, am immediately confused, thinking to myself: "Smaller in reference to *what?*". After some closer reading, I am able to imply that the angles in his first configuration are smaller than his second configuration, but this is not made clear. 
+
+- Fortunately, his use of language does not stop his work from being reproducible. He not only presents why he makes design choices, but also reveals his governing equations, statics calculations, and results within a coherent and properly dimensioned manner. 
+
+- Due to his excellent presentation of information, his results are completely reproducible without any intervention from Jackson Hanish himself. In his introduction, discussion, and results he maintains a professional tone that I believe any employer would find no issue with.
+
+
+#### Review 2: ([ZachIq's Portfolio](https://github.com/Zachlq/Professional_Portfolio))
+
+- One part of ZachIq's portfolio I was impressed with is how simple it is. All elements are easily accessible and, at first glance, easily understood. I am quite confident that his work can be easily accessed in under 60 seconds as a result of the intuitive structure of his portfolio. 
+
+- To review his methods, I viewed his pipeline named "Medium". The results given were easily reproducible, as he attached functional and runnable python code directly to his description of his pipeline. However, the process itself is not easily reproducible. His code lacks comments of any kind, making it very difficult to understand the functions of each block of his code. 
+
+- Overall, viewing the work as results and process combined, his work should be considered reproducible, but only with assistance from the creator. Unfortunately, his listing does not show his decision making process in writing the code, only the final results of his project. It is hard to gather any information about why one function was chosen over another or how the API interacts with his code. 
+
+- ZachIq's use of language has a sharp turn from overly casual to fairly professional between his 'README' and his project descriptions. For example, his 'README' file for his portfolio features his dog as well as phrases like "Don't be --evil-- boring"; the tone of his project contents lends to a "business casual" impression, though. In these project descriptions, he uses proper english and is clear and concise, but typically uses phrases like "I've" instead of "I have", and other common shortenings of language. This specific use of language generally acceptable within the workplace, though.
 
 
 ### Task B: Product Analysis
+
+<img width="880" height="641" alt="image" src="https://github.com/user-attachments/assets/42f29f05-6a07-4132-95bd-34a568ab52b4" />
+
 
 #### Analyzing Hex Key / Allen Wrench ([US Patent US20160271766A1](https://patents.google.com/patent/US20160271766A1/en))
 
@@ -46,9 +64,20 @@ Jackson Hanish's portfolio is very well organized. Each element is accessible in
 
 
 ## Decide
-1. A visitor must immediately understand engineering fundamentals (Particularly the contents of Physics 1) in order to correctly interpret the content of this portfolio. The nested structure of this portfolio's documents is helpful for the reader, as each folder title accurately describes the contained contents in 1-2 words. This allows for easy navigation of the portfolio's contents.
-2. Intentional customization
-3. Write __one__ sentence defining what the standard of quality will be for this portfolio.
+
+<img width="576" height="790" alt="image" src="https://github.com/user-attachments/assets/61055c4a-a778-4710-8990-b1650d4ce71a" />
+
+
+1. **Homepage identity:** A visitor must immediately understand engineering fundamentals in order to correctly interpret the content of this portfolio. The nested structure of this portfolio's documents is helpful for the reader, as each folder title accurately describes the contained contents in 1-2 words. This allows for easy navigation of the portfolio's contents.
+   
+3. **One Intentional Customization:** I customized the homepage on GitHub (the README.md file) to have a red title and I deleted the local preview instructions. Since my portfolio is a professional document, I want to remove any information that is not relevant to the reader/intended audience. I also chose to make the title a different font and color from the rest of the text in order for the reader to be able to more quickly identify and understand what they are looking at.
+
+4. **Your Documentation Standard:** Every assignment will contain enough information for another engineer to be able to understand my work with minimal questions as to what the assignment is and how I came to my conclusion(s).
 
 ## Communicate
+
+<img width="580" height="610" alt="image" src="https://github.com/user-attachments/assets/2e5d43dc-e256-4b71-95e4-82101b4a7e24" />
+
+Please refer to [About Me] to see my work.
+
 
