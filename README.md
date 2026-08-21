@@ -1,4 +1,4 @@
-# MEGR 2157 – Design Portfolio Template
+# $\color{red}{\text{MEGR 2157 – Design Portfolio Template}}$
 
 This repository is an MkDocs site (same engine Fab Academy uses) with the Analyze / Decide / Communicate framework built into every assignment page. The rendered site — with the left-hand navigation to every assignment — lives in `docs/`; this README is just for people working with the repo itself.
 
