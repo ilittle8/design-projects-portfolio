@@ -13,7 +13,7 @@
 <img width="863" height="413" alt="image" src="https://github.com/user-attachments/assets/6c597177-a0ea-42ac-bbd1-2305b5123a1c" />
 
 
-#### Review 1: ([Jackson Hanish's Portfolio](https://instructure.charlotte.edu/eportfolios/4882/home/about-me))
+#### Review 1: [Jackson Hanish's Portfolio](https://instructure.charlotte.edu/eportfolios/4882/home/about-me)
 
 - Jackson Hanish's portfolio is very well organized. Each element is accessible in an average of ~10 seconds max. While his description allows the reader to get a functional and usable understanding of the work he did, his use of language would benefit from an increased level of specificity.  I
 
@@ -24,7 +24,7 @@
 - Due to his excellent presentation of information, his results are completely reproducible without any intervention from Jackson Hanish himself. In his introduction, discussion, and results he maintains a professional tone that I believe any employer would find no issue with.
 
 
-#### Review 2: ([ZachIq's Portfolio](https://github.com/Zachlq/Professional_Portfolio))
+#### Review 2: [ZachIq's Portfolio](https://github.com/Zachlq/Professional_Portfolio)
 
 - One part of ZachIq's portfolio I was impressed with is how simple it is. All elements are easily accessible and, at first glance, easily understood. I am quite confident that his work can be easily accessed in under 60 seconds as a result of the intuitive structure of his portfolio. 
 
@@ -76,8 +76,11 @@
 
 ## Communicate
 
+### Please refer to [About Me](https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/aboutme/index.md) to see my work for this section.
+
 <img width="580" height="610" alt="image" src="https://github.com/user-attachments/assets/2e5d43dc-e256-4b71-95e4-82101b4a7e24" />
 
-Please refer to [About Me] to see my work.
+
+
 
 
