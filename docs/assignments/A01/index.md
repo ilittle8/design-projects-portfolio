@@ -15,7 +15,7 @@
 
 #### Review 1: [Jackson Hanish's Portfolio](https://instructure.charlotte.edu/eportfolios/4882/home/about-me)
 
-- Jackson Hanish's portfolio is very well organized. Each element is accessible in an average of ~10 seconds max. While his description allows the reader to get a functional and usable understanding of the work he did, his use of language would benefit from an increased level of specificity.  I
+- Jackson Hanish's portfolio is very well organized. Each element is accessible in an average of ~10 seconds max. While his description allows the reader to get a functional and usable understanding of the work he did, his use of language would benefit from an increased level of specificity.
 
 - In assignment 2, he says "... two design concepts were considered. The first consisted of eight total members with smaller angles forming multiple triangular sections. The second used four primary members and a top cross beam to carry the applied loads". When he says 'smaller angles', I, the reader, am immediately confused, thinking to myself: "Smaller in reference to *what?*". After some closer reading, I am able to imply that the angles in his first configuration are smaller than his second configuration, but this is not made clear. 
 
