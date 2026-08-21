@@ -1,21 +1,7 @@
 # $\color{red}{\text{MEGR 2157 – Design Portfolio Template}}$
 
-This repository is an MkDocs site (same engine Fab Academy uses) with the Analyze / Decide / Communicate framework built into every assignment page. The rendered site — with the left-hand navigation to every assignment — lives in `docs/`; this README is just for people working with the repo itself.
-
-
-## Don't do, possible save for later. Preview locally
-
-```bash
-pip install -r requirements.txt
-mkdocs serve
-```
-### sub header
-
-Then open http://127.0.0.1:8000 in your browser. The sidebar nav updates automatically from `mkdocs.yml`.
-
-## Publish
-
-Push to `main` — the included GitHub Actions workflow (`.github/workflows/deploy.yml`) builds the site and publishes it to GitHub Pages automatically.
+This portfolio features the work of Isaiah Little's projects for his class, MEGR 2157.
+It is available for public viewing.
 
 ## Structure
 
