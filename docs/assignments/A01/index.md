@@ -46,7 +46,9 @@ Jackson Hanish's portfolio is very well organized. Each element is accessible in
 
 
 ## Decide
-  A visitor must immediately understand engineering fundamentals in order tocorrectly interpret the content of this portfolio. The nested structure of this portfolio's documents is helpful for the reader, as each folder title accurately describes the containerd contents in 1-2 words. This allows for easy navigation of the portfolio's contents.
+1. A visitor must immediately understand engineering fundamentals (Particularly the contents of Physics 1) in order to correctly interpret the content of this portfolio. The nested structure of this portfolio's documents is helpful for the reader, as each folder title accurately describes the contained contents in 1-2 words. This allows for easy navigation of the portfolio's contents.
+2. Intentional customization
+3. Write __one__ sentence defining what the standard of quality will be for this portfolio.
 
 ## Communicate
 
