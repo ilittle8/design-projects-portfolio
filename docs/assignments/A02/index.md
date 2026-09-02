@@ -35,6 +35,24 @@ Response: Truss failures usually result from a chain reaction starting at a sing
 | **Support / Foundation Failure** | **Low to Moderate** | Bearing / Settlement | Roller bearing seizure causing unexpected thermal bending moments, or pier settlement inducing unplanned forces. |
 | **Out-of-Plane Buckling** | **Low** | Global Instability | Inadequate lateral bracing allowing the top chord or entire truss to buckle sideways out of its vertical plane. |
 
+(10pt) Part 1 – Truss Members
+Each truss member is under either tension or compression and may fail due to the applied loading. For each member:
+
+Identify the expected failure mode (yielding, fracture, or buckling).
+State whether the material is ductile or brittle.
+Support your choice using stress comparisons and simple reasoning.
+Propose a design modification that could reduce the likelihood of this failure.
+
+Members AB, BC, and CD are under compression. These members are made of a ductile material (Grade C A500 Steel). The expected failure mode of these members is buckling. This is due to the fact that they are relatively slender in cross-section, which makes them more liekly to deflect sideways before reaching yield strength. We can reduce the likelihood of this failure by increasing the cross-sections of the members. By increasing the cross section we create more material to resist a potential bending moment that would cause beam deflection.
+
+Member AD is the only member which is under tension. It is also made of a ductile material (Grade C A500 Steel). Due to the fact that it is under tension, I believe that the most likely mode of failure for it is tensile yielding. We can reduce the likelihood of this failure by increasing the cross section of the member. By increasing the cross section we can reduce normal stress, keeping the material farther away from reaching yield strength while under the same load.
+
+(10pt) Part 2 – Pin Connections
+
+Identify the expected failure mode of the pin.
+Support your answer with data from credible, known sources.
+Propose a design modification to reduce the likelihood of this failure
+
 **Key Risk Drivers:**
 
 * **Compression members are the most vulnerable:** Buckling occurs instability-first, giving far less warning than ductile tensile yielding.
