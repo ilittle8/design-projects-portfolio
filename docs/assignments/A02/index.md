@@ -78,14 +78,28 @@ In order to do so, I first had to list my knowns and unknowns:
 - Yield Stress of Material, Cross-Sectional Area, Density of Material
 
 After a quick google search I was able to find that the yield stress ($\sigma_y$) of Grade C A500 steel is about 317 MPa ([Source Here](https://alllandsteel.com/products/astm-a500-grade-c/)).
+
 Before moving on to design the cross-section, I needed to add a specification. Since our factor of safety is 3.5, I used $\sigma_a = \frac{\sigma_y}{Factor\ of\ Safety}$ with $\sigma_a$ being actual stress. This equation divides the yield stress by the factor of safety in order to determine what stress the members will actually be designed to be withstand.
 
 Using this equation, I determined that the actual stress would be $\sigma_a = \frac{317\ MPa}{3.5} \approx 90.57\ MPa$.
 
 Stress is defined as $\sigma = \frac{Force}{Area}$, so we can determine that $A_{member} = \frac{F}{\sigma_a}$. However, we want to design the members to be able to withstand the greatest force within the system. We can identify this as the magnitude of $BC$, which is about $16.66\ kN$. Therefore $A_{member} = \frac{BC}{\sigma_a} = \frac{16.66\ kN}{90.57\ MPa} \approx 1.84 \times 10^-4\ m^2 = 184\ mm^2$
 
+<img width="442" height="279" alt="image" src="https://github.com/user-attachments/assets/7ff8854c-ee5e-4d4a-ba41-aa56fce5ff60" />
 
+With this, I have successfully identified that the cross-sectional area of the members should equal $184\ mm^2$
 
+Next, I determined the weight of the truss. My plan to do this was to find the total volume , then multiply by the density of the material. In order to find the volume of each member, I multiplied the length of the member by the cross-sectional area. Then I found the density of Grade C A500 Steel to be $7850 \frac{kg}{m^3}$. After finding the density, I multiplied the volume of each member by the density of the material, to get the weight of each member, then I added all of them together and found that the truss weighs $\approx 2.1955\ kg$
+
+<img width="425" height="437" alt="image" src="https://github.com/user-attachments/assets/33bceb8a-a749-4ea9-a69b-0c4fd7e3a3b5" />
+
+After finding the cross-sectional area of the members, I had to specify the cross-sectional area of the pins. These pins, as specified by the assignment, are made of hardened tool steel with a yield shear strength of $170\ ksi$, a density of $0.278 \frac{lb}{in^3}$, and are to be designed with a factor of safety of 4.  In order to design these pins, I had to identify my knowns and unknowns once more:
+
+**Knowns:**
+- Internal Forces, Distances, External Forces, Factor of Safety (given as 4 in the assignment), Yield Shear Strength ($\tau$)
+
+**Unknowns:**
+- Cross-Sectional Area, Resultant Reaction Force
 
 ## Communicate
 
