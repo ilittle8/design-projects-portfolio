@@ -77,6 +77,12 @@ In order to do so, I first had to list my knowns and unknowns:
 **Unknowns:**
 - Yield Stress of Material, Cross-Sectional Area, Density of Material
 
+After a quick google search I was able to find that the yield stress ($\sigma_y$) of Grade C A500 steel is about 317 MPa ([Source Here](https://alllandsteel.com/products/astm-a500-grade-c/)).
+Before moving on to design the cross-section, I needed to add a specification. Since our factor of safety is 3.5, I used $\sigma_a = \frac{\sigma_y}{Factor\ of\ Safety}$ with $\sigma_a$ being actual stress. This equation divides the yield stress by the factor of safety in order to determine what stress the members will actually be designed to be withstand.
+
+Using this equation, I determined that the actual stress would be $\sigma_a = \frac{317\ MPa}{3.5} \approx 90.57\ MPa$.
+
+Stress is defined as $\sigma = \frac{Force}{Area}$, so we can determine that $A_{member} = \frac{F}{\sigma_a}$. However, we want to design the members to be able to withstand the greatest force within the system. We can identify this as the magnitude of $BC$, which is about $16.66\ kN$. Therefore $A_{member} = \frac{BC}{\sigma_a} = \frac{16.66\ kN}{90.57\ MPa} \approx 1.84 \times 10^-4\ m^2 = 184\ mm^2$
 
 
 
