@@ -58,6 +58,28 @@ $P = 30\ kN$
 
 I then moved to solve each joint in order to understand whether each member was under tension or compression and by what magnitude.
 
+<img width="427" height="262" alt="image" src="https://github.com/user-attachments/assets/af7c65e8-7c16-4366-ade5-e90434ecbbc4" />
+
+In solving joint $A$, I first identified my unknowns, forces $AD$ and $AB$, and my knowns, forces $A_x$ and $A_y$. 
+I then solved for each using two equations of static equilibrium, one in the $x$-direction and one in the $y$-direction.
+I repeated this process for each joint, shown below:
+
+<img width="446" height="373" alt="image" src="https://github.com/user-attachments/assets/48ca02cd-971e-4e56-b1ea-4c78e4b562d0" />
+
+<img width="372" height="344" alt="image" src="https://github.com/user-attachments/assets/8b5d4d78-0bae-4102-8ec8-fa818766cf80" />
+
+After determining the forces within every member, I moved on to designing the cross-section of my members. 
+In order to do so, I first had to list my knowns and unknowns:
+
+**Knowns:**
+- Internal Forces, Distances, External Forces, Factor of Safety (3.5, given in assignment instructions)
+
+**Unknowns:**
+- Yield Stress of Material, Cross-Sectional Area, Density of Material
+
+
+
+
 
 ## Communicate
 
