@@ -12,10 +12,52 @@
 - Document key engineering lessons learned from the process.
 
 ## Analyze
+In this assignment, I was given the task of designing, modeling, and analyzing a truss made under the constraints given below:
+
+<img width="317" height="215" alt="image" src="https://github.com/user-attachments/assets/147d608e-aeeb-4bd9-946d-023f22f86d3c" />
+
+_Note: a = 0.4m, b = 0.3m. The cross sectional area of each element is to be identical.
+The pins are to be identical to each other and each element is to have the same cross-sectional geometry._
+
+I was free to choose what material the truss was made of, so I chose Grade C A500 steel. I chose this material because it is very strong relative to its weight, and because Grade C is the most common form of A500 Steel.
+I also was given the freedom to choose a magnitude for the point force $P$ so long as it ranged between 25kN-30kN. I chose 30kN as the magnitude of $P$.
+
+After deciding my conditions, I identified some specific attributes of the scenario given. Point $B$ contains a roller support and Point $A$ contains a pin support. This is a classic support combination, and its presence immediately let me know that the truss I will be creating will be in static equilibrium. The pin support at point A resists all 2D translational movement and it is also the only point where the truss would be able to rotate without the truss failing, were it not for the roller support at point $B$. The existence of this roller support and the fact that it is bordered by a rigid wall on two sides means that any translation caused by moment at A is being fully restricted, thus, the following truss is capable of static equilibrium.
 
 
 ## Decide
 _Which geometry did you select, and why? This is your first open design choice in the course — defend it._
+
+I selected a trapezoidal geometry because most trusses I come across feature shapes that can be made purely from triangles. 
+
+<img width="396" height="359" alt="image" src="https://github.com/user-attachments/assets/be16126b-6a2f-4496-b509-8c7811206c5e" />
+
+In order to move forward with any other calculations of this truss, I first needed to determine the lengths of each member. I identified them as below:
+
+$L_{AB} = 3a = 1.2\ m$ 
+
+$L_{CD} = a = 0.4\ m$ 
+
+$L_{BC} = L_{AD} = \sqrt{a^2 + b^2} = 0.5\ m$ 
+
+After specifying the lengths of each member, I then moved to solve the external forces symbolically.
+
+<img width="435" height="401" alt="image" src="https://github.com/user-attachments/assets/e6e4389e-f337-45ba-acc0-57073c4655f4" />
+
+In doing this, it took the sum of all external forces win the x and y direction, created  equalities out of them, and created definitions for each reaction force that involve our known applied force, $P$. I also took the sum of moments about $A$ in order to create a definition for $B_y$.
+
+After solving symbolically I was then ready  to give numerical answers.
+
+$A_x = 0\ kN$
+
+$A_y = \frac{P}{3} = 10\ kN$
+
+$B_y = -\frac{P}{3} = (-10\ kN)$ 
+
+$P = 30\ kN$
+
+I then moved to solve each joint in order to understand whether each member was under tension or compression and by what magnitude.
+
 
 ## Communicate
 
