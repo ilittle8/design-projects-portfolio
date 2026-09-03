@@ -109,10 +109,58 @@ Next, I needed to find the weight of my pins. This means I would once again be m
 
 <img width="345" height="288" alt="image" src="https://github.com/user-attachments/assets/2252b006-a258-4eed-8f54-feca4618e920" />
 
+After that, it was time to make a CAD model. I started by creating a sketch that matched the dimensions.
+
+<img width="648" height="379" alt="Screenshot 2026-09-02 205206" src="https://github.com/user-attachments/assets/e7f64f17-52d8-4309-a5e0-1ddec79bc81e" />
+
+Then i extruded the sketch by the side length I determined (0.01356 m).
+
+<img width="647" height="385" alt="Screenshot 2026-09-02 210209" src="https://github.com/user-attachments/assets/0139cada-ea00-4f34-847e-3a9e79a30bef" />
+
+I then created 4 holes with the same cross-sectional area I determined for the pins.
+
+<img width="649" height="388" alt="Screenshot 2026-09-02 210949" src="https://github.com/user-attachments/assets/e6a6f490-9f07-4ac3-8ed9-585344671d99" />
+
+Then I began work on creating the pin. I created a circle sketch with a radius of about 0.0057m to get the correct area.
+
+<img width="785" height="401" alt="Screenshot 2026-09-02 211100" src="https://github.com/user-attachments/assets/0aa5507b-2403-48ac-afe9-678309ff529f" />
+
+Then I extruded it to the side length 0.01356 m so it would sit flush in the truss.
+
+<img width="792" height="382" alt="Screenshot 2026-09-02 211239" src="https://github.com/user-attachments/assets/44178213-d513-4e17-855c-a0d43f62ef9c" />
+
+I then assembled the pins into the truss.
+
+<img width="785" height="383" alt="Screenshot 2026-09-02 211440" src="https://github.com/user-attachments/assets/34d99c10-6148-47d0-8cec-92afd6211117" />
+
+First I had to set the pins as coincident along the curved surface.
+
+<img width="650" height="389" alt="Screenshot 2026-09-02 211513" src="https://github.com/user-attachments/assets/fad34362-8053-45bd-801c-07b6e12fd37c" />
+
+Then I set the flat side of the pin coincident with the flat side of the truss for the flush fit.
+
+<img width="649" height="383" alt="Screenshot 2026-09-02 211719" src="https://github.com/user-attachments/assets/79b62b33-e4b0-448d-9ef7-236d2d6b3250" />
+
+My truss's geometry is now complete!
+
+<img width="607" height="479" alt="Screenshot 2026-09-02 213057" src="https://github.com/user-attachments/assets/7e307032-1393-4b4a-a383-f90e61c59323" />
+
+I then had to set the material properties for the truss.
+
+
+<img width="604" height="473" alt="Screenshot 2026-09-02 213409" src="https://github.com/user-attachments/assets/2ba80bc8-894b-4066-911a-b6321bd48907" />
+
+I also set the material properties for the pins
+
+<img width="356" height="499" alt="Screenshot 2026-09-02 213617" src="https://github.com/user-attachments/assets/09a7f42e-33fe-46be-9f22-b1369b0bc714" />
+
+Then I let solidworks determine the mass properties and it determine my truss was 3.5kg.
+
+
 
 ## Communicate
 
-After finishing the design of the trustt, i then evaluated the most likely ways it could fail and ways that those failures can be circumvented. In order to do so, I used Google Gemini to review the most common forms of failure within a truss and identify which parts of my truss are most susceptible to each type.
+After finishing the design of the truss, i then evaluated the most likely ways it could fail and ways that those failures can be circumvented. In order to do so, I used Google Gemini to review the most common forms of failure within a truss and identify which parts of my truss are most susceptible to each type.
 
 **Discussion with Google Gemini:**
 
@@ -153,6 +201,10 @@ The primary failure mode for the connecting pins is shear failure (the pin snaps
 According to standard engineering texts like Shigley’s Mechanical Engineering Design, structural metals fail in shear at much lower stress levels than in tension. Based on the Von Mises yield criterion, the shear yield strength ($\tau_y$) of a ductile metal is only about 57.7% of its tensile yield strength ($\sigma_y$):$$\tau_y \approx 0.577 \, \sigma_y$$Because shear strength is significantly lower than tensile strength, pins under heavy loads are prone to shear failure whenever the applied shear stress exceeds the pin's allowable shear strength:$$\tau = \frac{F_{\text{shear}}}{A_{\text{pin}}} \ge \tau_y$$
 
 We can prevent this issue by using a double-shear joint (like a clevis fork). Double shear splits the shear force in half across two sides of the pin ($\tau = \frac{F}{2 A_{\text{pin}}}$), doubling the joint's load capacity without needing a bigger pin.
+
+
+### Lessons Learned
+- From this exercise I learned the ins and outs of designing parts and structures as well as how to communicate my process effectively. I also learned how to use the LaTex language!
 
 **Key Risk Drivers:**
 
