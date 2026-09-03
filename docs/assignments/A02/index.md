@@ -210,3 +210,9 @@ We can prevent this issue by using a double-shear joint (like a clevis fork). Do
 
 * **Compression members are the most vulnerable:** Buckling occurs instability-first, giving far less warning than ductile tensile yielding.
 * **Connections are the weak link:** Real-world failures disproportionately originate at gusset plates or welded joints due to stress concentrations and fabrication flaws.
+
+## Find CAD Files below
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A02/Truss.SLDPRT
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A02/Pin.SLDPRT
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A02/Full%20Truss%20Assembly.SLDASM
+
