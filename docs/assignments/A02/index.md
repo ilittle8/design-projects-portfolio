@@ -101,10 +101,20 @@ After finding the cross-sectional area of the members, I had to specify the cros
 **Unknowns:**
 - Cross-Sectional Area, Resultant Reaction Force
 
+The first thing I needed to do was figure out my actual shear load ($\tau_a$). I found it to be $42.5\ ksi$. From there I was able to calculate the area of the pin by dividing the greatest reaction force by $\tau_a$. I then found that in its current state, my equation had a mismatch in units. I then performed unit conversion to get the shear stress from ksi to MPa, and found that the value was approximately 293 MPa. From there, I was finally able to calculate and found that the minimum cross-sectional area of my pins should be $1.0238 \times 10^-4\ m^2$.
+
+<img width="358" height="230" alt="image" src="https://github.com/user-attachments/assets/0249bd2d-1e3a-4ca1-8271-e2e02d857bf4" />
+
+Next, I needed to find the weight of my pins. This means I would once again be multiplying volume by density. I knew that the cross-section of my pins would be circular, as that is standard, however, determining the length of the pins required further work. In order to simply the problem, I determined that my members should have a square cross section, and then I was able to solve further with ease. By taking the square root of the cross-sectional area of my members, I was able to determine a side length, and I set the length of the pin to be equal to that side length. Multiplying the cross-sectional area of the pin by the side length netted me a volume per-pin of $1.388 \times 10^-6\ m^3$. If we recall from earlier, the density of each pin was given in $\frac{lb}{in^3}$, however, this gives yet another unit mismatch when put into an equation with our numeric value for volume. To compensate for this, I converted the density of each pin into Standard Index units and found that their density was $7695\ \frac{kg}{m^3}$. With this, I was finally able to calculate the weight of the pins and found that they were approximately 0.010684 kg each, and since there were 4 of them, all the pins together weighed 0.04273 kg.
+
+<img width="345" height="288" alt="image" src="https://github.com/user-attachments/assets/2252b006-a258-4eed-8f54-feca4618e920" />
+
+
 ## Communicate
 
+After finishing the design of the trustt, i then evaluated the most likely ways it could fail and ways that those failures can be circumvented. In order to do so, I used Google Gemini to review the most common forms of failure within a truss and identify which parts of my truss are most susceptible to each type.
 
-Discussion with Google Gemini:
+**Discussion with Google Gemini:**
 
 Prompt: what is the likelihood of different failure modes within a truss?
 
@@ -127,15 +137,22 @@ State whether the material is ductile or brittle.
 Support your choice using stress comparisons and simple reasoning.
 Propose a design modification that could reduce the likelihood of this failure.
 
-Members AB, BC, and CD are under compression. These members are made of a ductile material (Grade C A500 Steel). The expected failure mode of these members is buckling. This is due to the fact that they are relatively slender in cross-section, which makes them more liekly to deflect sideways before reaching yield strength. We can reduce the likelihood of this failure by increasing the cross-sections of the members. By increasing the cross section we create more material to resist a potential bending moment that would cause beam deflection.
+Members AB, BC, and CD are under compression. These members are made of a ductile material (Grade C A500 Steel). The expected failure mode for these compression members is buckling.This is supported by comparing the critical buckling stress ($\sigma_{\text{cr}}$) to the material yield strength ($\sigma_y$). Because these members are relatively long and slender, their critical Euler buckling stress is lower than the material's yield strength ($\sigma_{\text{cr}} < \sigma_y$). As a result, the member will experience geometric instability and buckle laterally before the stress ever reaches the yield strength required to cause plastic yielding.We can reduce the likelihood of buckling by increasing the member's cross-sectional area or area moment of inertia ($I$), which raises the critical buckling stress ($\sigma_{\text{cr}}$) relative to the applied load.
 
-Member AD is the only member which is under tension. It is also made of a ductile material (Grade C A500 Steel). Due to the fact that it is under tension, I believe that the most likely mode of failure for it is tensile yielding. We can reduce the likelihood of this failure by increasing the cross section of the member. By increasing the cross section we can reduce normal stress, keeping the material farther away from reaching yield strength while under the same load.
+
+Member AD is the only member which is under tension. It's also made of a ductile material (Grade C A500 Steel). Due to the fact that it is under tension, I believe that the most likely mode of failure for it is tensile yielding. This is supported by comparing the applied normal stress ($\sigma = \frac{F}{A}$) to the material's yield strength ($\sigma_y$). Because the member is loaded in tension, geometric instability (buckling) cannot occur ($\sigma_{\text{cr}}$ is not a factor). Instead, failure occurs if the internal normal stress meets or exceeds the material's yield strength ($\sigma \ge \sigma_y$), it will cause plastic deformation. We can reduce the likelihood of this failure by increasing the cross section of the member. By increasing the cross section we can reduce normal stress, keeping the material farther away from reaching yield strength while under the same load.
 
 (10pt) Part 2 – Pin Connections
 
 Identify the expected failure mode of the pin.
 Support your answer with data from credible, known sources.
 Propose a design modification to reduce the likelihood of this failure
+
+The primary failure mode for the connecting pins is shear failure (the pin snaps across its cross-section due to sideways forces). Under heavy or repeated loads, bearing failure (crushing or denting of the pin's outer surface where it contacts the joint) can also happen.
+
+According to standard engineering texts like Shigley’s Mechanical Engineering Design, structural metals fail in shear at much lower stress levels than in tension. Based on the Von Mises yield criterion, the shear yield strength ($\tau_y$) of a ductile metal is only about 57.7% of its tensile yield strength ($\sigma_y$):$$\tau_y \approx 0.577 \, \sigma_y$$Because shear strength is significantly lower than tensile strength, pins under heavy loads are prone to shear failure whenever the applied shear stress exceeds the pin's allowable shear strength:$$\tau = \frac{F_{\text{shear}}}{A_{\text{pin}}} \ge \tau_y$$
+
+We can prevent this issue by using a double-shear joint (like a clevis fork). Double shear splits the shear force in half across two sides of the pin ($\tau = \frac{F}{2 A_{\text{pin}}}$), doubling the joint's load capacity without needing a bigger pin.
 
 **Key Risk Drivers:**
 
