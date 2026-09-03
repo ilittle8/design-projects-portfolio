@@ -205,6 +205,7 @@ We can prevent this issue by using a double-shear joint (like a clevis fork). Do
 
 ### Lessons Learned
 - From this exercise I learned the ins and outs of designing parts and structures as well as how to communicate my process effectively. I also learned how to use the LaTex language!
+- This assignment took me about 9 hours to complete
 
 **Key Risk Drivers:**
 
