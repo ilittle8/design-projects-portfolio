@@ -11,20 +11,43 @@ I then was tasked with deciding the values for the cross sectional area of the b
 
 After deciding on the cross sectional area of the bar, I was then able to use the direct tension elongation equation to determine the length of the bar. I found its length to be about $565\ in$.
 
+<img width="599" height="263" alt="Screenshot 2026-09-08 164240" src="https://github.com/user-attachments/assets/3ed8e4cc-c571-45c9-9d31-5ad9bac98ff0" />
+
+
 I then moved to model my bar parametrically in CAD. I started by sketching a circle, and ensuring its diameter was 2 inches.
+
+<img width="1280" height="764" alt="Screenshot 2026-09-07 185609" src="https://github.com/user-attachments/assets/d26acf96-5b3d-4342-b334-4d495b20d523" />
+
 
 I then extruded that circle to exactly $180 \times \pi$ or $\approx 565\ in$.
 
+<img width="1280" height="764" alt="Screenshot 2026-09-07 185701" src="https://github.com/user-attachments/assets/6cabd7dd-9c2c-4ee2-b413-1bcf8a813c12" />
+
+
 I set the material of my model to be 3003-H12, Rod (SS) Aluminum in Solidworks. I chose this material because its Elastic Modulus was very similar to my predetermined Elastic Modulus.
+
+<img width="612" height="483" alt="Screenshot 2026-09-07 190340" src="https://github.com/user-attachments/assets/b34b1839-e186-40b3-abaa-0ee6ebca113f" />
+
 
 #### FEA
 With my bar modeled, I then moved to complete FEA. The type of loading assigned to me is in the image below.
 
+<img width="391" height="104" alt="image" src="https://github.com/user-attachments/assets/ae8825e9-caae-4421-8f99-4257c837c965" />
+
+
 In Solidworks Simulation, I replicated that loading and set of fixtures, shown in the image below.
+
+<img width="1280" height="764" alt="Screenshot 2026-09-07 192420" src="https://github.com/user-attachments/assets/b5969643-2036-4076-a4c9-29d874d9ea55" />
 
 After confirming that the load applied would equal $500\ lbs$ and would be applied uniformly to one flat surface of my bar, I ran the simulation. Here is the Deformation Plot and the Stress plot (yes, my bar bent... I will address that soon):
 
+<img width="1280" height="764" alt="Screenshot 2026-09-07 193142" src="https://github.com/user-attachments/assets/d8a5cda7-d7da-47df-abd1-2b1ffd5b5b8c" />
+
+<img width="1280" height="764" alt="Screenshot 2026-09-07 193015" src="https://github.com/user-attachments/assets/d8421406-f3c3-413b-acd4-a46f9e682a14" />
+
 I then checked to see if the stress in the simulation was above or below the yield stress specified by my assignment ($40\ ksi$). To do this I used the _list results_ option in Solidworks to view the Von Mises stress across the bar. Here is the list it gave me:
+
+<img width="344" height="272" alt="Screenshot 2026-09-07 193342" src="https://github.com/user-attachments/assets/c0c40636-69db-4c04-8498-13bae2b441e4" />
 
 With this information, I was then able to calculate the Factor of Safety to be 233, which is more than safe.
 
@@ -44,9 +67,18 @@ As of of current, I'm going to trust my hand calculations more than the simulati
 
  Here is the deflection map:
 
+ <img width="1280" height="764" alt="Screenshot 2026-09-08 162115" src="https://github.com/user-attachments/assets/a9ed4727-5b87-4c4c-8387-79a03d3a5bc8" />
+
+
  Here is the Von mises Stress map:
 
+ <img width="1280" height="764" alt="Screenshot 2026-09-08 162121" src="https://github.com/user-attachments/assets/7096c61a-a60e-4f06-a344-c1d160568309" />
+
+
  The maximums stress within the model was 46 psi, and I calculated the safety factor to be about 870,000... which is exorbitantly high. Something is definitely off about my simulation.
+
+ <img width="344" height="272" alt="Screenshot 2026-09-07 193342" src="https://github.com/user-attachments/assets/a1ddfdd4-416b-4725-9c37-777a9f691042" />
+
 
  With this, I finished my assignment.
 
