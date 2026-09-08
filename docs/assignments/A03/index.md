@@ -29,17 +29,27 @@ I then checked to see if the stress in the simulation was above or below the yie
 With this information, I was then able to calculate the Factor of Safety to be 233, which is more than safe.
 
 #### Design Reflection
-I then went to compare my hand calculated deflection (0.009in) to my simulated deflection (insert here). The percent difference (insert governing equation) was found to be (insert here). The discrepancy here is quite significant. I believe the source in the discrepancy here is that gravity is a factor within Solidworks, but in my calculations I had assumed that there was no gravity acting on the bar. This may have been what caused the bar to bend. Additionally, there may have been an issue with how force was applied within the simulation. The vectors for force maintained the exact position they were given before the simulation was run, but when the bar dipped downwards, those vectors may have no longer applied to the surface after bending had occurred.
+I then went to compare my hand calculated deflection (0.009 in) to my simulated deflection (0.0002 in). The percent difference ($Percent\ Difference = \frac{Calculated - Simulated}{Calculated} \times 100$) was found to be 97 percent. The discrepancy here is quite significant. I believe the source in the discrepancy here is that gravity is a factor within Solidworks, but in my calculations I had assumed that there was no gravity acting on the bar. This may have been what caused the bar to bend. Additionally, there may have been an issue with how force was applied within the simulation. The vectors for force maintained the exact position they were given before the simulation was run, but when the bar dipped downwards, those vectors may have no longer applied to the surface after bending had occurred.
 
 As of of current, I'm going to trust my hand calculations more than the simulation. I don't believe my simulation accurately captured the conditions in which I intended for my bar to experience.
 
  The next step in the assignment was to imagine a substantial pin hole in the left side of my bar, look up the stress concentration factor for that hole, and estimate peak stress as that hole using results from FEA.  After calculating peak stress, I calculated factor of safety agai and found it to be significantly lower than if the bar did not have a pin hole, but the factor of safety was still high ($F.S. =\ 78$).
 
 #### Modify Design Parameters
- I then decided to see what would happen if I changed the load, diameter, and orientation of my bar... all while keeping the material and fixture of the bar the same. I chose to set the load to be $300\ lb_f$ and the diameter to be 3 inches, and I set the axis of the bar to be in the Z-direction. Before calculating, I guessed that my bar's length would decrease.
+ I then decided to see what would happen if I changed the load, diameter, and orientation of my bar... all while keeping the material and fixture of the bar the same. I chose to set the load to be $300\ lb_f$ and the diameter to be 3 inches, and I set the axis of the bar to be in the Y-direction. Before calculating, I guessed that my bar's length would decrease.
 
  I found that I was wrong. The length, governed by $L = \frac{\delta E\ A}{F}$, resulted in $675\pi\ in$ or $\approx 2120\ in$.
 
+ I then made the bar, oriented its axis in the Y-direction, set one side to fixed and the other to be under $300\ lbs$ of tension, and ran the simulation. Once again, I came across bending in the bar. This time, I'm not sure what is causing the bending. For this run, the deflection was about  about 0.0002 inches.
+
+ Here is the deflection map:
+
+ Here is the Von mises Stress map:
+
+ The maximums stress within the model was 46 psi, and I calculated the safety factor to be about 870,000... which is exorbitantly high. Something is definitely off about my simulation.
+
+ With this, I finished my assignment.
+
 ## Communicate
 #### Lessons Learned
-From this assignment, I learned how important it is to understand the details of your project and make sure that your results take those details into account. I missed a key point in not fixing my bar against gravity, or reorienting it so that gravity would not cause a bending moment. I spent about 4 hours total on this assignment.
+From this assignment, I learned how important it is to understand the details of your project and make sure that your results take those details into account. I missed a key point in not fixing my bar against gravity, or reorienting it so that gravity would not cause a bending moment. I spent about 8 hours total on this assignment.
