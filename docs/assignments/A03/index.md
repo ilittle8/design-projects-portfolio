@@ -9,7 +9,13 @@ For my assignment, I was supposed to design a bar with a direct applied load of 
 
 I then was tasked with deciding the values for the cross sectional area of the bar. I chose a 2 inch diameter for the bar. Using this value, I then found the value for the area to be about 3.14 ($\pi$) inches squared.
 
+<img width="599" height="214" alt="image" src="https://github.com/user-attachments/assets/62903924-2bb7-4654-8f3b-945bd594e292" />
+
+
 After deciding on the cross sectional area of the bar, I was then able to use the direct tension elongation equation to determine the length of the bar. I found its length to be about $565\ in$.
+
+<img width="556" height="200" alt="image" src="https://github.com/user-attachments/assets/7dedc00f-c136-450f-9891-217416fe816a" />
+
 
 <img width="599" height="263" alt="Screenshot 2026-09-08 164240" src="https://github.com/user-attachments/assets/3ed8e4cc-c571-45c9-9d31-5ad9bac98ff0" />
 
@@ -54,12 +60,20 @@ With this information, I was then able to calculate the Factor of Safety to be 2
 #### Design Reflection
 I then went to compare my hand calculated deflection (0.009 in) to my simulated deflection (0.0002 in). The percent difference ($Percent\ Difference = \frac{Calculated - Simulated}{Calculated} \times 100$) was found to be 97 percent. The discrepancy here is quite significant. I believe the source in the discrepancy here is that gravity is a factor within Solidworks, but in my calculations I had assumed that there was no gravity acting on the bar. This may have been what caused the bar to bend. Additionally, there may have been an issue with how force was applied within the simulation. The vectors for force maintained the exact position they were given before the simulation was run, but when the bar dipped downwards, those vectors may have no longer applied to the surface after bending had occurred.
 
+<img width="536" height="237" alt="image" src="https://github.com/user-attachments/assets/ded039e4-b49a-468f-bdbe-63822d2cb3c6" />
+
+
 As of of current, I'm going to trust my hand calculations more than the simulation. I don't believe my simulation accurately captured the conditions in which I intended for my bar to experience.
 
  The next step in the assignment was to imagine a substantial pin hole in the left side of my bar, look up the stress concentration factor for that hole, and estimate peak stress as that hole using results from FEA.  After calculating peak stress, I calculated factor of safety agai and found it to be significantly lower than if the bar did not have a pin hole, but the factor of safety was still high ($F.S. =\ 78$).
 
+ <img width="588" height="265" alt="image" src="https://github.com/user-attachments/assets/fbf91cbf-281f-41d1-b641-160a589226d8" />
+
+
 #### Modify Design Parameters
  I then decided to see what would happen if I changed the load, diameter, and orientation of my bar... all while keeping the material and fixture of the bar the same. I chose to set the load to be $300\ lb_f$ and the diameter to be 3 inches, and I set the axis of the bar to be in the Y-direction. Before calculating, I guessed that my bar's length would decrease.
+
+ 
 
  I found that I was wrong. The length, governed by $L = \frac{\delta E\ A}{F}$, resulted in $675\pi\ in$ or $\approx 2120\ in$.
 
@@ -78,6 +92,9 @@ As of of current, I'm going to trust my hand calculations more than the simulati
  The maximums stress within the model was 46 psi, and I calculated the safety factor to be about 870,000... which is exorbitantly high. Something is definitely off about my simulation.
 
  <img width="344" height="272" alt="Screenshot 2026-09-07 193342" src="https://github.com/user-attachments/assets/a1ddfdd4-416b-4725-9c37-777a9f691042" />
+
+ <img width="542" height="338" alt="image" src="https://github.com/user-attachments/assets/c31ca50c-31eb-432c-b2a9-d83d51fcb1bc" />
+
 
 
  With this, I finished my assignment.
