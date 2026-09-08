@@ -38,6 +38,8 @@ As of of current, I'm going to trust my hand calculations more than the simulati
 #### Modify Design Parameters
  I then decided to see what would happen if I changed the load, diameter, and orientation of my bar... all while keeping the material and fixture of the bar the same. I chose to set the load to be $300\ lb_f$ and the diameter to be 3 inches, and I set the axis of the bar to be in the Z-direction. Before calculating, I guessed that my bar's length would decrease.
 
+ I found that I was wrong. The length, governed by $L = \frac{\delta E\ A}{F}$, resulted in $675\pi\ in$ or $\approx 2120\ in$.
+
 ## Communicate
 #### Lessons Learned
 From this assignment, I learned how important it is to understand the details of your project and make sure that your results take those details into account. I missed a key point in not fixing my bar against gravity, or reorienting it so that gravity would not cause a bending moment. I spent about 4 hours total on this assignment.
