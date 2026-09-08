@@ -1,4 +1,4 @@
-# A3 – [Topic]
+# A3 – Parametric FEA
 
 ## Objective
 The purpose of this assignment was to design a bar with a circular cross section under the constraints of specified values for the material, maximum deflection, and load. I specifically was looking to determine the bar's minimum geometry using parametric design (i.e. Solidworks) for a loading of direct tension. I also needed to verify the geometry using finite element analysis.
