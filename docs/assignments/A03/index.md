@@ -33,7 +33,7 @@ I then went to compare my hand calculated deflection (0.009in) to my simulated d
 
 As of of current, I'm going to trust my hand calculations more than the simulation. I don't believe my simulation accurately captured the conditions in which I intended for my bar to experience.
 
- The next step in the assignment was to imagine a substantial pin hole in the left side of my bar, look up the stress concentration factor for that hole, and estimate peak stress as that hole using results from FEA.  After calculating peak stress, I calculated factor of safety agai and found it to be significantly lower than if the bar did not have a pin hole, but the factor of safety was still high ($F.S. \equals 78$).
+ The next step in the assignment was to imagine a substantial pin hole in the left side of my bar, look up the stress concentration factor for that hole, and estimate peak stress as that hole using results from FEA.  After calculating peak stress, I calculated factor of safety agai and found it to be significantly lower than if the bar did not have a pin hole, but the factor of safety was still high ($F.S. =\ 78$).
 
 #### Modify Design Parameters
  I then decided to see what would happen if I changed the load, diameter, and orientation of my bar... all while keeping the material and fixture of the bar the same. I chose to set the load to be $300\ kN$ and the diameter to be 3 inches, and I set the axis of the bar to be in the Z-direction. Before calculating, I guessed that my bar's length would decrease.
