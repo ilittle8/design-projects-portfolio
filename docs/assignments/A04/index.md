@@ -7,6 +7,11 @@ The objective of this assignment is to design a motor mount for a [Brushed 24V D
 
 Figure 1: Shows the motor, the rigid wall, and the force received on the shaft of the motor, where P = 300 N
 
+<img width="1625" height="505" alt="image" src="https://github.com/user-attachments/assets/3670b2c4-61d1-4a19-9504-d348bd6f8352" />
+
+
+Figure 2: Dimensions of the gear motor in mm
+
 
 
 
