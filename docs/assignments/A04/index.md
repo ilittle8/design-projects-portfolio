@@ -46,7 +46,7 @@ In the previous equation, there are a few unknowns: the base and height of the y
 After solving, I found the thickness of the motor mount to be $6.24\ mm$. With this, the dimensions of this version of feature one were $6\ mm$ length, $6\ mm$ depth, and $6.24\ mm$ thickness.
 
 ### Feature 2
-
+In planning my approach to design feature 2, I remembered something about the motor mounts I had searched up earlier... **they all had consistent thickness**. I realized that if I maintained consistent thickness throughout my design, not only would calculating but manufacturing be easier. As such, I decided that the cross-sectional height of feature two would be equal to that of feature 1 when designing for strength and deflection, respectively. I also decided to make feature two out of the same material as feature 1 (PLA plastic), as that would be the easiest to model and manufacture.
 ## Decide
 
 
