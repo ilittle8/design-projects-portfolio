@@ -26,10 +26,21 @@ In order to solve this first free body diagram, I needed the shaft length. I fou
 
 <img width="1168" height="543" alt="image" src="https://github.com/user-attachments/assets/ce713ee3-b6e3-45fc-b0c8-04cbefe5b86a" />
 
-Using the shaft length, I was able to find the reaction forces within feature 1. They are specified as $R_y = 300N $ and $M_R =\ 5.4\ N \times m$. $M_R$ will be defined as the maximum bending moment experienced by feature 1.
+#### Designing for Strength
 
-With my reaction forces determined, I was then able to determine the cross-sectional geometry of the feature in the Z direction by using the bending stress equation ($\sigma = \frac{M_z \times c}{I_z}$
+Using the shaft length, I was able to find the reaction forces within feature 1. They are specified as $R_y = 300N$ and $M_R =\ 5.4\ N \times m$. $M_R$ will be defined as the maximum bending moment experienced by feature 1. I also looked up the yield stress ($\sigma_y$) of PLA plastic and found it to be $25\ MPa$. I then divided that yield stress by the safety factor ($S.F. = 3$) to get my allowable stress ($\sigma_{all}$ or $\sigma_{allow}$).
 
+With my reaction forces and allowable stress determined, I was then able to determine the cross-sectional geometry of the feature in the Z direction by using the bending stress equation ($\sigma = \frac{M_z \times c}{I_z}$). I intentionally set the height and depth of my feature to be equal to the diameter of the motor ($6\ mm$) so that I could isolate one variable within the moment of inertia ($I_z$) equation to make solving possible. Using this, I determined that the length and base of the motor mount would be $6\ mm$, and the thickness would be $\approx 24.8\ mm$. I made this choice so that the motor would have an appropriate amount of surface area to connect with the motor mount.
+
+#### Designing for Deflection
+
+After designing the motor mount with strength as the primary constraint, I then began designing the motor mount again, but with maximum deflection as my primary constraint. For this assignment, my maximum deflection was set to be $0.30\ mm$ ($\delta = 0.30\ mm$). In order to solve for geometry with deflection from bending as my constraint, I needed to use the equation for deflection in a cantilever beam. An important note is that, from the perspective of the feature, there is an axial force and a bending moment being applied in the middle of it. Since axial forces do not generate moment, we can ignore them with regard to deflection. The equation for deflection at the free end of a cantilever with a moment loading is $\delta_{max} = -\frac{3ML^2}{8EI}$.
+
+In the previous equation, there are a few unknowns: the base and height of the y-direction cross section (where deflection occurs), the length of the feature, and the elastic modulus. We already know the moment from previous work, and we already know the maximum deflection. To make solving easier, I determined that the length of the feature and the base of its y-direction cross section should be equal to the motor diameter ($6\ mm$), and I looked up the elastic modulus of PLA plastic and found it to be $2.0\ GPa$. After making these determinations, the final unknown was the height of the y-direction cross-section.
+
+After solving, I found the thickness of the motor mount to be $6.24\ mm$. With this, the dimensions of this version of feature one were $6\ mm$ length, $6\ mm$ depth, and $6.24\ mm$ thickness.
+
+### Feature 2
 
 ## Decide
 
