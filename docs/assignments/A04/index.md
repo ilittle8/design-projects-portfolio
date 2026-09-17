@@ -56,6 +56,9 @@ When designing feature 2 for strength, I was able to use the bending stress equa
 #### Designing for Deflection
 When observing the maximum deflection question using the information gathered by previous steps, I found that the unknowns within this problem were the length and depth of the feature. For length. Since I was assigned to solve for cross-sectional geometry, I decided that I would arbitrarily choose 8mm to be the length of the feature, as that is the length of feature 1. With this, my last unknown was thickness. I rearranged the maximum deflection equation to solve for thickness and then solved numerically. I found my thickness to be $\approx 12.93\  mm$
 ## Decide
+
+#### Isometric Sketch
+
 #### CAD Modeling
 When I finally got to modeling my motor mount in CAD, I realized that the shape I had designed was very odd and nothing like the other motor mounts I had seen. With this in mind, I decided to edit the design. I set the length of feature 2 to be the thickness of feature 1 + 8mm. Here is the result:
 <img width="1280" height="764" alt="image" src="https://github.com/user-attachments/assets/8456f10b-62a2-4661-9896-b2fc93a67e75" />
@@ -71,7 +74,7 @@ Here is the CAD file for the part:
 https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A04/Motor_Mount.SLDPRT
 
 Here is the CAD drawing for the part:
-
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A04/Motor_Mount.pdf
 
 
 
