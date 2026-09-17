@@ -31,11 +31,19 @@ In order to solve this first free body diagram, I needed the shaft length. I fou
 
 <img width="1168" height="543" alt="image" src="https://github.com/user-attachments/assets/ce713ee3-b6e3-45fc-b0c8-04cbefe5b86a" />
 
+<img width="451" height="443" alt="image" src="https://github.com/user-attachments/assets/79d0a20c-988c-406c-92d3-9d8ce176e36d" />
+
 #### Designing for Strength
 
 Using the shaft length, I was able to find the reaction forces within feature 1. They are specified as $R_y = 300N$ and $M_R =\ 5.4\ N \times m$. $M_R$ will be defined as the maximum bending moment experienced by feature 1. I also looked up the yield stress ($\sigma_y$) of PLA plastic and found it to be $25\ MPa$. I then divided that yield stress by the safety factor ($S.F. = 3$) to get my allowable stress ($\sigma_{all}$ or $\sigma_{allow}$).
 
+<img width="449" height="577" alt="image" src="https://github.com/user-attachments/assets/fca6cb01-bea9-4912-9ccf-05e04df145f5" />
+
+
 With my reaction forces and allowable stress determined, I was then able to determine the cross-sectional geometry of the feature in the Z direction by using the bending stress equation ($\sigma = \frac{M_z \times c}{I_z}$). I intentionally set the height and depth of my feature to be 2mm greater to the diameter of the motor ($8\ mm$) so that I could isolate one variable within the moment of inertia ($I_z$) equation to make solving possible. I chose 8mm so that when I was creating feature 2, I could keep a consistent depth and still have enough space for the fasteners. Using this, I determined that the length and base of the motor mount would be $8\ mm$, and the thickness would be $\approx 22\ mm$. I made this choice so that the motor would have an appropriate amount of surface area to connect with the motor mount.
+
+<img width="449" height="202" alt="image" src="https://github.com/user-attachments/assets/28d8fbd6-68b1-44d3-9a8c-302b95b88c1b" />
+
 
 #### Designing for Deflection
 
@@ -43,21 +51,34 @@ After designing the motor mount with strength as the primary constraint, I then 
 
 In the previous equation, there are a few unknowns: the base and height of the y-direction cross section (where deflection occurs), the length of the feature, and the elastic modulus. We already know the moment from previous work, and we already know the maximum deflection. To make solving easier, I determined that the length of the feature and the base of its y-direction cross section should be equal to 2mm plus the motor diameter ($8\ mm$), and I looked up the elastic modulus of PLA plastic and found it to be $2.0\ GPa$. After making these determinations, the final unknown was the height of the y-direction cross-section.
 
+<img width="446" height="380" alt="image" src="https://github.com/user-attachments/assets/14607add-b155-41d7-9b0c-b75e8b0a0875" />
+
+
 After solving, I found the thickness of the motor mount to be $6.24\ mm$. With this, the dimensions of this version of feature one were $8\ mm$ length, $8\ mm$ depth, and $6.87\ mm$ thickness.
 
 ### Feature 2
 In planning my approach to design feature 2, I remembered something about the motor mounts I had searched for earlier... **they all had consistent depth**. I realized that if I maintained consistent thickness throughout my design, not only would calculating but manufacturing be easier. As such, I decided that the cross-sectional depth of feature two would be equal to that of feature 1 when designing for strength and deflection, respectively. I also decided to make feature two out of the same material as feature 1 (PLA plastic), as that would be the easiest to model and manufacture.
+
+<img width="445" height="344" alt="image" src="https://github.com/user-attachments/assets/ba363f85-6ec1-49d3-9c58-e7b26686230b" />
 
 #### Designing for Strength
 Knowns: Depth, Elastic modulus, yield stress, allowed stress, bending moment
 Unknowns: Thickness, Second Moment of Area
 When designing feature 2 for strength, I was able to use the bending stress equation once again, but with a key nuance: the term $I$ has changed. Rather than just being $\frac{bh^3}{12}$, the second moment of area, due to the existence of holes in the structure for 3.4 mm diameter screws, had become $\frac{h^3}{12}(b-2d)$. With this, I was able to rearrange the equation to solve for the thickness of feature two and found it to be $56.9\ mm$.
 
+<img width="445" height="451" alt="image" src="https://github.com/user-attachments/assets/a6fb172c-f5ca-4a33-81c5-0863744afea8" />
+
+
 #### Designing for Deflection
 When observing the maximum deflection question using the information gathered by previous steps, I found that the unknowns within this problem were the length and depth of the feature. For length. Since I was assigned to solve for cross-sectional geometry, I decided that I would arbitrarily choose 8mm to be the length of the feature, as that is the length of feature 1. With this, my last unknown was thickness. I rearranged the maximum deflection equation to solve for thickness and then solved numerically. I found my thickness to be $\approx 12.93\  mm$
+
+<img width="448" height="366" alt="image" src="https://github.com/user-attachments/assets/bc94d604-fc54-4240-8492-c7bbb2349738" />
+S
 ## Decide
 
 #### Isometric Sketch
+Here is the isometric sketch of my results.
+<img width="448" height="338" alt="image" src="https://github.com/user-attachments/assets/870ddc0d-2f7a-4c3b-b6da-62c4343b35e4" />
 
 #### CAD Modeling
 When I finally got to modeling my motor mount in CAD, I realized that the shape I had designed was very odd and nothing like the other motor mounts I had seen. With this in mind, I decided to edit the design. I set the length of feature 2 to be the thickness of feature 1 + 8mm. Here is the result:
@@ -79,4 +100,5 @@ https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments
 
 
 ## Communicate
+Quite a few mistakes were made throughout this process. My holes are very odd and don't make sense; the thickness of the material seems off. At one point, I had to deviate from my calculations to make the model make sense. It took me about 8 hours to finish this assignment in total.
 
