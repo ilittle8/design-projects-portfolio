@@ -91,6 +91,11 @@ Then I added 4 holes to the mount design
 I then added a hole with the diameter of the motor shaft (6mm) to the first feature
 <img width="1280" height="764" alt="image" src="https://github.com/user-attachments/assets/31a8840a-fd3e-4761-a98c-fa1b7db53d31" />
 
+I also used parametric modeling to get the equation for the thickness of my part and apply it
+
+<img width="594" height="259" alt="image" src="https://github.com/user-attachments/assets/0fbaf672-9499-416b-813a-56da58c002b2" />
+
+
 Here is the CAD file for the part:
 https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A04/Motor_Mount.SLDPRT
 
