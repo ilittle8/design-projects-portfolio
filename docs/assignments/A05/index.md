@@ -42,7 +42,7 @@ $$d_{\text{stiff}} = \left( \frac{64 \cdot I_{\text{req}}}{\pi} \right)^{1/4} = 
 
 Comparing both analyses, the bending stress criteria governed ($1.109\text{ in} > 0.923\text{ in}$), so I selected a final pin diameter of **$d_A = 1.109\text{ in}$**.
 
----
+ 
 
 # Feature B: Stress & Stiffness Analysis
 
@@ -73,7 +73,7 @@ $$t_{\text{stiff}} = \frac{A_{\text{stiff}}}{w_B} = \frac{0.0402\text{ in}^2}{1.
 
 Comparing both results, tensile stress governed ($0.0604\text{ in} > 0.0362\text{ in}$), requiring a minimum thickness of **$t_B = 0.0604\text{ in}$**.
 
----
+ 
 
 # Feature C: Stress & Stiffness Analysis
 
@@ -105,7 +105,7 @@ $$t_{\text{stiff}} = \left( \frac{12 \cdot I_{\text{req}}}{w_C} \right)^{1/3} = 
 
 Comparing both, bending stress governed ($0.602\text{ in} > 0.578\text{ in}$), requiring a minimum flange thickness of **$t_C = 0.602\text{ in}$**.
 
----
+ 
 
 # Feature D: Stress & Stiffness Analysis
 
@@ -134,7 +134,6 @@ $$t_{\text{stiff}} = \frac{A_{\text{stiff}}}{w_D} = \frac{0.0201\text{ in}^2}{1.
 
 Comparing both results, compressive stress governed ($0.0302\text{ in} > 0.0181\text{ in}$), requiring a minimum wall thickness of **$t_D = 0.0302\text{ in}$**.
 
----
 
 # Feature E: Stress & Stiffness Analysis
 
@@ -174,7 +173,7 @@ Across all five analyzed features, bending and tensile stress criteria consisten
 * **Feature A (Pin Cantilever Bending):** Bending stress required a minimum diameter of $d_{\text{stress}} = 1.109\text{ in}$, whereas deflection constraints ($\delta_{\text{max}} = 0.005\text{ in}$) only required $d_{\text{stiff}} = 0.923\text{ in}$. Bending stress governed by a difference of $0.186\text{ in}$ ($\sim 20.1\%$ larger).
 * **Feature C (Flange Bending):** Bending stress required a thickness of $t_{\text{stress}} = 0.602\text{ in}$, while deflection stiffness required $t_{\text{stiff}} = 0.578\text{ in}$. This was a **near-tie**, with stress governing by only $0.024\text{ in}$ ($\sim 4.15\%$). This close margin highlights that for relatively short, thick beam spans ($L_C = 4.00\text{ in}$ with high moment of inertia), flexural stiffness requirements closely track stress limits under tight displacement constraints.
 
----
+ 
 
 ### 2. Error Propagation & Downstream Traceability
 A critical instance of parameter propagation occurred between **Feature A** and all subsequent components (**Features B through E**). 
@@ -182,12 +181,80 @@ A critical instance of parameter propagation occurred between **Feature A** and 
 * **Sequential Linkage:** The solved stress-governed diameter of Feature A ($d_A = 1.109\text{ in}$) was selected as the fixed nominal cross-sectional width ($w$) for Features B, C, D, and E to maintain visual geometric continuity and clean mounting transitions.
 * **Impact of Upstream Catch:** An initial sizing check on Feature A ensured that $d_A$ was set to the larger stress requirement ($1.109\text{ in}$) rather than the stiffness requirement ($0.923\text{ in}$). Had the smaller $0.923\text{ in}$ diameter been carried downstream as width $w$, the required thickness values for downstream features would have increased across the board (e.g., Feature C stress thickness would have jumped from $0.602\text{ in}$ to $\approx 0.660\text{ in}$ to compensate for the narrower section modulus $Z$).
 
----
+ 
 
 ### 3. Assumption Sensitivity Analysis
 * **Assumption Tested:** Ideal load distribution and negligible bending moments in **Feature B** (modeled as a pure uniaxial tension bar under $P_B = 670\text{ lbf}$).
 * **Sensitivity & Impact:** In practice, because Feature A acts as a cantilever beam, the load transferred to Feature B creates an eccentric moment ($M = F \cdot L_A$) at the connection joint rather than pure tension. 
 * **Dimension Change:** If joint bending were incorporated into Feature B instead of treating it purely in tension ($\sigma = P/A$), combined axial loading and bending stress ($\sigma_{\text{comb}} = \frac{P}{A} + \frac{M y}{I}$) would significantly increase the required thickness $t_B$ from the baseline calculated value of $0.0604\text{ in}$ to prevent localized combined yielding at the bracket transition corner.
+
+## Linkage & Fits Analysis
+
+### 1. Linkage Sizing & Stress/Stiffness Analysis
+
+#### Knowns & Assumptions
+* **Applied Load ($F$):** $670\text{ lbf}$ (pure tensile load transferred through linkage)
+* **Material:** Aluminum 6061-T6 ($\sigma_y = 40,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$, Safety Factor $SF = 4.0 \Rightarrow \sigma_{\text{allow}} = 10,000\text{ psi}$)
+* **Deflection Limit ($\delta_{\text{max}}$):** $0.005\text{ in}$
+* **Feature A Pin Diameter ($d_A$):** $1.109\text{ in}$
+* **Shaft 2 Diameter ($d_{\text{shaft}}$):** $1.000\text{ in}$
+* **Center-to-Center Linkage Length ($L_{\text{link}}$):** $4.00\text{ in}$
+* **Assumptions:** The link acts in pure uniaxial tension. Stress concentration around hole edges is neglected for preliminary nominal section sizing per assignment guidelines.
+
+
+#### a. Stress Analysis at Critical Hole Sections
+The smallest net cross-sectional area occurs across the hole diameter ($A_{\text{net}} = (w - d) \cdot t$). The governing critical section is at **Hole A** ($d_A = 1.109\text{ in}$), as it removes the greatest width.
+
+$$\sigma_{\text{allow}} = \frac{F}{A_{\text{net}}} = \frac{F}{(w - d_A) \cdot t}$$
+
+Setting required net area $A_{\text{net, req}}$:
+$$A_{\text{net, req}} = \frac{F}{\sigma_{\text{allow}}} = \frac{670\text{ lbf}}{10,000\text{ psi}} = 0.0670\text{ in}^2$$
+
+Choosing a link thickness $t = 0.25\text{ in}$ (standard stock thickness):
+$$w - d_A = \frac{A_{\text{net, req}}}{t} = \frac{0.0670\text{ in}^2}{0.25\text{ in}} = 0.268\text{ in}$$
+
+$$w_{\text{min, stress}} = d_A + 0.268\text{ in} = 1.109\text{ in} + 0.268\text{ in} = \mathbf{1.377\text{ in}}$$
+
+ 
+
+#### b. Axial Deflection Verification
+Verifying total elongation along the link length $L_{\text{link}} = 4.00\text{ in}$ using $\delta = \frac{F L}{A_{\text{net}} E}$:
+
+$$A_{\text{stiff, req}} = \frac{F \cdot L_{\text{link}}}{E \cdot \delta_{\text{max}}} = \frac{670\text{ lbf} \times 4.00\text{ in}}{(10.0 \times 10^6\text{ psi}) \times 0.005\text{ in}} = 0.0536\text{ in}^2$$
+
+Since $A_{\text{net, req, stress}} (0.0670\text{ in}^2) > A_{\text{stiff, req}} (0.0536\text{ in}^2)$, tensile stress governs the minimum required cross-sectional area. 
+
+* **Final Selected Link Dimensions:** Width $w = 1.50\text{ in}$, Thickness $t = 0.25\text{ in}$, Length $L = 4.00\text{ in}$.
+
+ 
+
+### 2. Fit Selection for Feature A (Running / Sliding Fit)
+
+#### a. Design Process & Citation
+* **Fit Class Selected:** **RC 4** (Close Running Fit) per **ANSI B4.1-1967 (R1987)** / *Machinery’s Handbook* (ANSI/ASME Standard Limits and Fits, pp. 646–660).
+* **Rationale:** RC 4 fits are intended for accurate location and free running at low speeds under moderate loads without binding.
+* **Tolerances (Nominal Diameter $d_A = 1.109\text{ in}$, Range: 1.00 – 1.20 in):**
+  * **Hole (Link):** Class H8 $\Rightarrow +0.0012\text{ in} / -0.0000\text{ in}$ $\rightarrow \mathbf{1.1090\text{ in} \text{ to } 1.1102\text{ in}}$
+  * **Shaft (Feature A Pin):** Class f7 $\Rightarrow -0.0010\text{ in} / -0.0018\text{ in}$ $\rightarrow \mathbf{1.1072\text{ in} \text{ to } 1.1080\text{ in}}$
+
+#### b. Manufacturing Technique & Standard Tables
+* **Manufacturing Process:** Precision Reaming or CNC Boring for the internal link hole; Precision Cylindrical Grinding or Turning for Feature A pin.
+* **Standard Limits Table Used:** *ANSI B4.1 Table 1: Standard Running and Sliding Fits (RC 4)*.
+
+ 
+
+### 3. Fit Selection for 1-Inch Shaft (Light Assembly Pressure)
+
+#### a. Design Process & Citation
+* **Fit Class Selected:** **FN 1** (Light Drive Fit) per **ANSI B4.1-1967 (R1987)** / *Machinery’s Handbook* (ANSI/ASME Standard Limits and Fits, pp. 646–660).
+* **Rationale:** FN 1 fits require light assembly pressure, providing semi-permanent assembly suitable for light section dynamic force transmission without slipping.
+* **Tolerances (Nominal Diameter $d = 1.000\text{ in}$, Range: 0.95 – 1.19 in):**
+  * **Hole (Link):** Class H7 $\Rightarrow +0.0008\text{ in} / -0.0000\text{ in}$ $\rightarrow \mathbf{1.0000\text{ in} \text{ to } 1.0008\text{ in}}$
+  * **Shaft:** Class p6 $\Rightarrow +0.0014\text{ in} / +0.0009\text{ in}$ $\rightarrow \mathbf{1.0009\text{ in} \text{ to } 1.0014\text{ in}}$
+
+#### b. Manufacturing Technique & Standard Tables
+* **Manufacturing Process:** Precision Reaming / Broaching for the link hole; Precision Grinding for the 1-inch shaft. Assembly requires a arbor press or light hydraulic press.
+* **Standard Limits Table Used:** *ANSI B4.1 Table 9: Force and Shrink Fits (FN 1)*.
 
 ## Communicate
 
