@@ -1,7 +1,10 @@
 # A5 – Bracket Design
 
 ## Objective
-My primary objective in this project is to perform a comprehensive structural analysis and detailed design of a mounting bracket capable of supporting a static horizontal load applied symmetrically through a polyester strap assembly. I am determining the critical dimensions across five interconnected structural features, labeled Features A through E, by applying core principles of strength of materials to evaluate both strength and stiffness requirements. 
+My primary objective in this project is to perform a comprehensive structural analysis and detailed design of a mounting bracket capable of supporting a static horizontal load applied symmetrically through a polyester strap assembly. I am determining the critical dimensions across five interconnected structural features, labeled Features A through E, by applying core principles of strength of materials to evaluate both strength and stiffness requirements. The intended design is shown below:
+
+<img width="382" height="345" alt="image" src="https://github.com/user-attachments/assets/9fa9c3e5-c1e2-4d57-892d-3b22d9cebb5e" />
+
 
 To achieve a complete design, I am conducting structural stress analyses across all features by tracing reaction forces sequentially to establish the minimum geometric dimensions needed to prevent material yielding under a specified safety factor of 4. Alongside the strength evaluations, I am performing stiffness analyses to define the minimum required dimensions that limit elastic deformation to a maximum threshold of 0.005 inches per feature. A key aspect of my approach involves mapping feature interdependencies and reaction forces, ensuring that equilibrium is preserved as reaction loads at upstream support boundaries transition into applied forces for downstream components. Ultimately, I am comparing the sizing results from both stress and stiffness constraints to identify the governing failure mode for each feature, which directly informs the final nominal geometry used in my CAD models.
 
