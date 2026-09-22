@@ -9,76 +9,159 @@ My primary objective in this project is to perform a comprehensive structural an
 To achieve a complete design, I am conducting structural stress analyses across all features by tracing reaction forces sequentially to establish the minimum geometric dimensions needed to prevent material yielding under a specified safety factor of 4. Alongside the strength evaluations, I am performing stiffness analyses to define the minimum required dimensions that limit elastic deformation to a maximum threshold of 0.005 inches per feature. A key aspect of my approach involves mapping feature interdependencies and reaction forces, ensuring that equilibrium is preserved as reaction loads at upstream support boundaries transition into applied forces for downstream components. Ultimately, I am comparing the sizing results from both stress and stiffness constraints to identify the governing failure mode for each feature, which directly informs the final nominal geometry used in my CAD models.
 
 ## Analyze
-### Stress Analysis
-#### Feature A: Stress Analysis & Structural Sizing
+# Feature A: Stress & Stiffness Analysis
 
-I designed Feature A as the pin that held the strap assembly. In my model, I treated Feature A as a simple cantilever beam that was fixed at one end (where it connected to Feature B) and pulled down by a force at the free end.
+I designed Feature A as the pin that held the strap assembly. In my model, I treated Feature A as a solid circular cantilever beam fixed at its base connection with Feature B and subjected to a transverse point load at its free end.
 
-To start off, I chose a force of $F = 670\text{ lbf}$, which fit in the required range of $500\text{ lbf}$ to $800\text{ lbf}$. I used a factor of safety of $SF = 4.0$. I picked Aluminum 6061-T6 for the material, which had a yield strength of $\sigma_y = 40,000\text{ psi}$ ($40\text{ ksi}$) and a stiffness modulus of $E = 10.0 \times 10^6\text{ psi}$. Dividing the yield strength by the safety factor gave my maximum allowed stress: $\sigma_{\text{allow}} = \frac{40,000\text{ psi}}{4} = 10,000\text{ psi}$. Based on the size of the strap and general clearance, I set the length of Feature A to $L = 2.00\text{ in}$.
+To start off, I selected a static applied force of $F = 670\text{ lbf}$ (within the $500\text{ lbf}$ to $800\text{ lbf}$ range) and used a factor of safety of $SF = 4.0$. I chose Aluminum 6061-T6 for the material, which provided a yield strength of $\sigma_y = 40,000\text{ psi}$ ($40\text{ ksi}$) and an elastic modulus of $E = 10.0 \times 10^6\text{ psi}$. Dividing yield strength by the safety factor gave my allowable bending stress: $\sigma_{\text{allow}} = \frac{40,000\text{ psi}}{4} = 10,000\text{ psi}$. Based on strap width and mounting clearance, I set the pin length to $L_A = 2.00\text{ in}$. For stiffness, I established a maximum allowable deflection limit of $\delta_{\text{max}} = 0.005\text{ in}$.
 
-My goal for this section was to find the maximum reaction moment $M_{\text{max}}$ at the base, the required section modulus $Z_{\text{req}}$ to prevent yielding, and the smallest pin radius $r_{\text{stress}}$ and diameter $d_{\text{stress}}$ I could safely use. I also calculated the reaction forces at the base ($R_{y,A}$ and $M_A$), since those passed directly into Feature B as its main load.
+My goal for Feature A was to calculate the base reaction force ($R_y = 670\text{ lbf}$) and maximum moment ($M_{\text{max}} = 1,340\text{ lb}\cdot\text{in}$), determine the stress-based minimum diameter $d_{\text{stress}}$, and calculate the stiffness-based minimum diameter $d_{\text{stiff}}$ based on tip deflection.
 
-To keep the math clean, I made a few standard assumptions. I assumed Feature A acted like an ideal cantilever beam fixed firmly to Feature B. I modeled the full $670\text{ lbf}$ force as a point load right at the end of the pin ($x = L$). I treated the aluminum as uniform and elastic, and per the assignment rules, I assumed direct shear failure was not going to govern. I also assumed Feature A stayed a solid cylinder across its whole $2.00\text{-inch}$ length, and I ignored stress concentrations at the base joint for this basic sizing check.
+I assumed Feature A acted as an ideal cantilever beam fixed firmly to Feature B, with the force applied as a point load at $x = L_A$. I treated the material as linear, elastic, isotropic, and homogeneous, and assumed direct shear failure was non-governing.
 
-Using simple statics, the vertical reaction force at the base had to equal the load going down: $\sum F_y = 0 \implies R_y - F = 0$, so $R_y = 670\text{ lbf}$. The maximum bending moment happened right at the wall ($x = 0$) and equaled the force times the length: $\sum M_{\text{base}} = 0 \implies M_{\text{max}} - F \cdot L = 0$, which gave $M_{\text{max}} = 670\text{ lbf} \times 2.00\text{ in} = 1,340\text{ lb}\cdot\text{in}$.
+## Bending Stress Analysis
+The maximum bending moment occurred at the support wall ($x = 0$):
+$$M_{\text{max}} = F \cdot L_A = 670\text{ lbf} \times 2.00\text{ in} = 1,340\text{ lb}\cdot\text{in}$$
 
-To figure out how thick the pin needed to be, I used the bending stress equation $\sigma_{\text{max}} = \frac{M_{\text{max}}}{Z}$. Setting the maximum stress equal to my allowed stress of $10,000\text{ psi}$ allowed me to solve for section modulus: $Z_{\text{req}} = \frac{M_{\text{max}}}{\sigma_{\text{allow}}} = \frac{1,340\text{ lb}\cdot\text{in}}{10,000\text{ psi}} = 0.1340\text{ in}^3$. For a round bar, the section modulus formula is $Z = \frac{\pi r^3}{4}$. Setting that equal to my required section modulus gave $\frac{\pi r^3}{4} = 0.1340\text{ in}^3$. Solving for the radius gave $r_{\text{stress}} = \left( \frac{4 \times 0.1340}{\pi} \right)^{1/3} \approx 0.5546\text{ in}$. Multiplying by two gave a minimum required diameter of $d_{\text{stress}} = \mathbf{1.109\text{ in}}$.
+Setting maximum bending stress equal to my allowable stress ($\sigma = \frac{M}{Z} = \sigma_{\text{allow}}$):
+$$Z_{\text{req}} = \frac{M_{\text{max}}}{\sigma_{\text{allow}}} = \frac{1,340\text{ lb}\cdot\text{in}}{10,000\text{ psi}} = 0.1340\text{ in}^3$$
 
-So, to keep Feature A from bending or yielding under load, the pin needed to be at least $1.109\text{ inches}$ thick. The reactions at the support—a $670\text{ lbf}$ vertical force and a $1,340\text{ lb}\cdot\text{in}$ moment—were then carried over to Feature B.
+For a solid cylinder, $Z = \frac{\pi r^3}{4}$. Solving for required radius and diameter:
+$$r_{\text{stress}} = \left( \frac{4 \cdot Z_{\text{req}}}{\pi} \right)^{1/3} = \left( \frac{4 \times 0.1340}{\pi} \right)^{1/3} \approx 0.5546\text{ in}$$
+$$d_{\text{stress}} = 2 \cdot r_{\text{stress}} = \mathbf{1.109\text{ in}}$$
 
-#### Feature B: Stress Analysis & Structural Sizing
+## Stiffness Analysis
+The maximum end deflection for a cantilever beam under a point load is given by:
+$$\delta_{\text{max}} = \frac{F \cdot L_A^3}{3 E I}$$
 
-Next up, I designed Feature B, which was the vertical bar connecting the pin (Feature A) to the main T-beam assembly. Following Appendix D in the assignment, I modeled Feature B as a bar in pure axial tension, pulled by the load coming from Feature A.
+Setting deflection equal to my allowable limit $\delta_{\text{max}} = 0.005\text{ in}$ and solving for required moment of inertia $I_{\text{req}}$:
+$$I_{\text{req}} = \frac{F \cdot L_A^3}{3 E \cdot \delta_{\text{max}}} = \frac{670 \times (2.00)^3}{3 \times (10.0 \times 10^6) \times 0.005} = 0.03573\text{ in}^4$$
 
-To keep everything consistent, I carried over my parameters from Feature A. I used the static force of $F = 670\text{ lbf}$ and a safety factor of $SF = 4.0$. Sticking with Aluminum 6061-T6, my material properties were a yield strength of $\sigma_y = 40,000\text{ psi}$ ($40\text{ ksi}$) and an elastic modulus of $E = 10.0 \times 10^6\text{ psi}$. Dividing yield strength by the safety factor gave my allowed tensile stress: $\sigma_{\text{allow}} = \frac{40,000\text{ psi}}{4} = 10,000\text{ psi}$. Based on the layout and strap clearance, I set the length of Feature B to $L_B = 3.00\text{ in}$.
+For a solid circular cross-section, $I = \frac{\pi d^4}{64}$. Solving for required diameter:
+$$d_{\text{stiff}} = \left( \frac{64 \cdot I_{\text{req}}}{\pi} \right)^{1/4} = \left( \frac{64 \times 0.03573}{\pi} \right)^{1/4} \approx \mathbf{0.923\text{ in}}$$
 
-My goal for Feature B was to find the internal tensile force $P_B$, the required cross-sectional area $A_{\text{req}}$ to avoid yielding, and the minimum thickness $t_{\text{stress}}$ I needed for the bar. I also calculated the reaction force at the top end, which transferred into Feature C as its main load.
+Comparing both analyses, the bending stress criteria governed ($1.109\text{ in} > 0.923\text{ in}$), so I selected a final pin diameter of **$d_A = 1.109\text{ in}$**.
 
-Instead of going with a standard square bar, I decided to give Feature B a rectangular cross-section with a width equal to Feature A's diameter ($w_B = d_A = 1.109\text{ in}$). I chose this for two reasons: matching the width to Feature A made the joint flush and easier to CAD and machine, and spreading the load over a wider width allowed me to use a thinner piece of stock while keeping it structurally sound.
+---
 
-To keep the model simple, I made a few assumptions. I assumed Feature B acted as a straight bar pulled in pure vertical tension. I treated the load from Feature A as a static axial force of $P = 670\text{ lbf}$. Per the assignment guidelines, I ignored direct shear and buckling for this normal stress pass. I also assumed uniform material properties throughout and ignored stress concentrations at the joint for this initial pass.
+# Feature B: Stress & Stiffness Analysis
 
-Using statics along the vertical direction, $\sum F_y = 0 \implies R_{y,B} - P = 0$, so the internal tensile load was $P_B = 670\text{ lbf}$.
+Next, I designed Feature B, the vertical intermediate bar connecting the pin (Feature A) to the main T-beam assembly. Per Appendix D guidelines, I modeled Feature B as an axially loaded bar in pure vertical tension under the $670\text{ lbf}$ load transferred from Feature A.
 
-To find the minimum required thickness, I used the axial stress equation $\sigma = \frac{P}{A}$. Setting stress to my allowed value of $10,000\text{ psi}$ gave the required area: $A_{\text{req}} = \frac{670\text{ lbf}}{10,000\text{ psi}} = 0.0670\text{ in}^2$. Since area for a rectangle is $A = w_B \cdot t$, I plugged in my width of $1.109\text{ in}$ to solve for thickness: $t_{\text{stress}} = \frac{0.0670\text{ in}^2}{1.109\text{ in}} \approx \mathbf{0.0604\text{ in}}$.
+I carried over my parameters: $F = 670\text{ lbf}$, $SF = 4.0$, Aluminum 6061-T6 ($\sigma_y = 40,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$), and $\sigma_{\text{allow}} = 10,000\text{ psi}$. I set the length of Feature B to $L_B = 3.00\text{ in}$ and set the axial elongation limit to $\delta_{\text{max}} = 0.005\text{ in}$.
 
-In summary, with a width of $1.109\text{ in}$, Feature B only needed a thickness of $0.0604\text{ in}$ to handle the tensile stress without yielding. To keep the force path going, I transferred the $670\text{ lbf}$ tensile reaction force directly into Feature C as a center point load.
+To create a clean geometric transition, I selected a rectangular cross-section with width equal to Feature A's diameter ($w_B = d_A = 1.109\text{ in}$).
 
-#### Feature C: Stress Analysis & Structural Sizing
+I assumed Feature B acted as a straight bar loaded in pure uniaxial vertical tension, neglecting bending moments and buckling modes per project guidelines.
 
-Moving on to Feature C, I designed the bottom horizontal flange of the T-beam assembly. Per the assignment guidelines in Appendix D, I modeled Feature C as a simply supported beam with a central concentrated point load transferred directly from Feature B.
+## Normal Tensile Stress Analysis
+Using vertical equilibrium, the internal tensile force was $P_B = 670\text{ lbf}$. The required area to prevent yield failure was:
+$$A_{\text{req}} = \frac{P_B}{\sigma_{\text{allow}}} = \frac{670\text{ lbf}}{10,000\text{ psi}} = 0.0670\text{ in}^2$$
 
-To keep my calculations consistent, I carried forward my parameters from the previous sections. I used the reaction force from Feature B as my central point load, $P_C = 670\text{ lbf}$, and kept my factor of safety at $SF = 4.0$. Sticking with Aluminum 6061-T6, the material properties remained a yield strength of $\sigma_y = 40,000\text{ psi}$ ($40\text{ ksi}$) and an elastic modulus of $E = 10.0 \times 10^6\text{ psi}$. Dividing the yield strength by the safety factor gave my allowable bending stress: $\sigma_{\text{allow}} = \frac{40,000\text{ psi}}{4} = 10,000\text{ psi}$. Based on the overall bracket geometry and span between the vertical web walls, I set the total span length of Feature C to $L_C = 4.00\text{ in}$.
+With fixed width $w_B = 1.109\text{ in}$, the stress-based minimum thickness was:
+$$t_{\text{stress}} = \frac{A_{\text{req}}}{w_B} = \frac{0.0670\text{ in}^2}{1.109\text{ in}} \approx \mathbf{0.0604\text{ in}}$$
 
-My main goals for Feature C were to find the reaction forces at the two end supports ($R_1$ and $R_2$), the maximum internal bending moment $M_{\text{max}}$ occurring at mid-span, the required section modulus $Z_{\text{req}}$ to prevent yielding, and the minimum required flange thickness $t_{\text{stress}}$. I also needed to calculate the reaction forces at the outer supports to transfer downstream into Feature D.
+## Axial Stiffness Analysis
+The total axial elongation of a uniform bar under tension is:
+$$\delta = \frac{P_B \cdot L_B}{A \cdot E}$$
 
-For Feature C's cross-section, I gave it a rectangular profile with a width set equal to Feature B's width ($w_C = w_B = 1.109\text{ in}$). This maintained a uniform width along the entire bottom connection path, making it cleaner to model in CAD and easier to machine from standard flat stock.
+Setting elongation to my limit $\delta_{\text{max}} = 0.005\text{ in}$ and solving for required cross-sectional area:
+$$A_{\text{stiff}} = \frac{P_B \cdot L_B}{E \cdot \delta_{\text{max}}} = \frac{670\text{ lbf} \times 3.00\text{ in}}{(10.0 \times 10^6\text{ psi}) \times 0.005\text{ in}} = 0.0402\text{ in}^2$$
 
-To keep the analytical model clean, I made a few standard assumptions. I assumed Feature C acted as an ideal simply supported beam with simple pin/roller supports at its outer ends ($x = 0$ and $x = L_C$). I modeled the load transferred from Feature B as a static point load applied exactly at the midpoint ($x = \frac{L_C}{2} = 2.00\text{ in}$). I assumed the material was linear, elastic, isotropic, and homogeneous throughout, and per assignment rules, I assumed direct shear failure was non-governing. I also assumed Feature C maintained a constant rectangular cross-section across its span, and I ignored local stress concentrations at the load application point.
+Solving for stiffness-based thickness:
+$$t_{\text{stiff}} = \frac{A_{\text{stiff}}}{w_B} = \frac{0.0402\text{ in}^2}{1.109\text{ in}} \approx \mathbf{0.0362\text{ in}}$$
 
-Using statics for a symmetric, simply supported beam, the reaction forces at each support split the load equally: $R_1 = R_2 = \frac{P_C}{2} = \frac{670\text{ lbf}}{2} = 335\text{ lbf}$. The maximum internal bending moment occurred directly under the central load ($x = \frac{L_C}{2}$) and equaled $M_{\text{max}} = \frac{P_C \cdot L_C}{4} = \frac{670\text{ lbf} \times 4.00\text{ in}}{4} = 670\text{ lb}\cdot\text{in}$.
+Comparing both results, tensile stress governed ($0.0604\text{ in} > 0.0362\text{ in}$), requiring a minimum thickness of **$t_B = 0.0604\text{ in}$**.
 
-To figure out the required thickness, I used the bending stress formula $\sigma = \frac{M_{\text{max}}}{Z}$. Setting the maximum bending stress equal to my allowed stress of $10,000\text{ psi}$ gave the required section modulus: $Z_{\text{req}} = \frac{M_{\text{max}}}{\sigma_{\text{allow}}} = \frac{670\text{ lb}\cdot\text{in}}{10,000\text{ psi}} = 0.0670\text{ in}^3$. For a solid rectangular cross-section, section modulus is defined as $Z = \frac{w_C \cdot t^2}{6}$. Setting my geometric section modulus equal to $Z_{\text{req}}$ gave $\frac{1.109 \cdot t^2}{6} = 0.0670\text{ in}^3$. Rearranging to solve for thickness yielded $t^2 = \frac{6 \times 0.0670}{1.109} \approx 0.3625\text{ in}^2$, which gave a minimum required thickness of $t_{\text{stress}} = \sqrt{0.3625} \approx \mathbf{0.602\text{ in}}$.
+---
 
-In summary, with a width of $1.109\text{ in}$ and a span of $4.00\text{ in}$, Feature C needed a minimum flange thickness of $0.602\text{ in}$ to handle the central bending moment without yielding. To keep the force path continuous, the reaction forces at each end support ($335\text{ lbf}$ each) will be transferred directly into Feature D.
+# Feature C: Stress & Stiffness Analysis
 
-#### Feature D: Stress Analysis & Structural Sizing
+Moving on to Feature C, I designed the bottom horizontal flange of the T-beam assembly. Per Appendix D, I modeled Feature C as a simply supported beam with a central point load $P_C = 670\text{ lbf}$ transferred directly from Feature B.
 
-Next, I analyzed Feature D, which represents the vertical web walls supporting Feature C in the T-beam structure. Since the bracket design is symmetric, the $670\text{ lbf}$ load transferred into Feature C split evenly between its two end supports. This meant that Feature D was modeled as an axially loaded bar in pure vertical compression carrying half of the total force ($P_D = 335\text{ lbf}$).
+I carried forward $P_C = 670\text{ lbf}$, $SF = 4.0$, Aluminum 6061-T6 ($\sigma_{\text{allow}} = 10,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$), span length $L_C = 4.00\text{ in}$, and fixed cross-sectional width $w_C = 1.109\text{ in}$. My allowable mid-span deflection limit was set to $\delta_{\text{max}} = 0.005\text{ in}$.
 
-To maintain consistency, I carried over the same core material and safety parameters. I used an applied compressive force of $P_D = 335\text{ lbf}$ per wall and kept my safety factor at $SF = 4.0$. Using Aluminum 6061-T6, the yield strength was $\sigma_y = 40,000\text{ psi}$ ($40\text{ ksi}$) and the elastic modulus was $E = 10.0 \times 10^6\text{ psi}$. Dividing yield strength by the safety factor gave an allowed compressive stress of $\sigma_{\text{allow}} = \frac{40,000\text{ psi}}{4} = 10,000\text{ psi}$. Based on the vertical clearance of the bracket assembly, I set the wall height to $L_D = 3.00\text{ in}$.
+I assumed Feature C acted as an ideal simply supported beam with simple end supports and a central static point load, neglecting direct shear.
 
-My goal for Feature D was to solve for the internal compressive load $P_D$, the required cross-sectional area $A_{\text{req}}$, and the minimum wall thickness $t_{\text{stress}}$ needed to prevent yield failure under compression. I also calculated the reaction forces at the base of the wall to pass into Feature E.
+## Bending Stress Analysis
+The support reactions were $R_1 = R_2 = 335\text{ lbf}$. The maximum bending moment at mid-span was:
+$$M_{\text{max}} = \frac{P_C \cdot L_C}{4} = \frac{670\text{ lbf} \times 4.00\text{ in}}{4} = 670\text{ lb}\cdot\text{in}$$
 
-For Feature D's rectangular cross-section, I matched its depth/width to the previous features ($w_D = w_C = d_A = 1.109\text{ in}$). This kept the side profile uniform and continuous across the assembly.
+The required section modulus was:
+$$Z_{\text{req}} = \frac{M_{\text{max}}}{\sigma_{\text{allow}}} = \frac{670\text{ lb}\cdot\text{in}}{10,000\text{ psi}} = 0.00670\text{ in}^3 \rightarrow 0.0670\text{ in}^3$$
 
-I made a few standard assumptions to simplify the analysis. I assumed Feature D acted as a straight bar loaded in pure vertical uniaxial compression. I modeled the load coming from Feature C as a static point force of $P_D = 335\text{ lbf}$ on each wall. Per assignment guidelines, I assumed direct shear and column buckling modes were non-governing for this basic normal stress pass. I also treated the material as uniform and elastic, and I ignored stress concentration factors at the web-flange joints.
+For a rectangular section ($Z = \frac{w_C \cdot t^2}{6}$), solving for stress-based thickness yielded:
+$$t_{\text{stress}} = \sqrt{\frac{6 \cdot Z_{\text{req}}}{w_C}} = \sqrt{\frac{6 \times 0.0670}{1.109}} \approx \mathbf{0.602\text{ in}}$$
 
-Using statics along the vertical axis, $\sum F_y = 0 \implies R_D - P_D = 0$, confirming an internal compressive load of $P_D = 335\text{ lbf}$ carried through each wall.
+## Bending Stiffness Analysis
+The maximum center deflection for a simply supported beam under a central point load is:
+$$\delta_{\text{max}} = \frac{P_C \cdot L_C^3}{48 E I}$$
 
-To solve for the minimum required wall thickness, I used the axial stress formula $\sigma = \frac{P}{A}$. Setting stress equal to my allowed compressive stress of $10,000\text{ psi}$ gave a required cross-sectional area of $A_{\text{req}} = \frac{335\text{ lbf}}{10,000\text{ psi}} = 0.0335\text{ in}^2$. Since area for a rectangular cross-section is $A = w_D \cdot t$, I plugged in my width of $1.109\text{ in}$ to solve for thickness: $t_{\text{stress}} = \frac{0.0335\text{ in}^2}{1.109\text{ in}} \approx \mathbf{0.0302\text{ in}}$.
+Setting deflection to $0.005\text{ in}$ and solving for required moment of inertia $I_{\text{req}}$:
+$$I_{\text{req}} = \frac{P_C \cdot L_C^3}{48 E \cdot \delta_{\text{max}}} = \frac{670 \times (4.00)^3}{48 \times (10.0 \times 10^6) \times 0.005} = 0.01787\text{ in}^4$$
 
-In summary, with a width of $1.109\text{ in}$, each vertical wall of Feature D required a minimum thickness of $0.0302\text{ in}$ to safely support the compressive load without yielding. The $335\text{ lbf}$ reaction force at the base of each wall (combining to $670\text{ lbf}$ total) was then transferred into Feature E.
+For a rectangular section, $I = \frac{w_C \cdot t^3}{12}$. Solving for stiffness-based thickness:
+$$t_{\text{stiff}} = \left( \frac{12 \cdot I_{\text{req}}}{w_C} \right)^{1/3} = \left( \frac{12 \times 0.01787}{1.109} \right)^{1/3} \approx \mathbf{0.578\text{ in}}$$
+
+Comparing both, bending stress governed ($0.602\text{ in} > 0.578\text{ in}$), requiring a minimum flange thickness of **$t_C = 0.602\text{ in}$**.
+
+---
+
+# Feature D: Stress & Stiffness Analysis
+
+Next, I analyzed Feature D, representing the vertical web walls supporting Feature C. Due to symmetry, the $670\text{ lbf}$ load split equally between the two walls, so each wall carried a compressive load of $P_D = 335\text{ lbf}$.
+
+I carried over $P_D = 335\text{ lbf}$, $SF = 4.0$, Aluminum 6061-T6 ($\sigma_{\text{allow}} = 10,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$), wall height $L_D = 3.00\text{ in}$, and width $w_D = 1.109\text{ in}$. My allowable compressive shortening limit was $\delta_{\text{max}} = 0.005\text{ in}$.
+
+I assumed Feature D acted as a straight bar loaded in pure vertical compression, neglecting buckling modes per project guidelines.
+
+## Normal Compressive Stress Analysis
+Equilibrium gave an internal compressive force of $P_D = 335\text{ lbf}$. The required area was:
+$$A_{\text{req}} = \frac{P_D}{\sigma_{\text{allow}}} = \frac{335\text{ lbf}}{10,000\text{ psi}} = 0.0335\text{ in}^2$$
+
+Solving for minimum stress-based wall thickness:
+$$t_{\text{stress}} = \frac{A_{\text{req}}}{w_D} = \frac{0.0335\text{ in}^2}{1.109\text{ in}} \approx \mathbf{0.0302\text{ in}}$$
+
+## Compressive Stiffness Analysis
+The total compressive axial deflection is given by:
+$$\delta = \frac{P_D \cdot L_D}{A \cdot E}$$
+
+Setting deflection to $\delta_{\text{max}} = 0.005\text{ in}$ and solving for required area:
+$$A_{\text{stiff}} = \frac{P_D \cdot L_D}{E \cdot \delta_{\text{max}}} = \frac{335\text{ lbf} \times 3.00\text{ in}}{(10.0 \times 10^6\text{ psi}) \times 0.005\text{ in}} = 0.0201\text{ in}^2$$
+
+Solving for stiffness-based wall thickness:
+$$t_{\text{stiff}} = \frac{A_{\text{stiff}}}{w_D} = \frac{0.0201\text{ in}^2}{1.109\text{ in}} \approx \mathbf{0.0181\text{ in}}$$
+
+Comparing both results, compressive stress governed ($0.0302\text{ in} > 0.0181\text{ in}$), requiring a minimum wall thickness of **$t_D = 0.0302\text{ in}$**.
+
+---
+
+# Feature E: Stress & Stiffness Analysis
+
+Finally, I analyzed Feature E, representing the top mounting flange connecting flush against the rigid body. I modeled Feature E as a contact surface subjected to direct bearing compression under $P_E = 335\text{ lbf}$ per side ($670\text{ lbf}$ total).
+
+I carried over $P_E = 335\text{ lbf}$, $SF = 4.0$, Aluminum 6061-T6 ($\sigma_{\text{allow}} = 10,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$), and contact width $w_E = 1.109\text{ in}$. I set the maximum allowable compression strain/deflection limit across the joint thickness $L_E = 0.50\text{ in}$ to $\delta_{\text{max}} = 0.005\text{ in}$.
+
+I assumed Feature E rested flush against the rigid support, transferring force in pure bearing compression.
+
+## Bearing Stress Analysis
+Equilibrium gave a compressive reaction force of $R_E = 335\text{ lbf}$ per side. The required contact area was:
+$$A_{\text{req}} = \frac{P_E}{\sigma_{\text{allow}}} = \frac{335\text{ lbf}}{10,000\text{ psi}} = 0.0335\text{ in}^2$$
+
+Solving for stress-based flange thickness:
+$$t_{\text{stress}} = \frac{A_{\text{req}}}{w_E} = \frac{0.0335\text{ in}^2}{1.109\text{ in}} \approx \mathbf{0.0302\text{ in}}$$
+
+## Compressive Stiffness Analysis
+Treating compressive deflection across the contact interface length ($L_E = 0.50\text{ in}$ assumed lip length):
+$$\delta = \frac{P_E \cdot L_E}{A \cdot E}$$
+
+Solving for required area under $\delta_{\text{max}} = 0.005\text{ in}$:
+$$A_{\text{stiff}} = \frac{P_E \cdot L_E}{E \cdot \delta_{\text{max}}} = \frac{335\text{ lbf} \times 0.50\text{ in}}{(10.0 \times 10^6\text{ psi}) \times 0.005\text{ in}} = 0.00335\text{ in}^2$$
+
+Solving for stiffness-based thickness:
+$$t_{\text{stiff}} = \frac{A_{\text{stiff}}}{w_E} = \frac{0.00335\text{ in}^2}{1.109\text{ in}} \approx \mathbf{0.0030\text{ in}}$$
+
+Comparing both results, bearing stress governed ($0.0302\text{ in} > 0.0030\text{ in}$), requiring a minimum flange thickness of **$t_E = 0.0302\text{ in}$**.
 ## Decide
 
 
