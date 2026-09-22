@@ -61,6 +61,24 @@ Using statics for a symmetric, simply supported beam, the reaction forces at eac
 To figure out the required thickness, I used the bending stress formula $\sigma = \frac{M_{\text{max}}}{Z}$. Setting the maximum bending stress equal to my allowed stress of $10,000\text{ psi}$ gave the required section modulus: $Z_{\text{req}} = \frac{M_{\text{max}}}{\sigma_{\text{allow}}} = \frac{670\text{ lb}\cdot\text{in}}{10,000\text{ psi}} = 0.0670\text{ in}^3$. For a solid rectangular cross-section, section modulus is defined as $Z = \frac{w_C \cdot t^2}{6}$. Setting my geometric section modulus equal to $Z_{\text{req}}$ gave $\frac{1.109 \cdot t^2}{6} = 0.0670\text{ in}^3$. Rearranging to solve for thickness yielded $t^2 = \frac{6 \times 0.0670}{1.109} \approx 0.3625\text{ in}^2$, which gave a minimum required thickness of $t_{\text{stress}} = \sqrt{0.3625} \approx \mathbf{0.602\text{ in}}$.
 
 In summary, with a width of $1.109\text{ in}$ and a span of $4.00\text{ in}$, Feature C needed a minimum flange thickness of $0.602\text{ in}$ to handle the central bending moment without yielding. To keep the force path continuous, the reaction forces at each end support ($335\text{ lbf}$ each) will be transferred directly into Feature D.
+
+#### Feature D: Stress Analysis & Structural Sizing
+
+Next, I analyzed Feature D, which represents the vertical web walls supporting Feature C in the T-beam structure. Since the bracket design is symmetric, the $670\text{ lbf}$ load transferred into Feature C split evenly between its two end supports. This meant that Feature D was modeled as an axially loaded bar in pure vertical compression carrying half of the total force ($P_D = 335\text{ lbf}$).
+
+To maintain consistency, I carried over the same core material and safety parameters. I used an applied compressive force of $P_D = 335\text{ lbf}$ per wall and kept my safety factor at $SF = 4.0$. Using Aluminum 6061-T6, the yield strength was $\sigma_y = 40,000\text{ psi}$ ($40\text{ ksi}$) and the elastic modulus was $E = 10.0 \times 10^6\text{ psi}$. Dividing yield strength by the safety factor gave an allowed compressive stress of $\sigma_{\text{allow}} = \frac{40,000\text{ psi}}{4} = 10,000\text{ psi}$. Based on the vertical clearance of the bracket assembly, I set the wall height to $L_D = 3.00\text{ in}$.
+
+My goal for Feature D was to solve for the internal compressive load $P_D$, the required cross-sectional area $A_{\text{req}}$, and the minimum wall thickness $t_{\text{stress}}$ needed to prevent yield failure under compression. I also calculated the reaction forces at the base of the wall to pass into Feature E.
+
+For Feature D's rectangular cross-section, I matched its depth/width to the previous features ($w_D = w_C = d_A = 1.109\text{ in}$). This kept the side profile uniform and continuous across the assembly.
+
+I made a few standard assumptions to simplify the analysis. I assumed Feature D acted as a straight bar loaded in pure vertical uniaxial compression. I modeled the load coming from Feature C as a static point force of $P_D = 335\text{ lbf}$ on each wall. Per assignment guidelines, I assumed direct shear and column buckling modes were non-governing for this basic normal stress pass. I also treated the material as uniform and elastic, and I ignored stress concentration factors at the web-flange joints.
+
+Using statics along the vertical axis, $\sum F_y = 0 \implies R_D - P_D = 0$, confirming an internal compressive load of $P_D = 335\text{ lbf}$ carried through each wall.
+
+To solve for the minimum required wall thickness, I used the axial stress formula $\sigma = \frac{P}{A}$. Setting stress equal to my allowed compressive stress of $10,000\text{ psi}$ gave a required cross-sectional area of $A_{\text{req}} = \frac{335\text{ lbf}}{10,000\text{ psi}} = 0.0335\text{ in}^2$. Since area for a rectangular cross-section is $A = w_D \cdot t$, I plugged in my width of $1.109\text{ in}$ to solve for thickness: $t_{\text{stress}} = \frac{0.0335\text{ in}^2}{1.109\text{ in}} \approx \mathbf{0.0302\text{ in}}$.
+
+In summary, with a width of $1.109\text{ in}$, each vertical wall of Feature D required a minimum thickness of $0.0302\text{ in}$ to safely support the compressive load without yielding. The $335\text{ lbf}$ reaction force at the base of each wall (combining to $670\text{ lbf}$ total) was then transferred into Feature E.
 ## Decide
 
 
