@@ -1,4 +1,4 @@
-# A5 – [Topic]
+# A5 – Bracket Design
 
 ## Objective
 My primary objective in this project is to perform a comprehensive structural analysis and detailed design of a mounting bracket capable of supporting a static horizontal load applied symmetrically through a polyester strap assembly. I am determining the critical dimensions across five interconnected structural features, labeled Features A through E, by applying core principles of strength of materials to evaluate both strength and stiffness requirements. 
