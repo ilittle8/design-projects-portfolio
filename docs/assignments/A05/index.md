@@ -162,8 +162,32 @@ Solving for stiffness-based thickness:
 $$t_{\text{stiff}} = \frac{A_{\text{stiff}}}{w_E} = \frac{0.00335\text{ in}^2}{1.109\text{ in}} \approx \mathbf{0.0030\text{ in}}$$
 
 Comparing both results, bearing stress governed ($0.0302\text{ in} > 0.0030\text{ in}$), requiring a minimum flange thickness of **$t_E = 0.0302\text{ in}$**.
+
+# Generate Multiview Sketches
+I ten created a multiview sketch for both designs and toleranced it.
+
 ## Decide
 
+### 1. Governing Failure Mode Analysis
+Across all five analyzed features, bending and tensile stress criteria consistently governed over deflection and stiffness criteria. 
+
+* **Feature A (Pin Cantilever Bending):** Bending stress required a minimum diameter of $d_{\text{stress}} = 1.109\text{ in}$, whereas deflection constraints ($\delta_{\text{max}} = 0.005\text{ in}$) only required $d_{\text{stiff}} = 0.923\text{ in}$. Bending stress governed by a difference of $0.186\text{ in}$ ($\sim 20.1\%$ larger).
+* **Feature C (Flange Bending):** Bending stress required a thickness of $t_{\text{stress}} = 0.602\text{ in}$, while deflection stiffness required $t_{\text{stiff}} = 0.578\text{ in}$. This was a **near-tie**, with stress governing by only $0.024\text{ in}$ ($\sim 4.15\%$). This close margin highlights that for relatively short, thick beam spans ($L_C = 4.00\text{ in}$ with high moment of inertia), flexural stiffness requirements closely track stress limits under tight displacement constraints.
+
+---
+
+### 2. Error Propagation & Downstream Traceability
+A critical instance of parameter propagation occurred between **Feature A** and all subsequent components (**Features B through E**). 
+
+* **Sequential Linkage:** The solved stress-governed diameter of Feature A ($d_A = 1.109\text{ in}$) was selected as the fixed nominal cross-sectional width ($w$) for Features B, C, D, and E to maintain visual geometric continuity and clean mounting transitions.
+* **Impact of Upstream Catch:** An initial sizing check on Feature A ensured that $d_A$ was set to the larger stress requirement ($1.109\text{ in}$) rather than the stiffness requirement ($0.923\text{ in}$). Had the smaller $0.923\text{ in}$ diameter been carried downstream as width $w$, the required thickness values for downstream features would have increased across the board (e.g., Feature C stress thickness would have jumped from $0.602\text{ in}$ to $\approx 0.660\text{ in}$ to compensate for the narrower section modulus $Z$).
+
+---
+
+### 3. Assumption Sensitivity Analysis
+* **Assumption Tested:** Ideal load distribution and negligible bending moments in **Feature B** (modeled as a pure uniaxial tension bar under $P_B = 670\text{ lbf}$).
+* **Sensitivity & Impact:** In practice, because Feature A acts as a cantilever beam, the load transferred to Feature B creates an eccentric moment ($M = F \cdot L_A$) at the connection joint rather than pure tension. 
+* **Dimension Change:** If joint bending were incorporated into Feature B instead of treating it purely in tension ($\sigma = P/A$), combined axial loading and bending stress ($\sigma_{\text{comb}} = \frac{P}{A} + \frac{M y}{I}$) would significantly increase the required thickness $t_B$ from the baseline calculated value of $0.0604\text{ in}$ to prevent localized combined yielding at the bracket transition corner.
 
 ## Communicate
 
