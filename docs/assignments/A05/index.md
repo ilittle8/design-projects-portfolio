@@ -13,6 +13,9 @@ To achieve a complete design, I am conducting structural stress analyses across 
 
 I designed Feature A as the pin that held the strap assembly. In my model, I treated Feature A as a solid circular cantilever beam fixed at its base connection with Feature B and subjected to a transverse point load at its free end.
 
+<img width="410" height="370" alt="image" src="https://github.com/user-attachments/assets/3906cff7-5d16-43dc-85f9-0681f6efb28c" />
+
+
 To start off, I selected a static applied force of $F = 670\text{ lbf}$ (within the $500\text{ lbf}$ to $800\text{ lbf}$ range) and used a factor of safety of $SF = 4.0$. I chose Aluminum 6061-T6 for the material, which provided a yield strength of $\sigma_y = 40,000\text{ psi}$ ($40\text{ ksi}$) and an elastic modulus of $E = 10.0 \times 10^6\text{ psi}$. Dividing yield strength by the safety factor gave my allowable bending stress: $\sigma_{\text{allow}} = \frac{40,000\text{ psi}}{4} = 10,000\text{ psi}$. Based on strap width and mounting clearance, I set the pin length to $L_A = 2.00\text{ in}$. For stiffness, I established a maximum allowable deflection limit of $\delta_{\text{max}} = 0.005\text{ in}$.
 
 My goal for Feature A was to calculate the base reaction force ($R_y = 670\text{ lbf}$) and maximum moment ($M_{\text{max}} = 1,340\text{ lb}\cdot\text{in}$), determine the stress-based minimum diameter $d_{\text{stress}}$, and calculate the stiffness-based minimum diameter $d_{\text{stiff}}$ based on tip deflection.
@@ -48,6 +51,9 @@ Comparing both analyses, the bending stress criteria governed ($1.109\text{ in} 
 
 Next, I designed Feature B, the vertical intermediate bar connecting the pin (Feature A) to the main T-beam assembly. Per Appendix D guidelines, I modeled Feature B as an axially loaded bar in pure vertical tension under the $670\text{ lbf}$ load transferred from Feature A.
 
+<img width="566" height="446" alt="image" src="https://github.com/user-attachments/assets/375b93a2-1c95-4ab4-a10a-555289036f95" />
+
+
 I carried over my parameters: $F = 670\text{ lbf}$, $SF = 4.0$, Aluminum 6061-T6 ($\sigma_y = 40,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$), and $\sigma_{\text{allow}} = 10,000\text{ psi}$. I set the length of Feature B to $L_B = 3.00\text{ in}$ and set the axial elongation limit to $\delta_{\text{max}} = 0.005\text{ in}$.
 
 To create a clean geometric transition, I selected a rectangular cross-section with width equal to Feature A's diameter ($w_B = d_A = 1.109\text{ in}$).
@@ -78,6 +84,9 @@ Comparing both results, tensile stress governed ($0.0604\text{ in} > 0.0362\text
 # Feature C: Stress & Stiffness Analysis
 
 Moving on to Feature C, I designed the bottom horizontal flange of the T-beam assembly. Per Appendix D, I modeled Feature C as a simply supported beam with a central point load $P_C = 670\text{ lbf}$ transferred directly from Feature B.
+
+<img width="395" height="155" alt="image" src="https://github.com/user-attachments/assets/45a0bc45-8049-42a5-af01-08b067b1b924" />
+
 
 I carried forward $P_C = 670\text{ lbf}$, $SF = 4.0$, Aluminum 6061-T6 ($\sigma_{\text{allow}} = 10,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$), span length $L_C = 4.00\text{ in}$, and fixed cross-sectional width $w_C = 1.109\text{ in}$. My allowable mid-span deflection limit was set to $\delta_{\text{max}} = 0.005\text{ in}$.
 
@@ -111,6 +120,9 @@ Comparing both, bending stress governed ($0.602\text{ in} > 0.578\text{ in}$), r
 
 Next, I analyzed Feature D, representing the vertical web walls supporting Feature C. Due to symmetry, the $670\text{ lbf}$ load split equally between the two walls, so each wall carried a compressive load of $P_D = 335\text{ lbf}$.
 
+<img width="378" height="161" alt="image" src="https://github.com/user-attachments/assets/d032de99-4924-4eb4-bd65-1c035aaa2909" />
+
+
 I carried over $P_D = 335\text{ lbf}$, $SF = 4.0$, Aluminum 6061-T6 ($\sigma_{\text{allow}} = 10,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$), wall height $L_D = 3.00\text{ in}$, and width $w_D = 1.109\text{ in}$. My allowable compressive shortening limit was $\delta_{\text{max}} = 0.005\text{ in}$.
 
 I assumed Feature D acted as a straight bar loaded in pure vertical compression, neglecting buckling modes per project guidelines.
@@ -139,6 +151,9 @@ Comparing both results, compressive stress governed ($0.0302\text{ in} > 0.0181\
 
 Finally, I analyzed Feature E, representing the top mounting flange connecting flush against the rigid body. I modeled Feature E as a contact surface subjected to direct bearing compression under $P_E = 335\text{ lbf}$ per side ($670\text{ lbf}$ total).
 
+<img width="315" height="182" alt="image" src="https://github.com/user-attachments/assets/da1c6782-6689-4024-b13b-dc7260f7d482" />
+
+
 I carried over $P_E = 335\text{ lbf}$, $SF = 4.0$, Aluminum 6061-T6 ($\sigma_{\text{allow}} = 10,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$), and contact width $w_E = 1.109\text{ in}$. I set the maximum allowable compression strain/deflection limit across the joint thickness $L_E = 0.50\text{ in}$ to $\delta_{\text{max}} = 0.005\text{ in}$.
 
 I assumed Feature E rested flush against the rigid support, transferring force in pure bearing compression.
@@ -163,7 +178,13 @@ $t_{\text{stiff}} = \frac{A_{\text{stiff}}}{w_E} = \frac{0.00335\text{ in}^2}{1.
 Comparing both results, bearing stress governed ($0.0302\text{ in} > 0.0030\text{ in}$), requiring a minimum flange thickness of **$t_E = 0.0302\text{ in}$**.
 
 # Generate Multiview Sketches
-I ten created a multiview sketch for both designs and toleranced it.
+I then created a multiview sketch for both designs and toleranced it.
+
+<img width="383" height="285" alt="image" src="https://github.com/user-attachments/assets/65e803f5-25b6-42e7-ab88-2f785c93b6c4" />
+
+<img width="386" height="310" alt="image" src="https://github.com/user-attachments/assets/832c06e0-9e1b-4bb8-b20c-27809822a4e3" />
+
+
 
 ## Decide
 
@@ -194,6 +215,9 @@ A critical instance of parameter propagation occurred between **Feature A** and 
 
 #### Knowns & Assumptions
 In this analysis, I evaluated a pure tensile load of $F = 670\text{ lbf}$ pulling directly through the linkage component. I selected Aluminum 6061-T6 for the material ($\sigma_y = 40,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$) and applied a safety factor of $SF = 4.0$, which sets my maximum allowable working stress to $\sigma_{\text{allow}} = 10,000\text{ psi}$. For design limits, I set the maximum allowable elongation to $\delta_{\text{max}} = 0.005\text{ in}$. My key dimensions include a Feature A pin diameter of $d_A = 1.109\text{ in}$, a Shaft 2 diameter of $d_{\text{shaft}} = 1.000\text{ in}$, and a center-to-center link length of $L_{\text{link}} = 4.00\text{ in}$. Following standard preliminary design guidelines, I simplified section sizing by setting aside localized stress concentrations around the hole edges for now.
+
+<img width="384" height="501" alt="image" src="https://github.com/user-attachments/assets/050d84bf-6de1-4b21-ab85-4274307d04c7" />
+
 
 #### a. Stress Analysis at Critical Hole Sections
 To determine the required width, I checked the most critical cross-section where the link is thinnest—across the hole diameter:
@@ -235,3 +259,15 @@ To achieve these precise fits during fabrication, I specified precision reaming 
 For the $d = 1.000\text{ in}$ Shaft 2, I selected a Light Drive Fit (**FN 1**) per **ANSI B4.1-1967 (R1987)** standards from the *Machinery’s Handbook* (ANSI/ASME Standard Limits and Fits, pp. 646–660). I chose FN 1 because it requires light press-fit force during assembly, creating a semi-permanent joint that reliably transmits dynamic force without slipping under load. I applied standard table limits for the $1.000\text{ in}$ nominal diameter range ($0.95–1.19\text{ in}$) to define the exact shaft and housing manufacturing tolerances.
 
 ## Communicate
+
+## Lessons Learned
+
+### 1. Time Investment & Workflow Planning
+Completing this assignment—including performing stress and stiffness calculations across all features, determining ANSI limits and fits, and hand-drafting multiview sketches—required approximately **6 hours** of dedicated work. Systematic organization of calculations early on was critical to managing time efficiently and preventing downstream errors.
+
+
+### 2. Practical Application of Limits and Fits
+Working through this project provided a clear understanding of how standard tolerances and fits function in mechanical design:
+
+* **Fit Selection Principles:** Selecting proper fit classes (such as RC 4 for close running clearance and FN 1 for light press fits) demonstrated how tolerance stack-ups affect component assembly and function.
+* **Manufacturing Trade-offs:** Tight clearance fits (like Fit Class c) ensure precise location and prevent dynamic play, but require tighter manufacturing processes like precision reaming or grinding. Conversely, looser fits (Fit Class a or b) reduce production cost and assembly effort where high precision is not required.
