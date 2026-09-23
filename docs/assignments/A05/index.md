@@ -21,7 +21,7 @@ Since $A_{\text{net, req, stress}} (0.0670\text{ in}^2) > A_{\text{stiff, req}} 
 * **Rationale:** RC 4 fits are intended for accurate location and free running at low speeds under moderate loads without binding.
 * **Tolerances (Nominal Diameter $d_A = 1.109\text{ in}$, Range: 1.00 – 1.20 in):**
   * **Hole (Link):** Class H8 $\Rightarrow +0.0012\text{ in} / -0.0000\text{ in}$ $\rightarrow \mathbf{1.1090\text{ in} \text{ to } 1.1102\text{ in}}$
-  * **Shaft (Feature A Pin):** Class f7 $\Rightarrow -0.0010\text{ in} / -0.0018\text{ in}$ $\rightarrow \mathbf{1.1072\text{ in} \text{ to } 1.1080\text{ in}}$
+  * **Shaft (Feature A Pin):** Class f7 $\Rightarrow -0.0010\text{ in} / -0.0018\text{ in}$ $\rightarrow \mathbf{1.1072\text{ in} \text{ to } 1.1080\ in}$
 
 #### b. Manufacturing Technique & Standard Tables
 * **Manufacturing Process:** Precision Reaming or CNC Boring for the internal link hole; Precision Cylindrical Grinding or Turning for Feature A pin.
