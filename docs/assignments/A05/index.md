@@ -193,67 +193,45 @@ A critical instance of parameter propagation occurred between **Feature A** and 
 ### 1. Linkage Sizing & Stress/Stiffness Analysis
 
 #### Knowns & Assumptions
-* **Applied Load ($F$):** $670\text{ lbf}$ (pure tensile load transferred through linkage)
-* **Material:** Aluminum 6061-T6 ($\sigma_y = 40,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$, Safety Factor $SF = 4.0 \Rightarrow \sigma_{\text{allow}} = 10,000\text{ psi}$)
-* **Deflection Limit ($\delta_{\text{max}}$):** $0.005\text{ in}$
-* **Feature A Pin Diameter ($d_A$):** $1.109\text{ in}$
-* **Shaft 2 Diameter ($d_{\text{shaft}}$):** $1.000\text{ in}$
-* **Center-to-Center Linkage Length ($L_{\text{link}}$):** $4.00\text{ in}$
-* **Assumptions:** The link acts in pure uniaxial tension. Stress concentration around hole edges is neglected for preliminary nominal section sizing per assignment guidelines.
-
+In this analysis, I evaluated a pure tensile load of $F = 670\text{ lbf}$ pulling directly through the linkage component. I selected Aluminum 6061-T6 for the material ($\sigma_y = 40,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$) and applied a safety factor of $SF = 4.0$, which sets my maximum allowable working stress to $\sigma_{\text{allow}} = 10,000\text{ psi}$. For design limits, I set the maximum allowable elongation to $\delta_{\text{max}} = 0.005\text{ in}$. My key dimensions include a Feature A pin diameter of $d_A = 1.109\text{ in}$, a Shaft 2 diameter of $d_{\text{shaft}} = 1.000\text{ in}$, and a center-to-center link length of $L_{\text{link}} = 4.00\text{ in}$. Following standard preliminary design guidelines, I simplified section sizing by setting aside localized stress concentrations around the hole edges for now.
 
 #### a. Stress Analysis at Critical Hole Sections
-The smallest net cross-sectional area occurs across the hole diameter ($A_{\text{net}} = (w - d) \cdot t$). The governing critical section is at **Hole A** ($d_A = 1.109\text{ in}$), as it removes the greatest width.
+To determine the required width, I checked the most critical cross-section where the link is thinnest—across the hole diameter:
+
+$A_{\text{net}} = (w - d) \cdot t$
+
+Hole A ($d_A = 1.109\text{ in}$) is my governing section because removing this hole cuts away the most material across the width. Using my allowable stress limit:
 
 $\sigma_{\text{allow}} = \frac{F}{A_{\text{net}}} = \frac{F}{(w - d_A) \cdot t}$
 
-Setting required net area $A_{\text{net, req}}$:
-$A_{\text{net, req}} = \frac{F}{\sigma_{\text{allow}}} = \frac{670\text{ lbf}}{10,000\text{ psi}} = 0.0670\text{ in}^2$
+I calculated that I need a minimum net cross-sectional area of $A_{\text{net, req}} = \frac{670\text{ lbf}}{10,000\text{ psi}} = 0.0670\text{ in}^2$. Choosing a standard stock plate thickness of $t = 0.25\text{ in}$, I found I need an extra width beyond the hole of:
 
-Choosing a link thickness $t = 0.25\text{ in}$ (standard stock thickness):
-$w - d_A = \frac{A_{\text{net, req}}}{t} = \frac{0.0670\text{ in}^2}{0.25\text{ in}} = 0.268\text{ in}$
+$w - d_A = \frac{0.0670\text{ in}^2}{0.25\text{ in}} = 0.268\text{ in}$
 
-$w_{\text{min, stress}} = d_A + 0.268\text{ in} = 1.109\text{ in} + 0.268\text{ in} = \mathbf{1.377\text{ in}}$
-
- 
+Adding this back to the hole size gives me a minimum stress-governed link width of $w_{\text{min, stress}} = 1.109\text{ in} + 0.268\text{ in} = \mathbf{1.377\text{ in}}$ to safely withstand pulling stresses.
 
 #### b. Axial Deflection Verification
-Verifying total elongation along the link length $L_{\text{link}} = 4.00\text{ in}$ using $\delta = \frac{F L}{A_{\text{net}} E}$:
+Next, I verified whether stretching along the length $L_{\text{link}} = 4.00\text{ in}$ would exceed my deflection limit using the axial stiffness formula:
 
-$A_{\text{stiff, req}} = \frac{F \cdot L_{\text{link}}}{E \cdot \delta_{\text{max}}} = \frac{670\text{ lbf} \times 4.00\text{ in}}{(10.0 \times 10^6\text{ psi}) \times 0.005\text{ in}} = 0.0536\text{ in}^2$
+$\delta = \frac{F \cdot L}{A_{\text{net}} \cdot E}$
 
-Since $A_{\text{net, req, stress}} (0.0670\text{ in}^2) > A_{\text{stiff, req}} (0.0536\text{ in}^2)$, tensile stress governs the minimum required cross-sectional area. 
+Solving for the required stiffness area:
 
-* **Final Selected Link Dimensions:** Width $w = 1.50\text{ in}$, Thickness $t = 0.25\text{ in}$, Length $L = 4.00\text{ in}$.
+$A_{\text{stiff, req}} = \frac{670\text{ lbf} \times 4.00\text{ in}}{(10.0 \times 10^6\text{ psi}) \times 0.005\text{ in}} = 0.0536\text{ in}^2$
 
- 
+Because my strength requirement ($0.0670\text{ in}^2$) is larger than my stiffness requirement ($0.0536\text{ in}^2$), tensile stress governs the final design. To ensure a safe and practical margin, I selected final nominal link dimensions of **$w = 1.50\text{ in}$ wide**, **$t = 0.25\text{ in}$ thick**, and **$L = 4.00\text{ in}$ long**.
 
 ### 2. Fit Selection for Feature A (Running / Sliding Fit)
 
 #### a. Design Process & Citation
-* **Fit Class Selected:** **RC 4** (Close Running Fit) per **ANSI B4.1-1967 (R1987)** / *Machinery’s Handbook* (ANSI/ASME Standard Limits and Fits, pp. 646–660).
-* **Rationale:** RC 4 fits are intended for accurate location and free running at low speeds under moderate loads without binding.
-* **Tolerances (Nominal Diameter $d_A = 1.109\text{ in}$, Range: 1.00 – 1.20 in):**
-  * **Hole (Link):** Class H8 $\Rightarrow +0.0012\text{ in} / -0.0000\text{ in}$ $\rightarrow \mathbf{1.1090\text{ in} \text{ to } 1.1102\text{ in}}$
-  * **Shaft (Feature A Pin):** Class f7 $\Rightarrow -0.0010\text{ in} / -0.0018\text{ in}$ $\rightarrow \mathbf{1.1072\text{ in} \text{ to } 1.1080\text{ in}}$
+I selected a Close Running Fit (**RC 4**) based on **ANSI B4.1-1967 (R1987)** standards from the *Machinery’s Handbook* (ANSI/ASME Standard Limits and Fits, pp. 646–660). I chose an RC 4 fit because it provides accurate location and allows smooth rotational motion at low speeds under moderate loads without binding. For my $d_A = 1.109\text{ in}$ nominal pin diameter (falling in the $1.00–1.20\text{ in}$ range), I specified a **Class H8** tolerance ($+0.0012\text{ in} / -0.0000\text{ in}$) for the link hole, giving an acceptable hole size of **$1.1090\text{ in}$ to $1.1102\text{ in}$**. For the Feature A pin shaft, I specified a **Class f7** tolerance ($-0.0010\text{ in} / -0.0018\text{ in}$), which sets the shaft size between **$1.1072\text{ in}$ and $1.1080\text{ in}$**.
 
 #### b. Manufacturing Technique & Standard Tables
-* **Manufacturing Process:** Precision Reaming or CNC Boring for the internal link hole; Precision Cylindrical Grinding or Turning for Feature A pin.
-* **Standard Limits Table Used:** *ANSI B4.1 Table 1: Standard Running and Sliding Fits (RC 4)*.
-
- 
+To achieve these precise fits during fabrication, I specified precision reaming or CNC boring for the internal link hole, and precision cylindrical grinding or turning for the Feature A pin. I pulled all dimensional limits directly from *ANSI B4.1 Table 1: Standard Running and Sliding Fits (RC 4)*.
 
 ### 3. Fit Selection for 1-Inch Shaft (Light Assembly Pressure)
 
 #### a. Design Process & Citation
-* **Fit Class Selected:** **FN 1** (Light Drive Fit) per **ANSI B4.1-1967 (R1987)** / *Machinery’s Handbook* (ANSI/ASME Standard Limits and Fits, pp. 646–660).
-* **Rationale:** FN 1 fits require light assembly pressure, providing semi-permanent assembly suitable for light section dynamic force transmission without slipping.
-* **Tolerances (Nominal Diameter $d = 1.000\text{ in}$, Range: 0.95 – 1.19 in):**
-  * **Hole (Link):** Class H7 $\Rightarrow +0.0008\text{ in} / -0.0000\text{ in}$ $\rightarrow \mathbf{1.0000\text{ in} \text{ to } 1.0008\text{ in}}$
-  * **Shaft:** Class p6 $\Rightarrow +0.0014\text{ in} / +0.0009\text{ in}$ $\rightarrow \mathbf{1.0009\text{ in} \text{ to } 1.0014\text{ in}}$
-
-#### b. Manufacturing Technique & Standard Tables
-* **Manufacturing Process:** Precision Reaming / Broaching for the link hole; Precision Grinding for the 1-inch shaft. Assembly requires a arbor press or light hydraulic press.
-* **Standard Limits Table Used:** *ANSI B4.1 Table 9: Force and Shrink Fits (FN 1)*.
+For the $d = 1.000\text{ in}$ Shaft 2, I selected a Light Drive Fit (**FN 1**) per **ANSI B4.1-1967 (R1987)** standards from the *Machinery’s Handbook* (ANSI/ASME Standard Limits and Fits, pp. 646–660). I chose FN 1 because it requires light press-fit force during assembly, creating a semi-permanent joint that reliably transmits dynamic force without slipping under load. I applied standard table limits for the $1.000\text{ in}$ nominal diameter range ($0.95–1.19\text{ in}$) to define the exact shaft and housing manufacturing tolerances.
 
 ## Communicate
