@@ -4,15 +4,17 @@
 
 In this project, my primary objective was to transition my analytical calculations from Assignment 5 into a fully parametric 3D CAD model and complete engineering drawing set using PTC Creo Parametric. Building upon my strength and stiffness sizing for Features A through E, I modeled the bracket dynamically using CAD relations and parameters to automatically control geometry based on underlying mechanics equations. Additionally, I designed a connecting link that mates directly with the Feature A pin, establishing appropriate ANSI/ASME limits and fits to ensure part-to-part compatibility, proper assembly function, and accurate draft manufacturing callouts.
 
-All CAD part files and drawing packages are available for download here: [Download CAD Files (A06_Bracket_Linkage.zip)](https://www.google.com/search?q=%23).
+All CAD part files and drawing packages are available for download here: 
 
+<img width="1280" height="764" alt="Screenshot 2026-09-30 170402" src="https://github.com/user-attachments/assets/b0784a32-f790-4b89-8002-7e4d2b9a1abe" />
 
 
 ## Parametric Design
 
 I mapped each dimension from my prior stress and stiffness analyses into global parameters within PTC Creo Parametric, driving the 3D geometry using explicit mathematical relations rather than static hardcoded values.
 
-<img width="458" height="661" alt="Screenshot 2026-09-30 163807" src="https://github.com/user-attachments/assets/fb0171fe-b985-4b9d-80fe-a3f80ba6b15c" />
+<img width="1280" height="764" alt="Screenshot 2026-09-30 170506" src="https://github.com/user-attachments/assets/73147e4e-064b-4e94-95ff-ab7ef044b0bc" />
+
 
 
 ### CAD Parameter Setup & Relations
