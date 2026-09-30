@@ -12,6 +12,9 @@ All CAD part files and drawing packages are available for download here: [Downlo
 
 I mapped each dimension from my prior stress and stiffness analyses into global parameters within PTC Creo Parametric, driving the 3D geometry using explicit mathematical relations rather than static hardcoded values.
 
+<img width="458" height="661" alt="Screenshot 2026-09-30 163807" src="https://github.com/user-attachments/assets/fb0171fe-b985-4b9d-80fe-a3f80ba6b15c" />
+
+
 ### CAD Parameter Setup & Relations
 
 To automate design updates, I defined global parameters for material properties ($\sigma_y = 40,000\text{ psi}$, $E = 10.0 \times 10^6\text{ psi}$), safety factor ($SF = 4.0$), applied force ($F = 670\text{ lbf}$), and feature span lengths.
@@ -86,6 +89,10 @@ d4  = T_E       /* Top Lip Thickness = 0.0302 in */
 ## Engineering Drawings & Tolerancing
 
 I generated multi-view engineering drawings for both the primary bracket assembly and the connecting link in PTC Creo Parametric, adhering strictly to ASME Y14.5 standards and third-angle projection conventions.
+
+
+[AO6 Drawing.pdf](https://github.com/user-attachments/files/32878415/AO6.Drawing.pdf)
+
 
 ### Bracket Drawing Specifications
 
