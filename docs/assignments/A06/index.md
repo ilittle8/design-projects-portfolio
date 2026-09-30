@@ -156,3 +156,6 @@ I used the flexural stress equation for a circular cantilever beam, $d = \left(\
 ### 3. Part-to-Part Compatibility & GD&T Communication
 
 Designing the link and bracket interface demonstrated how dimensioning and tolerancing communicate functional design intent. Specifying an RC 4 fit ensures that the link can rotate freely around the Feature A pin during strap angle changes without binding, while maintaining a sufficiently tight clearance to avoid localized point-impact loading. GD&T callouts act as an unambiguous language between the design engineer and the machine shop, ensuring parts manufactured in separate facilities assemble seamlessly without manual post-machining or custom fitting
+
+# CAD model Downloads
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A06/a05a06.prt.3
