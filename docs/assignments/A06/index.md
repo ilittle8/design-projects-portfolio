@@ -159,3 +159,4 @@ Designing the link and bracket interface demonstrated how dimensioning and toler
 
 # CAD model Downloads
 https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A06/a05a06.prt.3
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A06/linkage.prt.1
