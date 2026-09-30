@@ -6,6 +6,17 @@ In this project, my primary objective was to transition my analytical calculatio
 
 All CAD part files and drawing packages are available for download here: 
 
+#### Drawing Downloads
+[AO6 Drawing.pdf](https://github.com/user-attachments/files/32878415/AO6.Drawing.pdf)
+
+[Linkage AO6.pdf](https://github.com/user-attachments/files/32879197/Linkage.AO6.pdf)
+
+#### CAD model Downloads
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A06/a05a06.prt.3
+
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A06/linkage.prt.1
+
+
 <img width="1280" height="764" alt="Screenshot 2026-09-30 170402" src="https://github.com/user-attachments/assets/b0784a32-f790-4b89-8002-7e4d2b9a1abe" />
 
 
@@ -93,8 +104,7 @@ d4  = T_E       /* Top Lip Thickness = 0.0302 in */
 I generated multi-view engineering drawings for both the primary bracket assembly and the connecting link in PTC Creo Parametric, adhering strictly to ASME Y14.5 standards and third-angle projection conventions.
 
 
-[AO6 Drawing.pdf](https://github.com/user-attachments/files/32878415/AO6.Drawing.pdf)
-[Linkage AO6.pdf](https://github.com/user-attachments/files/32879197/Linkage.AO6.pdf)
+
 
 ### Bracket Drawing Specifications
 
@@ -129,6 +139,18 @@ I modeled a connecting link to transmit the horizontal force ($F = 670\text{ lbf
 * **Hole Callout:** $\varnothing 1.0000\text{ in} {}_{-0.0000}^{+0.0008}\text{ in}$
 * **Shaft Callout:** $\varnothing 1.0012\text{ in} {}_{-0.0000}^{+0.0006}\text{ in}$
 
+```ptc_creo
+/* --- REQUIRED NET CROSS-SECTIONAL AREA --- */
+A_NET_REQ = FORCE / SIGMA_ALLOW          /* 0.067 sq in */
+
+/* --- MINIMUM CALCULATED WIDTH ACROSS LARGEST HOLE --- */
+W_MIN = D_PIN + (A_NET_REQ / THICKNESS)  /* 1.109 + 0.268 = 1.377 in */
+
+/* --- FINAL DESIGN WIDTH WITH SAFETY MARGIN --- */
+WIDTH = 1.50                             /* Selected nominal width */
+
+```
+
 <img width="1280" height="764" alt="Screenshot 2026-09-30 181745" src="https://github.com/user-attachments/assets/7b9c8a15-c2c5-45d2-ae61-e7fa00cbea74" />
 
 
@@ -157,7 +179,3 @@ I used the flexural stress equation for a circular cantilever beam, $d = \left(\
 
 Designing the link and bracket interface demonstrated how dimensioning and tolerancing communicate functional design intent. Specifying an RC 4 fit ensures that the link can rotate freely around the Feature A pin during strap angle changes without binding, while maintaining a sufficiently tight clearance to avoid localized point-impact loading. GD&T callouts act as an unambiguous language between the design engineer and the machine shop, ensuring parts manufactured in separate facilities assemble seamlessly without manual post-machining or custom fitting
 
-# CAD model Downloads
-https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A06/a05a06.prt.3
-
-https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A06/linkage.prt.1
