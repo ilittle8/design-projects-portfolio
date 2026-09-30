@@ -94,7 +94,7 @@ I generated multi-view engineering drawings for both the primary bracket assembl
 
 
 [AO6 Drawing.pdf](https://github.com/user-attachments/files/32878415/AO6.Drawing.pdf)
-
+[Linkage AO6.pdf](https://github.com/user-attachments/files/32879197/Linkage.AO6.pdf)
 
 ### Bracket Drawing Specifications
 
@@ -110,10 +110,12 @@ I generated multi-view engineering drawings for both the primary bracket assembl
 * Internal channel clearance gap: $1.108\text{ in} {}_{-0.000}^{+0.005}\text{ in}$ to maintain precision alignment while preventing dynamic binding.
 
 
-
 ### Linkage Design & CAD Modeling
 
 I modeled a connecting link to transmit the horizontal force ($F = 670\text{ lbf}$) from the external strap to the Feature A pin.
+
+<img width="1280" height="764" alt="Screenshot 2026-09-30 181646" src="https://github.com/user-attachments/assets/c90766b3-8775-45af-afe2-a56e31369f1a" />
+
 
 * **Link Width ($w$):** $1.50\text{ in}$ (Net width across critical hole section $w_{\text{min}} = 1.377\text{ in}$)[
 * **Link Thickness ($t$):** $0.25\text{ in}$ (Standard plate stock)
@@ -127,6 +129,7 @@ I modeled a connecting link to transmit the horizontal force ($F = 670\text{ lbf
 * **Hole Callout:** $\varnothing 1.0000\text{ in} {}_{-0.0000}^{+0.0008}\text{ in}$
 * **Shaft Callout:** $\varnothing 1.0012\text{ in} {}_{-0.0000}^{+0.0006}\text{ in}$
 
+<img width="1280" height="764" alt="Screenshot 2026-09-30 181745" src="https://github.com/user-attachments/assets/7b9c8a15-c2c5-45d2-ae61-e7fa00cbea74" />
 
 
 ---
