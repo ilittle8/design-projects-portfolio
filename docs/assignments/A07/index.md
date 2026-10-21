@@ -14,12 +14,31 @@
 
 When I first read through the MEGR 2156 assignment prompt, I knew this project would test my ability to combine CAD modeling, finite element principles, and iterative design. My task was clear: take my previous bracket design and run it through a rigorous FEA-driven optimization process to make it as stiff, strong, and lightweight as possible. For the 2157 portion, I also needed to perform the exact same analysis and geometry optimization on a link component.
 
-Before jumping into Creo, I made sure to gather all my workspace resources and ensure my access to Creo Simulate was ready. You can download all of my CAD models and simulation files directly through this link: [Download CAD Models & Simulation Files](https://example.com/cad-files-download).
+Before jumping into Creo, I made sure to gather all my workspace resources and ensure my access to Creo Simulate was ready. You can download all of my CAD models and simulation files directly through these links:
 
-Overall, this entire engineering process took me **8.5 hours** from start to finish:
-* **Preprocessing & Boundary Setup:** 3.0 hours
-* **FEA Solving & Mesh Refinement:** 3.5 hours
-* **CAD Optimization & Documentation:** 2.0 hours
+**Bracket Designs 1-3**
+
+1. 
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A07/a07_design1.prt.1
+
+2.
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A07/a07_design2.prt.1
+
+3.
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A07/a07_design3.prt.1
+
+**Linkage Designs 1-3**
+
+1.
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A07/a07_linkage_design1.prt.1
+
+2.
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A07/a07_linkage_design2.prt.1
+
+3.
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A07/a07_linkage_design3.prt.1
+
+Overall, this entire engineering process took me **4 hours** from start to finish:
 
 ---
 
@@ -59,7 +78,8 @@ Before making any geometric modifications, I needed to run my inner loop validat
 3. **Attempt 3 (Minimum Element Size $0.0005$):** I went finer with a minimum element size of $0.0005$. Interestingly, the stress increased back up to $1.03164 \times 10^6\text{ psi}$. Comparing this against my original baseline:
    $$\text{Percent Difference} = \left| \frac{1,031,640 - 1,052,160}{1,052,160} \right| \times 100\% = 1.97\%$$
    Because $1.97\% \le 7\%$, my inner loop converged, giving me a reliable mesh size ($0.0005$) to carry forward into geometric optimization.
-
+<img width="1280" height="764" alt="Screenshot 2026-10-21 162059" src="https://github.com/user-attachments/assets/ef1d5784-b5fa-4bd2-9ad9-acba5d78e3ac" />
+<img width="1280" height="764" alt="Screenshot 2026-10-21 155810" src="https://github.com/user-attachments/assets/85af5580-bdc4-419d-bb61-551624cced68" />
 ---
 
 ### Outer Loop Execution: Bracket Geometry Iterations
@@ -70,11 +90,16 @@ Looking at my baseline contour plots, it was glaringly obvious that my vertical 
 * **Safety Factor:** $\text{SF} = \frac{40,000}{76,700.8} \approx 0.52$.
 * **Takeaway:** Although the stress dropped by over $90\%$, a safety factor of $0.52$ meant the bracket would still fracture in practice.
 
+<img width="1280" height="764" alt="Screenshot 2026-10-21 164110" src="https://github.com/user-attachments/assets/f4bbf3b2-b1f0-438d-85e3-31ea6da50722" />
+
 #### Bracket Design III
 To achieve a passing safety factor, I knew I needed both structural bulk and smooth stress transitions. I added an extra $1.0\text{ in}$ of thickness to the original member and added generous $1.0\text{ in}$ radius fillets at the sharp intersection between the horizontal bracket base and the vertical arm.
 * **Results:** The max stress dropped down to $9,741.91\text{ psi}$, situated smoothly along the new fillet transitions. Max deflection was reduced down to just $0.00890151\text{ in}$.
 * **Safety Factor:** $\text{SF} = \frac{40,000}{9,741.91} \approx 4.11$.
 * **Takeaway:** This yielded a highly robust, stiff, and completely functional design.
+
+<img width="1280" height="764" alt="Screenshot 2026-10-21 170754" src="https://github.com/user-attachments/assets/272b0ff9-cd9f-4777-bb21-273efcfa15cf" />
+
 
 ---
 
@@ -102,21 +127,19 @@ Next, I performed FEA on the link component using Aluminum 6061 ($\sigma_y = 40,
 ### Inner Loop Execution: Linkage Design I (Convergence Phase)
 
  **Attempt 1 (Element Size $0.0005\text{ in}$):** Peak Von Mises stress was identified as $\sigma_{\text{vm}} = 7,752.85\text{ psi}$.
-<img width="1280" height="764" alt="Screenshot 2026-10-21 162059" src="https://github.com/user-attachments/assets/ef1d5784-b5fa-4bd2-9ad9-acba5d78e3ac" />
-<img width="1280" height="764" alt="Screenshot 2026-10-21 155810" src="https://github.com/user-attachments/assets/85af5580-bdc4-419d-bb61-551624cced68" />
+
 
  **Attempt 2 (Element Size $0.0003\text{ in}$):** Peak stress increased to $8,001.94\text{ psi}$.
    $$\text{Percent Difference} = \left| \frac{8,001.94 - 7,752.85}{7,752.85} \right| \times 100\% = 316\%$$
    Since $3.16\% < 7\%$, the mesh had already technically converged, but I decided to push element density one step further to guarantee accuracy.
 
-<img width="1280" height="764" alt="Screenshot 2026-10-21 164110" src="https://github.com/user-attachments/assets/f4bbf3b2-b1f0-438d-85e3-31ea6da50722" />
+
 
 
  **Attempt 3 (Element Size $0.0002\text{ in}$):** Peak stress reached $8,223.34\text{ psi}$.
    $$\text{Percent Difference} = \left| \frac{8,223.34 - 8,001.94}{8,001.94} \right| \times 100\% = 2.73\%$$
    With $2.73\%$ difference, I locked in $0.0002\text{ in}$ as my converged minimum element size.
 
-<img width="1280" height="764" alt="Screenshot 2026-10-21 170754" src="https://github.com/user-attachments/assets/272b0ff9-cd9f-4777-bb21-273efcfa15cf" />
 
 
 ---
