@@ -1,8 +1,5 @@
 # A7 – FEA on Bracket & Linkage
 
-
-# Engineering Logbook & FEA Optimization Journey
-
 ## Introduction & Project Overview
 
 When I first read through the MEGR 2156 assignment prompt, I knew this project would test my ability to combine CAD modeling, finite element principles, and iterative design. My task was clear: take my previous bracket design and run it through a rigorous FEA-driven optimization process to make it as stiff, strong, and lightweight as possible. For the 2157 portion, I also needed to perform the exact same analysis and geometry optimization on a link component.
