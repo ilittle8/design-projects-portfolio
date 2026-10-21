@@ -1,5 +1,15 @@
 # A7 – FEA on Bracket & Linkage
 
+## Objectives
+* Use Finite Element Analysis (FEA) to improve the bracket design from previous assignments.
+* Ensure high stiffness, strength, and lightweight optimization through iterative design.
+* Conduct multiple FEA simulations, refining geometry based on results.
+* Perform static stress analysis, including constraints, loading, and meshing selection.
+* Interpret data by identifying max stress, displacement, and safety factors.
+* Optimize the design by modifying geometry to enhance performance.
+* Document the entire process with images, calculations, and insights.
+* Reflect on key engineering lessons learned and time spent.
+
 ## Introduction & Project Overview
 
 When I first read through the MEGR 2156 assignment prompt, I knew this project would test my ability to combine CAD modeling, finite element principles, and iterative design. My task was clear: take my previous bracket design and run it through a rigorous FEA-driven optimization process to make it as stiff, strong, and lightweight as possible. For the 2157 portion, I also needed to perform the exact same analysis and geometry optimization on a link component.
