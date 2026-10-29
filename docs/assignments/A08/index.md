@@ -3,6 +3,7 @@
 **Course:** MEGR 2156 / MEGR 2157 — Design Methodology & CAD  
 **Project:** Two-Shaft Spur Gearbox Enclosure, Shaft Sizing, and Bearing Analysis  
 **Software Used:** PTC Creo Parametric, McMaster-Carr CAD Integration  
+**CAD FILE LINKED HERE: https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A08/gearbox.asm.zip**
 
 ---
 
