@@ -43,6 +43,7 @@ The assembly was modeled in SolidWorks to visualize the relationship between the
 - Angle of contact: $\theta=180^\circ=\pi\text{ rad}$
 
 ### 3.2 Belt Tension Ratio
+<img width="902" height="265" alt="image" src="https://github.com/user-attachments/assets/816b88cb-a27a-48c8-874c-322486e613cb" />
 
 The relationship between the tight-side and loose-side belt tensions is estimated using the capstan equation:
 
@@ -117,6 +118,9 @@ $$
 ### 3.4 Minimum Belt Cross-Sectional Diameter
 
 The minimum belt cross-sectional area is determined by limiting the belt stress to the allowable stress:
+
+<img width="747" height="283" alt="image" src="https://github.com/user-attachments/assets/f4193a58-83f5-46ba-848a-b1bca312039c" />
+
 
 $$
 \sigma_{\text{allow}}=\frac{\sigma_y}{SF}
@@ -198,6 +202,7 @@ The selected belt should be checked against the calculated minimum cross-section
 - Shear yield strength used in the calculation: approximately $86.6\text{ ksi}$
 
 ### 4.2 Torsional Shear Stress
+<img width="600" height="166" alt="image" src="https://github.com/user-attachments/assets/957a3b51-e39e-4b03-9922-efd975c0a735" />
 
 For a solid circular shaft, the maximum torsional shear stress is:
 
@@ -253,6 +258,7 @@ This calculation considers torsion. Additional bending loads, stress concentrati
 ---
 
 ## 5. Part 3 – Journal Bearing Design
+<img width="1002" height="297" alt="image" src="https://github.com/user-attachments/assets/5bbbee3a-9706-4e44-8c2b-79c8811ec73f" />
 
 ### 5.1 Known Values
 
@@ -329,6 +335,7 @@ The bearing material should not be considered verified until both limits have be
 ---
 
 ## 6. Part 4 – Frame and SolidWorks Assembly
+<img width="2560" height="1380" alt="Screenshot 2026-11-04 204546" src="https://github.com/user-attachments/assets/61ac3f2e-937a-4b5e-96fc-43bcbb7b5c67" />
 
 The SolidWorks assembly represents the overall pulley-drive arrangement, including the two pulleys, shafts, and connecting support structure.
 
@@ -360,6 +367,7 @@ The SolidWorks assembly provides a visual representation of the design layout. F
 
 This design process demonstrated how the different components of a belt-drive system are connected.
 
+- This project took me about 6 hours to complete
 - Belt tension determines the torque that can be transmitted through the pulleys.
 - The difference between tight-side and loose-side tension determines transmitted torque.
 - Belt cross-sectional area must be sufficient to keep tensile stress below the allowable stress.
