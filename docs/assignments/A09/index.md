@@ -1,6 +1,8 @@
 # A9 – Pulleys
 # Belt Drive Design – MEGR 2156 Assignment 8
 
+CAD File linked here: https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/A09/A09Assembly.SLDASM
+
 ## 1. Project Overview
 
 This project involves designing a belt-drive assembly connecting two parallel shafts. The design includes pulley selection, belt sizing, shaft sizing, journal-bearing analysis, and a supporting frame.
