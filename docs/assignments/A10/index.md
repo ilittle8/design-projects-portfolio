@@ -48,6 +48,7 @@ This assumption requires the two screws to be properly aligned and driven synchr
 ## 2. Minimum Screw Diameter from Axial Stress
 
 I calculated the minimum required screw diameter using the axial normal-stress relationship:
+<img width="179" height="137" alt="image" src="https://github.com/user-attachments/assets/daf9c05f-f1dc-4d5c-8e98-f68c2260a03e" />
 
 $\sigma=\frac{F}{A}$
 
@@ -80,6 +81,7 @@ For a threaded screw, I used the minor (root) diameter for this preliminary chec
 ---
 
 ## 3. Lead Selection and Rotational Speed
+<img width="317" height="153" alt="image" src="https://github.com/user-attachments/assets/2c447b3d-e9b6-48b6-b3a4-f38c70ec0b3d" />
 
 My initial goal was to use a relatively small lead so that the crosshead displacement per revolution would be small. I initially considered a lead of 1 mm/rev.
 
@@ -245,6 +247,7 @@ I should not claim that the purchased screw has this exact material grade until 
 ---
 
 ## 7. Lead-Screw Torque and Free-Body Diagram
+<img width="340" height="217" alt="image" src="https://github.com/user-attachments/assets/dba6108d-abf7-4fa9-80c5-f9c237b08e8f" />
 
 I completed the mean-diameter work, torque derivation, and free-body diagram for the selected lead-screw system.
 
@@ -280,6 +283,7 @@ I did not multiply the required operating torque by the factor of safety of 4. T
 ## 8. Bronze Nut and Steel Flange Selection
 
 After selecting the lead screw, I selected a compatible bronze nut and steel mounting flange.
+<img width="275" height="213" alt="image" src="https://github.com/user-attachments/assets/3ecb6c27-e1c0-43ea-8554-d05f6446ee5d" />
 
 ### 8.1 Bronze Nut
 
@@ -315,6 +319,7 @@ The bronze nut's external mounting thread engages the matching internal thread i
 I selected the steel flange to provide the mounting interface between the bronze nut assembly and the crosshead. The exact steel grade of the flange has not been established.
 
 ### 8.3 Nut Internal Acme Thread Bearing-Bending Analysis
+<img width="347" height="387" alt="image" src="https://github.com/user-attachments/assets/e688f30d-81a4-4439-994a-760a2459191a" />
 
 I previously completed the bearing-bending analysis for the internal Acme threads in the bronze nut that engage the steel lead screw.
 
