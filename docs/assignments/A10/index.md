@@ -1,6 +1,6 @@
 # A10 – Lead Screw Translating System
 
-# Lead Screw System Design — Tensile Tester
+# ISAIAH LITTLE: Lead Screw System Design — Tensile Tester 
 
 ## Project Overview
 
@@ -554,24 +554,6 @@ The actual crosshead material and thickness still need to be selected. The threa
 
 ---
 
-## 11. Remaining Checks Before Finalizing the Design
-
-- [ ] Verify the exact bronze alloy used in Roton nut part 91734.
-- [ ] Verify the actual nut engagement length and manufacturer load-rating conditions.
-- [ ] Verify the exact material grade and condition of the selected lead screw.
-- [ ] Verify the manufacturer's torque-ratio definition and operating conditions.
-- [ ] Verify the actual 0.563–18 UNF engagement between the bronze nut and steel flange.
-- [ ] Select the crosshead steel grade and thickness.
-- [ ] Recalculate internal thread stripping using the actual crosshead material properties and final hole geometry.
-- [ ] Check bolt preload and possible flange prying.
-- [ ] Check nonuniform bolt loading and the complete bolted-joint load path.
-- [ ] Check flange bending and bearing stresses.
-- [ ] Check screw buckling, alignment, bearing support, and synchronization.
-- [ ] Check crosshead strength and deflection.
-- [ ] Complete the crosshead CAD model and detailed drawing.
-
----
-
 ## 12. Design Decisions and Lessons Learned
 
 1. I began by calculating a minimum screw diameter from axial stress using a factor of safety of 4.
@@ -587,6 +569,4 @@ The actual crosshead material and thickness still need to be selected. The threa
 11. I learned that a strong bolt does not automatically guarantee a strong bolted connection. The internal threads in the component receiving the bolt must also be checked.
 12. I distinguished theoretical minimum engagement from a practical design engagement. The preliminary 0.250 in engagement target is more practical than the very short theoretical result from the simplified stripping calculation.
 
----
 
-*This document records my current design process, calculations, component selections, and assumptions. Material properties, engagement dimensions, and manufacturer ratings identified as unverified must be confirmed before the design is treated as final.*
