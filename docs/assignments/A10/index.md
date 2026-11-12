@@ -1,5 +1,15 @@
 # A10 – Lead Screw Translating System
 
+
+<img width="243" height="303" alt="image" src="https://github.com/user-attachments/assets/5faa3684-6acc-417d-ba3f-74efd00a8cce" />
+<img width="255" height="338" alt="image" src="https://github.com/user-attachments/assets/b7505d4a-bd5a-4e10-9839-2eedcb97c56e" />
+
+
+https://github.com/CadlesCelica/megr2157-portfolio/blob/a199ec852c9246e184446d967a62946b31b4bcb3/docs/assignments/A10/crosshead.STEP
+
+Step file ^^^^
+
+
 # ISAIAH LITTLE: Lead Screw System Design — Tensile Tester 
 
 ## Project Overview
