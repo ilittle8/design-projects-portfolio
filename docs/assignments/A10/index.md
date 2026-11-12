@@ -574,4 +574,247 @@ The actual crosshead material and thickness still need to be selected. The threa
 11. I learned that a strong bolt does not automatically guarantee a strong bolted connection. The internal threads in the component receiving the bolt must also be checked.
 12. I distinguished theoretical minimum engagement from a practical design engagement. The preliminary 0.250 in engagement target is more practical than the very short theoretical result from the simplified stripping calculation.
 
+# Crosshead Design - Aidan Cadle
+
+In building the tensile tester, the crosshead had to be designed with a factor of safety of 4, a maximum deflection of 0.1 mm, and support a tensile load of 2 kN. Given the constraints and example of "low cost" testers, the chosen material is 6061-O Aluminum, and the center to center distance between the two lead screw holes is 8 in. 
+6061-O Aluminum has a yield strength of 62.05 MPa, and an elastic modulus E = 69 GPa.
+
+![calc 1](<A10 Scans_page-0001.jpg>)
+
+Initially, the calculations assumed a square cross sectional area. However, this would lead the flange to "stick out" from the crosshead and mount incorrectly, so the calculations were repeated using a rectangular cross sectional area. 
+
+![calc 2](<A10 Scans_page-0002.jpg>)
+
+Calculations were repeated, but now the width of the crosshead was set to 1.6 in, the outer diameter of the flange. Using the equations for a fixed beam with a load in the center, calculating for both stress and strain, the minimum height of the crosshead was determined to be 0.866 in. 
+
+Under the calculations, the rough multi angle sketch, with a top, front, and right view is included. While not specifically labeled, the material of the crosshead is 6061-O Aluminum, as described above. 
+Holes are included for the lead screws, flange mounting, and specimen mounting solution. 
+
+# Parametric Modelling
+
+## Crosshead - Aidan Cadle
+
+For the 3D model, the part was parametrically calculated.
+Variables and equations were defined for every useful value needed within the calculations.
+
+![eqn](eqn.png)
+
+After all of the variables, equations, and metric to imperial conversions were applied, the result matched that of the previously calculated value.
+
+Now, the sketch can be defined using these variables and calculated values.
+
+![sketch](<bar sketch.png>)
+
+The sketch was then extruded out using parametric techniques.
+
+![ext](extrude.png)
+
+The final part, parametrically produced. 
+
+![Part](<part iso.png>)
+
+
+# FEA - Aidan Cadle
+
+## Initial Part
+
+For the FEA, some assumptions were made about the configuration.
+
+The mounting holes for the flange were treated as fixed geometry.
+
+![fix 1](<fea files/fea fixtures.png>)
+
+The tensile load was treated as acting down through the specimen mounting hole.
+
+![loading](<fea files/fea loading.png>)
+
+The test was run three times, with the mesh density increasing each time.
+
+For the first run, the mesh was coarse.
+
+![mesh 1](<fea files/mesh 1.png>)
+
+The results for the first run.
+
+![stress 1](<fea files/von mises coarse.png>)
+
+Peak stress is 35MPa.
+
+![disp 1](<fea files/displacement coarse.png>)
+
+Peak displacement is 0.03 mm.
+
+![Fos 1](<fea files/fos coarse.png>)
+
+The minimum factor of safety is 1.763.
+
+The mesh size was then increased to medium, between coarse and fine
+
+![mesh 2](<fea files/mesh 2.png>)
+
+Rerunning the study, the displacement converged within 10%, but the factor of safety and peak stress did not.
+
+![disp 2](<fea files/disp mid.png>)
+
+Peak displacement is 0.03124 mm.
+
+![Stress 2](<fea files/von mises mid.png>)
+
+Peak stress is 42.5 MPa
+
+![fos 2](<fea files/fos mid.png>)
+
+The minimum factor of safety is 1.461
+
+Since the results did not converge within 10%, the part was re-analyzed. 
+
+The mesh density was increased to fine.
+
+![mesh 3](<fea files/mesh 3.png>)
+
+On this run, the values almost converged within 10%, but did not.
+
+![stress 3](<fea files/stress 3.png>)
+
+Peak stress is 47.1 MPa.
+
+![disp 3](<fea files/disp 3.png>)
+
+Peak displacement is 0.03129 mm.
+
+![fos 3](<fea files/fos 3.png>)
+
+The minimum factor of safety is 1.317.
+
+Since the peak stress and resulting factor of safety are not within the allowable range, some changes will be made to improve the characteristics of the crossbar.
+
+The maximum stress occurred at the inner most mounting hole for the flange, in the direction of the center of the beam. The hole for the specimen gripper also had elevated stress, but that moved out towards the side of the beam. 
+Peak deflection always occurred in the middle of the beam near the load. 
+
+The initial mass is 1.24 lbs.
+
+## Modifications
+
+Fillets will be added to the holes to reduce the stress concentration, with a radius of 1/8 in on all edges.
+Additionally, a boss will be added for the flange to increase rigidity, with a thickness of 1/4 in.
+Since the initial stress was much higher than expected, the height of the beam was doubled compared to the original calculated value.
+
+Modified beam
+
+![beam](<fea files/part change.png>)
+
+Similar to the first round of FEA, the mesh started at coarse.
+
+The peak stress is 9 MPa.
+
+![stress 1](<fea files/stress 2 1.png>)
+
+The peak displacement is 0.00578 mm.
+
+![disp 2 1](<fea files/disp 2 1.png>)
+
+The minimum factor of safety is 6.84
+
+![fos 2 1](<fea files/fos 2 1.png>)
+
+The mesh was then increased to medium
+
+The peak stress is 11.5 MPa
+
+![stress 2 2](<fea files/stress 2 2.png>)
+
+The peak displacement is 0.005813
+
+![disp 2 2](<fea files/displacement 2 2.png>)
+
+The minimum factor of safety is 5.398
+
+![fos 2 2](<fea files/factor of safety 2 2.png>)
+
+Since these values do not converge, a final run using the fine mesh will be conducted.
+
+The peak stress is 12.3 MPa
+
+![stress 2 3](<fea files/stress 2 3.png>)
+
+The peak displacement is 0.00582 mm
+
+![disp 2 3](<fea files/displacement 2 3.png>)
+
+The minimum factor of safety is 5.039.
+
+![fos 2 3](<fea files/fos 2 3.png>)
+
+These values converge within 10%, so the values calculated using the fine mesh will be used. 
+
+Despite the changes, the general locations of the peak stress and displacement did not change.
+The modified part is within the given specifications.
+
+There were no notable changes in stress or displacement patterns. 
+
+The final mass is 2.56 lbs. 
+ 
+## Lessons Learned - Aidan Cadle
+In completing this assignment, there were many valuable lessons that I began to realize. For one, it is important to trust in your teammates decisions, and know that you can depend on them. This is a drastic change compared to my experience in ENGR 1300, where half of my group failed the class and did not contribute once learning that they could not pass. Additionally, I gained knowledge about additional mkdocs formatting, and realized I had not even scratched the surface of what was possible. In analyzing the beams, I realized that beams should almost always be treated as simply supported, as opposed to fixed. Including document formatting, I spent about 9 hours on my portion of the assignment. 
+
+# Specimen Gripping & Parametric Modelling - Jack Brandon 
+
+## Objective:
+
+Provide robust specimen gripping, simple calibration provisions (mechanical), and safe, ergonomic operation. 
+
+## Analyze:
+
+I began the design process by visualizing the simplest and most effective way to constrain specimens of different shapes. The idea that came to mind was a c-clamp/vise style mechanism to hold the specimen in place during testing. This mechanism would allow for adjustable clamping location and force for different size and shape specimens as well as ergonomic handles to allow for necessary torque to be applied to the clamp bolts. Furthemore, the gripper needed to be modular so that it could be threaded to the load cell as well as the crosshead to hold the top and bottom of the specimen.
+
+For design inspiration, I researched various tensile testers to understand how the specimen was typically constrained.
+
+Examples:
+
+![pic 1](<jack image files/image2.png>)
+
+![pic 2](<jack image files/image6.png>)
+
+## Specimen Gripper Model
+
+![pic 3](<jack image files/image1.png>)
+
+Download: https://a360.co/4jaEOpG
+
+## Assembly Model
+
+![pic 4](<jack image files/image4.png>)
+
+Download: https://a360.co/4sRWwSe
+
+![pic 5](<jack image files/image3.png>)
+
+The parameters used for the assembly were the T-slot stock height (h) and width (w). These parameters were used to simplify the dimensioning of the length of the bars in the frame assembly. 
+
+## Crosshead Drawing
+
+![pic 6](<jack image files/image5.png>)
+
+## Lessons Learned -  Jack Brandon
+
+My main task in this project was to design and parametrically model the specimen gripper and tensile tester assembly. This entailed many hours spent brainstorming, designing, and making adjustments to the gripper sub-assembly and finally the main assembly. The main challenge was mostly with the T-slot stock. It involved the importing of the T-slot stock (which only came in a length of 3 meters), converting it to inches, extrude cutting to a more appropriate length, and figuring out how to copy the new base piece to create new pieces that would be different lengths. This involved some parametric technique in order to ensure the pieces lined up/were the correct length for the frame. I ran into many issues with parts not wanting to move or be constrained after being copied. Luckily I discovered the “copy new” function in Fusion which finally allowed me to do what was needed. Still, aligning and constraining the parts into the final assembly was a difficult process to say the least and it took several iterations to finally get it right. I spent a total of 8 hours doing my task and another hour formatting and compiling the other parts from the other group members into my portfolio. 
+
+
+## Tabulating Costs - Group Effort, Aidan Formatting
+| Item Number | Quantity | Name | Cost per Item | Total Cost | Link |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 1 | 2 | Toggle Clamp Holding Screw | $7.09 | $14.18 | [link](https://www.mcmaster.com/5147A28/) | 
+| 2 | 1 | T-Slot Framing System: Rectangle, 40 Series, Smooth, Double, 3 m Nom Lg, 80 mm x 40 mm, 6 Slots, Std | $245.87 | $245.87 | [link](https://www.grainger.com/product/80-20-T-Slot-Framing-System-Rectangle-804T48) | 
+| 3 | 2 | Acme Lead Screw, 1/4 – 20, RH, Steel | $27.96 | $55.92 | [link](https://www.mcmaster.com/99030A984/) | 
+| 4 | 2 | Precision Acme Externally Threaded Nut 360 Brass, 1/4"-20 Thread Size | $58.86 | $117.72 | [link](https://www.mcmaster.com/95072A171/) |
+| 5 | 2 | Precision Acme Flange Black-Oxide 1117 Carbon Steel, 9/16"-18 Thread Size | $61.78 | $123.56 | [link](https://www.mcmaster.com/1329K101/) |
+| 6 | 8 | 18-8 Stainless Steel Pan Head Phillips Screw, 1/4"-20 Thread, 1/4" Long | $0.18 | $1.44 | [link](https://www.mcmaster.com/91772A533/) |
+| 7 | 1 | 2"x 2"x 1' 6061 Aluminum Billet | $55.83 | $55.83 | [link](https://www.mcmaster.com/9008K53-9008K531/) |
+|  |  |  | Total Cost | $614.52  |  |
+
+The final, modified cross bar can be found [HERE](crosshead.SLDPRT)
+
+
+
+
 
