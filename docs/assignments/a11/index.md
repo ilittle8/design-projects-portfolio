@@ -1,31 +1,12 @@
-# A11 – Motor Selection
-
-## Objective
-
-
-## Analyze
-
-
-## Decide
-_Reference your concept selection (Pugh matrix) here. How does this design follow from that decision?_
-
-## Communicate
-
 # MEGR Leadscrew Tensile Tester — Design Documentation
 
 ## 1. Project Overview
 
-The objective of this project is to design a leadscrew-driven tensile tester capable of applying a controlled tensile load to a specimen. The system uses two parallel Acme leadscrews to move the crosshead.
+The objective of this project is to design a leadscrew-driven tensile tester capable of applying a controlled tensile load to a specimen. The design uses two parallel Acme leadscrews to move the crosshead.
 
-The design work completed so far includes:
+The documented design work includes the selection of the leadscrew and nut materials, mounting hardware, preliminary fastener analysis, operating torque calculations, and motor selection.
 
-- Selection of the leadscrew and nut materials.
-- Selection of the threaded mount nut and mounting flange.
-- Preliminary flange-to-crosshead fastener calculations.
-- Calculation of the operating torque required by each leadscrew.
-- Preliminary selection of the stepper gearmotor.
-
-The design uses **one motor per leadscrew**, meaning two identical motors will drive the assembly.
+The system uses two motors, with one motor independently driving each leadscrew.
 
 ---
 
@@ -33,405 +14,350 @@ The design uses **one motor per leadscrew**, meaning two identical motors will d
 
 ### 2.1 Material Selection
 
-The selected leadscrew material is AISI 1020 cold-drawn steel. A bronze nut was selected to reduce the likelihood of wear and galling compared with a dry steel-on-steel sliding interface.
+An AISI 1020 cold-drawn steel leadscrew was selected with a bronze Acme nut. This material combination was chosen to reduce wear and the likelihood of galling compared with a dry steel-on-steel sliding interface.
 
-The selected combination is:
-
-- Leadscrew: AISI 1020 cold-drawn steel.
-- Nut: Bronze.
-- Thread type: Acme.
-- Thread size: 1/4-20 Acme.
-
-The exact bronze alloy must still be verified against the manufacturer's material specifications.
+The selected thread specification is $1/4$-20 Acme.
 
 ### 2.2 Nut Selection
 
-The selected component is the Roton bronze Acme threaded mount nut:
+The selected component is the Roton bronze Acme threaded mount nut, part number **91734**.
 
-- Part number: 91734.
-- Internal thread: 1/4-20 Acme.
-- External mounting thread: 0.563-18 UNF.
+| Specification | Selection |
+|---|---|
+| Manufacturer | Roton |
+| Part number | 91734 |
+| Material | Bronze |
+| Internal thread | $1/4$-20 Acme |
+| External mounting thread | 0.563-18 UNF |
 
 ### 2.3 Mounting Flange Selection
 
-The selected mounting flange is the Roton steel mounting flange:
+The selected mounting flange is the Roton steel mounting flange, part number **89837**.
 
-- Part number: 89837.
-- Center thread: 0.563-18 UNF.
-- Outside diameter: 1.600 in.
-- Thickness: 0.410 in.
-- Number of mounting holes: 4.
-- Mounting-hole diameter: 0.266 in.
-- Bolt-circle diameter: 1.125 in.
+| Specification | Dimension |
+|---|---:|
+| Center thread | 0.563-18 UNF |
+| Outside diameter | 1.600 in |
+| Thickness | 0.410 in |
+| Number of mounting holes | 4 |
+| Mounting-hole diameter | 0.266 in |
+| Bolt-circle diameter | 1.125 in |
 
-The flange is mounted to the underside of the crosshead.
+The steel flange is mounted to the underside of the crosshead and provides the mounting interface for the bronze threaded nut.
 
 ---
 
 ## 3. Flange-to-Crosshead Fastener Analysis
 
-Four 1/4-20 UNC SAE Grade 5 bolts were selected for attaching each flange to the crosshead.
+Four $1/4$-20 UNC SAE Grade 5 bolts were selected to attach the mounting flange to the crosshead.
 
 ### 3.1 Load Distribution
 
-The preliminary analysis assumes that one flange experiences an axial load of 1000 N.
+The preliminary analysis assumes an axial load of $1000\text{ N}$ acting on one flange. The load is distributed equally among the four mounting bolts.
 
-Assuming equal load distribution among the four bolts:
+The force carried by each bolt is:
 
-\[
+$$
 F_{\text{bolt}}=\frac{F_{\text{total}}}{n}
-\]
+$$
 
-\[
+Substituting:
+
+$$
 F_{\text{bolt}}=\frac{1000}{4}
-\]
+$$
 
-\[
+$$
 \boxed{F_{\text{bolt}}=250\text{ N}}
-\]
+$$
+
+Converting to pounds-force:
+
+$$
+F_{\text{bolt}}=250(0.22481)
+$$
+
+$$
+\boxed{F_{\text{bolt}}=56.20\text{ lbf}}
+$$
 
 ### 3.2 Bolt Tensile Stress
 
-The tensile stress area of a 1/4-20 UNC bolt is:
+The tensile stress area for a $1/4$-20 UNC bolt is:
 
-\[
+$$
 A_t=0.0318\text{ in}^2
-\]
+$$
 
-The tensile stress is:
+The tensile stress is calculated using:
 
-\[
+$$
 \sigma_t=\frac{F}{A_t}
-\]
+$$
 
-Using the force converted to pounds:
+Substituting:
 
-\[
-F=250(0.22481)=56.20\text{ lbf}
-\]
-
-\[
+$$
 \sigma_t=\frac{56.20}{0.0318}
-\]
+$$
 
-\[
+$$
 \boxed{\sigma_t\approx1767\text{ psi}}
-\]
+$$
 
-Using an assumed Grade 5 bolt yield strength of 92 ksi:
+Using an assumed Grade 5 bolt yield strength of $92,000\text{ psi}$, the factor of safety is:
 
-\[
+$$
 SF=\frac{S_y}{\sigma_t}
-\]
+$$
 
-\[
+$$
 SF=\frac{92000}{1767}
-\]
+$$
 
-\[
+$$
 \boxed{SF\approx52.1}
-\]
+$$
 
-This is a preliminary direct-tension check. It does not independently verify flange bending, prying, preload, or unequal bolt loading.
+This calculation evaluates the direct tensile stress in each bolt under the assumed equal load distribution.
 
-### 3.3 Preliminary Thread Engagement
+### 3.3 Preliminary Thread Engagement Analysis
 
-A preliminary crosshead thread-stripping calculation was performed using the following assumptions:
+A preliminary crosshead thread-stripping calculation was performed using an assumed crosshead steel tensile strength of $420\text{ MPa}$.
 
-- Crosshead material tensile strength: 420 MPa.
-- Estimated thread shear strength:
+The estimated thread shear strength was calculated as:
 
-\[
+$$
 S_{su}=0.5S_{ut}
-\]
+$$
 
-\[
-S_{su}=0.5(420)=210\text{ MPa}
-\]
+$$
+S_{su}=0.5(420)
+$$
 
-The estimated internal thread shear area was modeled as:
+$$
+\boxed{S_{su}=210\text{ MPa}}
+$$
 
-\[
+The internal thread shear area was modeled using:
+
+$$
 A_{\text{int}}=0.539L_e
-\]
+$$
 
-where \(L_e\) is the engagement length in inches.
+where $L_e$ is the engagement length in inches.
 
-For a target safety factor of 4, the theoretical required engagement was estimated as:
+For a target safety factor of 4, the theoretical engagement length was estimated as:
 
-\[
-L_e\approx0.0137\text{ in}
-\]
+$$
+\boxed{L_e\approx0.0137\text{ in}}
+$$
 
-Because this is shorter than one thread pitch, a practical preliminary full-thread engagement target of:
+Because this theoretical engagement length is shorter than one thread pitch, a practical full-thread engagement length of $0.250\text{ in}$ ($6.35\text{ mm}$) was proposed.
 
-\[
-\boxed{L_e=0.250\text{ in}=6.35\text{ mm}}
-\]
+The estimated factor of safety at this engagement length was approximately:
 
-was proposed.
+$$
+\boxed{SF\approx73}
+$$
 
-The estimated safety factor at this engagement was approximately 73 under the assumed model. This is not a verified final result because the actual crosshead material and thickness have not yet been established.
+These results are based on the assumed crosshead material properties and the preliminary thread-stripping model.
 
 ---
 
 ## 4. Leadscrew Operating Torque
 
-The preliminary operating torque calculation for the selected 1/4-20 leadscrew resulted in:
+The operating torque calculated for one selected $1/4$-20 leadscrew was:
 
-\[
+$$
 \boxed{T_{\text{screw}}=0.635\text{ N}\cdot\text{m}}
-\]
+$$
 
-This value represents the operating torque required by one leadscrew.
+Because the tensile tester uses two leadscrews, the combined operating torque is:
 
-Since the design uses one motor per leadscrew, each motor must independently provide the required torque.
-
-The total operating torque for both screws is:
-
-\[
+$$
 T_{\text{total}}=2T_{\text{screw}}
-\]
+$$
 
-\[
+Substituting:
+
+$$
 T_{\text{total}}=2(0.635)
-\]
+$$
 
-\[
+$$
 \boxed{T_{\text{total}}=1.27\text{ N}\cdot\text{m}}
-\]
+$$
 
-However, the individual motor sizing requirement is based on 0.635 N·m per motor rather than the combined torque.
+The motor configuration uses one motor per leadscrew. Therefore, each motor is sized for the individual operating torque of $0.635\text{ N}\cdot\text{m}$.
 
 ---
 
-## 5. Motor Selection — Task 1
+## 5. Motor Selection
 
 ### 5.1 Motor Type Selection
 
-Three motor configurations were considered:
+Three motor configurations were considered: DC motors, stepper motors, and geared motors.
 
-- DC motor.
-- Stepper motor.
-- Geared motor.
+A stepper gearmotor was selected because it combines the incremental positioning capability of a stepper motor with the increased output torque and reduced rotational speed provided by a gearbox.
 
-A stepper gearmotor was selected as the preferred configuration because it combines the positioning capability of a stepper motor with the increased output torque and reduced output speed provided by a gearbox.
+The selected motor candidate is the **McMaster-Carr 4801N14 NEMA 23 stepper gearmotor**.
 
-The selected candidate is:
-
-**McMaster-Carr Part Number: 4801N14**
-
-This is a NEMA 23 stepper gearmotor.
-
-Two identical motors will be used, with one motor driving each leadscrew.
+Two identical motors are used in the design, with each motor independently driving one leadscrew.
 
 ### 5.2 Motor Operating Requirements
 
-The preliminary motor requirements are:
+The preliminary operating requirements for each motor are:
 
-| Parameter | Requirement |
+| Parameter | Value |
 |---|---:|
-| Operating torque per motor | 0.635 N·m |
+| Operating torque | $0.635\text{ N}\cdot\text{m}$ |
 | Design safety factor | 4 |
-| Required design torque per motor | 2.54 N·m |
-| Minimum screw speed | 0.79 RPM |
-| Maximum screw speed | 39.37 RPM |
+| Required design torque | $2.54\text{ N}\cdot\text{m}$ |
+| Minimum screw speed | $0.79\text{ RPM}$ |
+| Maximum screw speed | $39.37\text{ RPM}$ |
 | Number of motors | 2 |
 | Leadscrews per motor | 1 |
 
 The required design torque is calculated using:
 
-\[
+$$
 T_{\text{design}}=SF(T_{\text{operating}})
-\]
+$$
 
-\[
+Substituting:
+
+$$
 T_{\text{design}}=4(0.635)
-\]
+$$
 
-\[
+$$
 \boxed{T_{\text{design}}=2.54\text{ N}\cdot\text{m}}
-\]
+$$
 
-### 5.3 Preliminary Screw Speed Calculation
+### 5.3 Leadscrew Speed Calculation
 
-For a single-start 1/4-20 leadscrew, the lead is:
+The selected leadscrew is a single-start $1/4$-20 Acme screw. Its lead is:
 
-\[
+$$
 L=\frac{25.4}{20}
-\]
+$$
 
-\[
+$$
 \boxed{L=1.27\text{ mm/rev}}
-\]
+$$
 
-The rotational speed is determined by:
+The rotational speed is determined from the required linear crosshead speed:
 
-\[
+$$
 N=\frac{v}{L}
-\]
+$$
 
 where:
 
-- \(N\) = rotational speed in RPM.
-- \(v\) = linear crosshead speed in mm/min.
-- \(L\) = leadscrew lead in mm/rev.
+- $N$ = rotational speed in RPM.
+- $v$ = linear crosshead speed in mm/min.
+- $L$ = leadscrew lead in mm/rev.
 
-Using the preliminary assumed linear speed range of 1–50 mm/min:
+Using a preliminary linear speed range of $1$ to $50\text{ mm/min}$:
 
 **Minimum rotational speed:**
 
-\[
+$$
 N_{\min}=\frac{1}{1.27}
-\]
+$$
 
-\[
+$$
 \boxed{N_{\min}=0.787\text{ RPM}}
-\]
+$$
 
 **Maximum rotational speed:**
 
-\[
+$$
 N_{\max}=\frac{50}{1.27}
-\]
+$$
 
-\[
+$$
 \boxed{N_{\max}=39.37\text{ RPM}}
-\]
+$$
 
-These linear speed limits must be confirmed against the assignment requirements.
+### 5.4 Motor Torque-Speed Curve Evaluation
 
-### 5.4 Torque-Speed Curve Evaluation
+The McMaster-Carr torque-speed chart for part 4801N14 was evaluated to determine whether the motor could supply the required torque throughout the operating speed range.
 
-The McMaster-Carr torque-speed chart for part 4801N14 was evaluated to determine whether the motor could meet the required operating torque at the maximum screw speed.
+The manufacturer's chart specifies the following operating conditions:
 
-The chart specifies the following test conditions:
+| Parameter | Value |
+|---|---:|
+| Supply voltage | 24 V DC |
+| Current | 2.2 A |
+| Stepping configuration | Half-stepping |
 
-- Supply voltage: 24 V DC.
-- Current: 2.2 A.
-- Stepping configuration: Half-stepping.
+At approximately $40\text{ RPM}$, the torque-speed curve indicates an available torque of approximately $700\text{ oz}\cdot\text{in}$.
 
-At approximately 40 RPM, the torque-speed curve indicates an available torque of approximately 700 oz·in.
+The torque conversion is:
 
-Converting this torque into N·m:
+$$
+1\text{ oz}\cdot\text{in}
+=0.0070616\text{ N}\cdot\text{m}
+$$
 
-\[
-1\text{ oz}\cdot\text{in}=0.0070616\text{ N}\cdot\text{m}
-\]
+Therefore:
 
-\[
+$$
 T_{\text{available}}=700(0.0070616)
-\]
+$$
 
-\[
+$$
 \boxed{T_{\text{available}}\approx4.94\text{ N}\cdot\text{m}}
-\]
+$$
 
-### 5.5 Motor Safety Factor Verification
+### 5.5 Motor Factor of Safety Verification
 
-The available safety factor at approximately 40 RPM is:
+The available factor of safety at approximately $40\text{ RPM}$ is calculated by comparing the available motor torque with the operating torque required by one leadscrew.
 
-\[
-SF_{\text{available}}=
-\frac{T_{\text{available}}}{T_{\text{operating}}}
-\]
+$$
+SF_{\text{available}}
+=\frac{T_{\text{available}}}{T_{\text{operating}}}
+$$
 
-\[
-SF_{\text{available}}=
-\frac{4.94}{0.635}
-\]
+Substituting:
 
-\[
+$$
+SF_{\text{available}}=\frac{4.94}{0.635}
+$$
+
+$$
 \boxed{SF_{\text{available}}\approx7.78}
-\]
+$$
 
-The required design safety factor is 4.
+The required design torque is:
 
-Comparing the available torque against the required design torque:
+$$
+T_{\text{design}}=2.54\text{ N}\cdot\text{m}
+$$
 
-\[
+Comparing the available torque with the required design torque:
+
+$$
 4.94\text{ N}\cdot\text{m}
 >
 2.54\text{ N}\cdot\text{m}
-\]
+$$
 
-Therefore, based on the approximate torque-speed curve reading, the 4801N14 satisfies the preliminary torque requirement at the maximum calculated screw speed.
+The motor therefore satisfies the preliminary torque requirement at the maximum calculated leadscrew speed, based on the approximate torque read from the manufacturer's curve.
 
-This evaluation uses the torque shown on the manufacturer's gearmotor curve. The graph's exact output measurement conditions and continuous-duty limits should be confirmed before finalizing the selection.
+### 5.6 Motor Selection Result
 
-### 5.6 Preliminary Motor Selection Result
+The selected preliminary motor is the McMaster-Carr **4801N14 NEMA 23 stepper gearmotor**.
 
-The McMaster-Carr 4801N14 stepper gearmotor is the preliminary motor selection.
+The motor was selected because its torque-speed curve indicates sufficient output torque at the maximum calculated leadscrew speed. Its geared configuration also provides the low rotational speeds and increased torque needed for the tensile tester.
 
-The motor was selected because:
+The final preliminary motor configuration consists of:
 
-1. It provides sufficient torque at the required maximum screw speed according to the supplied torque-speed curve.
-2. Its geared configuration is suitable for the low rotational speeds required by the leadscrews.
-3. Its stepper-motor configuration allows controlled incremental rotation.
-4. Using one motor per leadscrew reduces the torque requirement imposed on each motor.
+- Motor: McMaster-Carr 4801N14
+- Motor type: NEMA 23 stepper gearmotor
+- Quantity: 2
+- Configuration: One motor per leadscrew
 
-The preliminary selection is:
-
-\[
-\boxed{\text{Quantity: 2 McMaster-Carr 4801N14 motors}}
-\]
-
----
-
-## 6. Remaining Work and Verification
-
-The following items remain before the design can be considered finalized.
-
-### Motor and Drive System
-
-- [ ] Confirm the motor's continuous-duty torque rating.
-- [ ] Verify torque availability at the minimum operating speed.
-- [ ] Confirm gearbox output torque and speed ratings.
-- [ ] Select compatible stepper drivers and power supplies.
-- [ ] Determine how the two motors will be synchronized.
-- [ ] Verify that both motors maintain the required crosshead motion under load.
-
-### Motor Mount Design — Task 2
-
-- [ ] Obtain the motor's mounting dimensions.
-- [ ] Determine mounting-hole locations and sizes.
-- [ ] Design the motor mounting brackets.
-- [ ] Calculate bracket thickness.
-- [ ] Check bearing stress and mounting fasteners.
-- [ ] Verify bracket stiffness and alignment with the leadscrews.
-
-### Coupler Design — Task 3
-
-- [ ] Determine the motor output-shaft dimensions.
-- [ ] Determine the leadscrew shaft dimensions.
-- [ ] Select an appropriate shaft coupling.
-- [ ] Calculate torsional shear stress.
-- [ ] Verify the coupling against the required safety factor of 4.
-
-### Existing Assembly Verification
-
-- [ ] Confirm the exact bronze alloy.
-- [ ] Verify the nut-to-flange threaded engagement.
-- [ ] Confirm the crosshead material and thickness.
-- [ ] Recheck thread stripping using actual material properties.
-- [ ] Evaluate flange bending and bearing stresses.
-- [ ] Verify the complete tensile load path.
-
----
-
-## 7. Current Design Status
-
-| Design component | Status |
-|---|---|
-| Leadscrew material selection | Preliminary selection made |
-| Bronze nut selection | Selected |
-| Steel mounting flange selection | Selected |
-| Flange fastener analysis | Preliminary calculation completed |
-| Nut thread analysis | Preliminary calculation completed |
-| Operating torque calculation | Completed provisionally |
-| Motor type selection | Preliminary selection made |
-| Motor torque-speed verification | Preliminary check passed |
-| Motor mounting bracket | Not yet completed |
-| Coupler design | Not yet completed |
-
-**Documentation note:** Calculations marked preliminary rely on assumptions that still need verification against the assignment specifications, manufacturer data, and final component geometry. The motor selection is not yet a completed hardware installation or final design approval.
+This configuration allows each motor to independently provide the torque and rotational speed required by its respective leadscrew.
