@@ -178,3 +178,120 @@ The calculated requirements for each motor are:
 
 
 Based on the approximate torque-speed curve reading, the selected motor candidate exceeds the calculated design torque requirement at the maximum required operating speed.
+
+
+## 6. Task 2 — Motor Mount Design
+
+### 6.1 Mounting Plate Design
+
+I designed a horizontal steel adapter plate to connect the motor's existing mounting bracket to the top of the tensile tester frame. The adapter plate provides four mounting locations for the motor bracket and four additional mounting locations for attachment to the frame.
+
+The selected plate dimensions are:
+
+- Plate width: $2.90$ in
+- Plate length: $2.90$ in
+- Selected material: AISI 1018 cold-drawn steel
+- Selected plate thickness: $0.125$ in ($1/8$ in)
+
+The assumed yield strength of AISI 1018 cold-drawn steel is:
+
+$$
+S_y=53,700\text{ psi}
+$$
+
+### 6.2 Bearing Stress Analysis
+
+I evaluated the bearing stress at the frame-side mounting holes to determine the minimum required plate thickness.
+
+The allowable bearing stress is calculated using the required factor of safety of 4:
+
+$$
+\sigma_{b,\text{allow}}=\frac{S_y}{N}
+$$
+
+$$
+\sigma_{b,\text{allow}}=\frac{53,700}{4}
+$$
+
+$$
+\boxed{\sigma_{b,\text{allow}}=13,425\text{ psi}}
+$$
+
+The operating torque per motor is:
+
+$$
+T=0.635\text{ N}\cdot\text{m}
+$$
+
+Converting to pound-inches:
+
+$$
+T=0.635(8.8507)
+$$
+
+$$
+T=5.62\text{ lb}\cdot\text{in}
+$$
+
+The outer frame mounting pattern consists of four holes arranged in a square with a center-to-center spacing of 2.65 in.
+
+The radius from the center of the bolt pattern to each mounting hole is:
+
+$$
+r_f=\sqrt{\left(\frac{2.65}{2}\right)^2+
+\left(\frac{2.65}{2}\right)^2}
+$$
+
+$$
+\boxed{r_f=1.874\text{ in}}
+$$
+
+Assuming equal torque distribution among the four mounting fasteners, the force per fastener is:
+
+$$
+F_f=\frac{T}{4r_f}
+$$
+
+$$
+F_f=\frac{5.62}{4(1.874)}
+$$
+
+$$
+\boxed{F_f=0.750\text{ lbf}}
+$$
+
+The bearing stress relationship is:
+
+$$
+\sigma_b=\frac{F}{td}
+$$
+
+Rearranging to solve for the minimum plate thickness:
+
+$$
+t_{\min}=\frac{F}{d\sigma_{b,\text{allow}}}
+$$
+
+Using a $0.250$ in frame-side fastener diameter:
+
+$$
+t_{\min}=\frac{0.750}{(0.250)(13,425)}
+$$
+
+$$
+\boxed{t_{\min}=0.000224\text{ in}}
+$$
+
+### 6.3 Final Plate Thickness Selection
+
+Based on the bearing-stress calculation, the minimum required plate thickness is approximately $0.000224$ in.
+
+I selected a final plate thickness of:
+
+$$
+\boxed{t_{\text{selected}}=0.125\text{ in}}
+$$
+
+The selected thickness is substantially greater than the calculated minimum bearing thickness. I chose a standard $1/8$ in steel plate as a practical thickness for the motor adapter.
+
+The calculated minimum is based specifically on the frame-side bearing-stress model and equal distribution of the motor's operating torque among the four frame mounting fasteners. The selected thickness is therefore a preliminary design selection rather than a complete verification of every possible plate failure mode.
