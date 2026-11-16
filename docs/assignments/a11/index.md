@@ -342,6 +342,244 @@ I designed the adapter plate with four tapped 10-32 holes to secure it to the fr
 
 <img width="950" height="792" alt="image" src="https://github.com/user-attachments/assets/4241f902-8a71-44e1-be51-c8cf3da11a57" />
 
+## Task 3 — Coupler Selection and Torsional Analysis
+
+### 1. Coupler Selection
+
+I selected the **NBK MJC-30-WH-6.35-16 jaw-type flexible shaft coupling** to connect the motor output shaft to the leadscrew.
+
+I chose this coupling because it accommodates the two different shaft diameters and provides a rated torque greater than the required design torque.
+
+| Specification | Selected Coupler |
+|---|---:|
+| Manufacturer | NBK |
+| Part number | MJC-30-WH-6.35-16 |
+| Coupling type | Jaw-type flexible coupling |
+| Outside diameter, $D_o$ | 30 mm |
+| Motor-side bore, $D_{i,1}$ | 16 mm |
+| Leadscrew-side bore, $D_{i,2}$ | 6.35 mm |
+| Overall length | 35 mm |
+| Hub material | A2017 aluminum |
+| Spider material | Polyurethane |
+| Rated torque | 7.5 N·m |
+| Maximum torque | 15 N·m |
+
+Manufacturer reference: [NBK MJC-30-WH-6.35-16](https://www.nbk1560.com/en-US/products/coupling/couplicon/jaw_type/MJC-WH/MJC-30-WH/MJC-30-WH-6.35-16/)
+
+The selected coupling has a rated torque of 7.5 N·m. The required design torque is 2.54 N·m, giving a rated-torque margin of:
+
+$$
+\text{Torque Margin}=\frac{7.5}{2.54}=2.95
+$$
+
+Therefore, the coupling's published rated torque is approximately 2.95 times the required design torque.
+
+### 2. Known and Unknown Variables
+
+**Known variables**
+
+| Variable | Description | Value |
+|---|---|---:|
+| $T_{op}$ | Operating torque per motor | 0.635 N·m |
+| $N$ | Design factor of safety | 4 |
+| $T_d$ | Design torque per coupling | 2.54 N·m |
+| $D_o$ | Coupling outside diameter | 30 mm |
+| $D_{i,1}$ | Motor-side bore diameter | 16 mm |
+| $D_{i,2}$ | Leadscrew-side bore diameter | 6.35 mm |
+| $S_{rated}$ | Manufacturer rated torque | 7.5 N·m |
+
+The design torque is:
+
+$$
+T_d=NT_{op}
+$$
+
+$$
+T_d=4(0.635)=2.54\text{ N}\cdot\text{m}
+$$
+
+**Unknown variables and assumptions**
+
+- The exact A2017 aluminum alloy temper and corresponding yield strength need to be confirmed.
+- The actual internal geometry of the coupling hubs must be verified from the manufacturer's drawing.
+- The torsional analysis initially treats each hub as a uniform hollow circular shaft.
+- The coupling's published torque rating is used as a separate catalog-level capacity check.
+
+### 3. Free-Body Diagram — Torsional Loading
+
+Each motor drives one leadscrew through its own coupling. Therefore, each coupling transmits the torque from one motor rather than the combined torque of both motors.
+
+The applied design torque is:
+
+$$
+T_d=2.54\text{ N}\cdot\text{m}
+$$
+
+The internal resisting torque in the coupling is equal in magnitude and opposite in direction to the applied torque.
+
+<img width="876" height="653" alt="image" src="https://github.com/user-attachments/assets/dd41d27a-2cf3-4982-9163-7312ab5e4e06" />
+
+
+The coupling is modeled as a hollow circular shaft under pure torsion.
+
+### 4. Torsional Shear Stress Equations
+
+The maximum torsional shear stress in a hollow circular shaft is:
+
+$$
+\tau_{max}=\frac{Tc}{J}
+$$
+
+For a hollow circular cross-section:
+
+$$
+J=\frac{\pi}{32}(D_o^4-D_i^4)
+$$
+
+Since the maximum radial distance is:
+
+$$
+c=\frac{D_o}{2}
+$$
+
+Substituting these relationships gives:
+
+$$
+\tau_{max}=
+\frac{16TD_o}
+{\pi(D_o^4-D_i^4)}
+$$
+
+The radial wall thickness is:
+
+$$
+t=\frac{D_o-D_i}{2}
+$$
+
+For a material-based design, the allowable shear stress would also need to be established from the verified material properties and selected safety factor.
+
+### 5. Numerical Solution
+
+I evaluated the two coupling bores separately because the motor shaft and leadscrew have different diameters.
+
+All dimensions are converted to meters for the stress calculations.
+
+**Motor-side hub**
+
+Given:
+
+$$
+T=2.54\text{ N}\cdot\text{m}
+$$
+
+$$
+D_o=0.030\text{ m}
+$$
+
+$$
+D_{i,1}=0.016\text{ m}
+$$
+
+Calculate the polar moment of inertia:
+
+$$
+J_1=\frac{\pi}{32}
+\left(0.030^4-0.016^4\right)
+$$
+
+$$
+J_1=7.309\times10^{-8}\text{ m}^4
+$$
+
+Calculate the maximum shear stress:
+
+$$
+\tau_{max,1}=
+\frac{2.54(0.030/2)}
+{7.309\times10^{-8}}
+$$
+
+$$
+\boxed{\tau_{max,1}=0.5213\text{ MPa}}
+$$
+
+Calculate the radial wall thickness:
+
+$$
+t_1=\frac{30-16}{2}
+$$
+
+$$
+\boxed{t_1=7.00\text{ mm}}
+$$
+
+**Leadscrew-side hub**
+
+Given:
+
+$$
+T=2.54\text{ N}\cdot\text{m}
+$$
+
+$$
+D_o=0.030\text{ m}
+$$
+
+$$
+D_{i,2}=0.00635\text{ m}
+$$
+
+Calculate the polar moment of inertia:
+
+$$
+J_2=\frac{\pi}{32}
+\left(0.030^4-0.00635^4\right)
+$$
+
+$$
+J_2=7.936\times10^{-8}\text{ m}^4
+$$
+
+Calculate the maximum shear stress:
+
+$$
+\tau_{max,2}=
+\frac{2.54(0.030/2)}
+{7.936\times10^{-8}}
+$$
+
+$$
+\boxed{\tau_{max,2}=0.4801\text{ MPa}}
+$$
+
+Calculate the radial wall thickness:
+
+$$
+t_2=\frac{30-6.35}{2}
+$$
+
+$$
+\boxed{t_2=11.825\text{ mm}}
+$$
+
+### 6. Results and Selection
+
+| Parameter | Motor-Side Hub | Leadscrew-Side Hub |
+|---|---:|---:|
+| Outside diameter | 30 mm | 30 mm |
+| Inside diameter | 16 mm | 6.35 mm |
+| Radial wall thickness | 7.00 mm | 11.825 mm |
+| Polar moment of inertia | $7.309\times10^{-8}$ m⁴ | $7.936\times10^{-8}$ m⁴ |
+| Maximum shear stress | 0.5213 MPa | 0.4801 MPa |
+
+The motor-side hub experiences the greater calculated torsional shear stress because its larger bore leaves less material to resist the applied torque.
+
+The selected coupling has a manufacturer-rated torque of 7.5 N·m, compared with the required design torque of 2.54 N·m. Based on the catalog torque rating, the selected coupling has sufficient rated torque capacity for this preliminary selection.
+
+The calculated wall thicknesses describe the idealized hollow-shaft model using the selected coupling's catalog dimensions. They are not independently established minimum wall thicknesses. Final material-based verification requires the exact aluminum temper and confirmation of the actual hub geometry.
+
+The M4 set-screw tightening torque is an installation specification and must not be confused with the coupling's rated torque capacity. The motor-side set screw must also be positioned to engage the flat on the motor's D-shaped output shaft.
+
 
 
 
