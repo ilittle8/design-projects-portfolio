@@ -151,9 +151,7 @@ The estimated available torque at the maximum required operating speed exceeds t
 The ratio of estimated available torque to operating torque is:
 
 $$
-\frac{T_{\text{available}}}{T_{\text{operating}}}
-=
-\frac{4.94}{0.635}
+\frac{T_{\text{available}}}{T_{\text{operating}}} = \frac{4.94}{0.635} 
 $$
 
 $$
