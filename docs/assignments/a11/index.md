@@ -574,12 +574,7 @@ $$
 
 The motor-side hub experiences the greater calculated torsional shear stress because its larger bore leaves less material to resist the applied torque.
 
-The selected coupling has a manufacturer-rated torque of 7.5 N·m, compared with the required design torque of 2.54 N·m. Based on the catalog torque rating, the selected coupling has sufficient rated torque capacity for this preliminary selection.
-
-The calculated wall thicknesses describe the idealized hollow-shaft model using the selected coupling's catalog dimensions. They are not independently established minimum wall thicknesses. Final material-based verification requires the exact aluminum temper and confirmation of the actual hub geometry.
-
-The M4 set-screw tightening torque is an installation specification and must not be confused with the coupling's rated torque capacity. The motor-side set screw must also be positioned to engage the flat on the motor's D-shaped output shaft.
-
+The selected coupling has a manufacturer-rated torque of 7.5 N·m, compared with the required design torque of 2.54 N·m. Based on the catalog torque rating, the selected coupling has sufficient rated torque capacity for this selection.
 
 
 
