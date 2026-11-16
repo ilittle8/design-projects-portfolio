@@ -1,6 +1,7 @@
 # Motor Selection, Bracket Design, and Coupler Selection - Isaiah Little
 
 ## Motor Bracket CAD Files below:
+
 ### Solidworks Part File:
 https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket.SLDPRT
 
