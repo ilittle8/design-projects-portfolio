@@ -84,7 +84,7 @@ Thus, each motor must provide at least $2.54\text{ N}\cdot\text{m}$ under the re
 
 The selected motor candidate is the McMaster-Carr NEMA 23 stepper gearmotor, part number 4801N14.
 
-### McMaster Carr Link:
+### McMaster Carr Link (CAD FILES CAN BE FOUND IN LINK):
 https://www.mcmaster.com/4801N14/
 
 The design uses one motor per leadscrew. Consequently, the motor must independently satisfy the torque and rotational-speed requirements of a single screw.
@@ -375,7 +375,9 @@ I chose this coupling because it accommodates the two different shaft diameters 
 | Rated torque | 7.5 N·m |
 | Maximum torque | 15 N·m |
 
-Manufacturer reference: [NBK MJC-30-WH-6.35-16](https://www.nbk1560.com/en-US/products/coupling/couplicon/jaw_type/MJC-WH/MJC-30-WH/MJC-30-WH-6.35-16/)
+### NBK Coupler Link (CAD FILES CAN BE FOUND IN LINK):
+
+https://www.nbk1560.com/en-US/products/coupling/couplicon/jaw_type/MJC-WH/MJC-30-WH/MJC-30-WH-6.35-16/
 
 The selected coupling has a rated torque of 7.5 N·m. The required design torque is 2.54 N·m, giving a rated-torque margin of:
 
