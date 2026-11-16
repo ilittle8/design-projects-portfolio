@@ -182,6 +182,43 @@ Based on the approximate torque-speed curve reading, the selected motor candidat
 
 ## 6. Task 2 — Motor Mount Design
 
+### Knowns
+
+| Parameter | Value |
+|---|---:|
+| Mount configuration | Adapter plate mounted between the motor bracket and tester frame |
+| Motor mounting bracket | Supplied with the selected motor |
+| Plate width | 2.90 in |
+| Plate length | 2.90 in |
+| Selected plate thickness | 0.125 in (1/8 in) |
+| Plate material | AISI 1018 cold-drawn steel |
+| Assumed material yield strength | 53,700 psi |
+| Motor-side mounting pattern | 1.95 in × 1.95 in |
+| Motor bracket hole diameter | 0.217 in |
+| Frame-side mounting pattern | 2.65 in × 2.65 in |
+| Frame-side fastener diameter | 0.250 in |
+| Number of motor-side mounting locations | 4 |
+| Number of frame-side mounting locations | 4 |
+| Operating torque per motor | 5.62 lb·in |
+| Frame-side bolt-pattern radius | 1.874 in |
+| Calculated frame-side force per fastener | 0.750 lbf |
+| Allowable bearing stress | 13,425 psi |
+| Calculated minimum plate thickness | 0.000224 in |
+| Selected plate thickness compared with calculated minimum | 0.125 in |
+
+### Unknowns
+
+| Parameter | Information Needed |
+|---|---|
+| Motor-side fasteners | Final fastener diameter, thread size, and length |
+| Motor-side tapped holes | Required thread engagement and available plate thickness for tapping |
+| Frame-side fasteners | Final bolt length, grade, and thread engagement |
+| Frame material | Exact material and properties of the tester frame |
+| Plate attachment | Final details of how the plate is secured to the frame |
+| Alignment | Final verification that the motor output shaft is aligned with the leadscrew |
+| Structural validation | Further verification of the plate, fasteners, and complete torque load path |
+
+
 ### 6.1 Mounting Plate Design
 
 I designed a horizontal steel adapter plate to connect the motor's existing mounting bracket to the top of the tensile tester frame. The adapter plate provides four mounting locations for the motor bracket and four additional mounting locations for attachment to the frame.
@@ -296,3 +333,10 @@ $$
 The selected thickness is substantially greater than the calculated minimum bearing thickness. I chose a standard $1/8$ in steel plate as a practical thickness for the motor adapter.
 
 The calculated minimum is based specifically on the frame-side bearing-stress model and equal distribution of the motor's operating torque among the four frame mounting fasteners. The selected thickness is therefore a preliminary design selection rather than a complete verification of every possible plate failure mode.
+
+
+
+
+
+
+
