@@ -589,7 +589,15 @@ The motor-side hub experiences the greater calculated torsional shear stress bec
 
 The selected coupling has a manufacturer-rated torque of 7.5 N·m, compared with the required design torque of 2.54 N·m. Based on the catalog torque rating, the selected coupling has sufficient rated torque capacity for this selection.
 
+## Lessons Learned
 
+Throughout this design process, I learned the importance of translating the requirements of a mechanical system into practical component selections and design decisions. Selecting a motor required more than checking its rated torque; I also had to consider the required operating speed and verify that sufficient torque was available across the entire operating range.
+
+I also learned that designing mounting hardware requires careful attention to hole patterns, fastener dimensions, alignment, and load transfer. The motor already included a mounting bracket, so I designed an adapter plate to connect that bracket to the frame rather than unnecessarily redesigning the motor mount itself. I also recognized the importance of distinguishing between a clearance-hole diameter and the actual fastener diameter.
+
+For the coupler, I learned that compatibility involves more than matching shaft diameters. I needed to consider the coupling's torque capacity, shaft bores, physical dimensions, and fastening method. Selecting a commercially available flexible coupling provided a practical way to connect the motor and leadscrew while accommodating minor misalignment.
+
+Finally, I learned that engineering calculations must be tied to the actual geometry and assumptions of the design. A calculated minimum thickness is not automatically the same as a sensible manufacturing thickness. I chose a 1/8-inch adapter plate, recognizing that practical considerations such as rigidity, fabrication, and fastener engagement also matter when finalizing a design.
 
 
 
