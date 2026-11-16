@@ -84,6 +84,9 @@ Thus, each motor must provide at least $2.54\text{ N}\cdot\text{m}$ under the re
 
 The selected motor candidate is the McMaster-Carr NEMA 23 stepper gearmotor, part number 4801N14.
 
+### McMaster Carr Link:
+https://www.mcmaster.com/4801N14/
+
 The design uses one motor per leadscrew. Consequently, the motor must independently satisfy the torque and rotational-speed requirements of a single screw.
 
 ### 4.1 Required Motor Speed
