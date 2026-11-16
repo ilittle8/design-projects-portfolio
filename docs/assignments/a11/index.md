@@ -1,5 +1,13 @@
 # Motor Selection, Bracket Design, and Coupler Selection - Isaiah Little
 
+## Motor Bracket CAD Files below:
+### Solidworks Part File:
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket.SLDPRT
+
+### STEP File:
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket.STEP
+
+
 ## 1. Project Overview
 
 The objective of this project is to design a motorized leadscrew system for a tensile tester. The system uses two leadscrews to produce controlled linear motion of the crosshead.
