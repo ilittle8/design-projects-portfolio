@@ -185,6 +185,7 @@ Based on the approximate torque-speed curve reading, the selected motor candidat
 ### 6.1 Mounting Plate Design
 
 I designed a horizontal steel adapter plate to connect the motor's existing mounting bracket to the top of the tensile tester frame. The adapter plate provides four mounting locations for the motor bracket and four additional mounting locations for attachment to the frame.
+<img width="743" height="962" alt="image" src="https://github.com/user-attachments/assets/555e6371-8495-4a90-9fd5-a275b322631e" />
 
 The selected plate dimensions are:
 
