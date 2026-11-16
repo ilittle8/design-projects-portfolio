@@ -1,4 +1,4 @@
-# MEGR Leadscrew Tensile Tester — Design Documentation
+# Motor Selection, Bracket Design, and Coupler Selection - Isaiah Little
 
 ## 1. Project Overview
 
