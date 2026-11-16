@@ -164,11 +164,17 @@ This comparison indicates that the motor candidate has sufficient estimated torq
 
 The selected design uses two NEMA 23 stepper gearmotors, with one motor driving each leadscrew.
 
+<img width="1050" height="811" alt="image" src="https://github.com/user-attachments/assets/13ddc33e-5d81-4014-808f-88b20b8ae267" />
+
+
 The calculated requirements for each motor are:
 
 - Operating torque: $0.635\text{ N}\cdot\text{m}$
 - Design torque, using a factor of safety of $4$: $2.54\text{ N}\cdot\text{m}$
-- Required rotational speed: $0.79$–$39.37\text{ RPM}$
+- Required rotational speed: $0.79$ – $39.37\text{ RPM}$
 - Estimated available torque near $40\text{ RPM}$: $4.94\text{ N}\cdot\text{m}$
+
+<img width="1045" height="773" alt="image" src="https://github.com/user-attachments/assets/3d7df07f-5f37-4ea5-845e-2b41d151fd31" />
+
 
 Based on the approximate torque-speed curve reading, the selected motor candidate exceeds the calculated design torque requirement at the maximum required operating speed.
