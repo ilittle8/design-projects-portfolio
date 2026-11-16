@@ -334,6 +334,14 @@ The selected thickness is substantially greater than the calculated minimum bear
 
 The calculated minimum is based specifically on the frame-side bearing-stress model and equal distribution of the motor's operating torque among the four frame mounting fasteners. The selected thickness is therefore a preliminary design selection rather than a complete verification of every possible plate failure mode.
 
+### 6.4 CAD Drawing
+
+### Frame-Side Mounting Holes
+
+I designed the adapter plate with four tapped 10-32 holes to secure it to the frame. The holes are arranged in a square pattern with a center-to-center spacing of 2.40 in in both directions. This updated pattern replaces my previous 2.65 in spacing and 1/4 in fastener selection. I did this in order to make sure all the holes fit into my 2.9 inch bracket length and width.
+
+<img width="950" height="792" alt="image" src="https://github.com/user-attachments/assets/4241f902-8a71-44e1-be51-c8cf3da11a57" />
+
 
 
 
