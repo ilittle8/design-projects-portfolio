@@ -358,37 +358,101 @@ I designed the adapter plate with four tapped 10-32 holes to secure it to the fr
 
 ### 1. Coupler Selection
 
-I selected the **NBK MJC-30-WH-6.35-16 jaw-type flexible shaft coupling** to connect the motor output shaft to the leadscrew.
+I changed the coupling selection from a one-piece NBK jaw coupling to a **McMaster-Carr L050 spider coupling**. A spider coupling consists of two metal hubs with a flexible center element (the spider) between them. The spider transmits torque while allowing a limited amount of angular and parallel misalignment.
 
-I chose this coupling because it accommodates the two different shaft diameters and provides a rated torque greater than the required design torque.
+The selected L050 assembly uses the following three components:
 
-| Specification | Selected Coupler |
+| Component | McMaster-Carr Part Number | Description | Material / Shaft Interface |
+|---|---|---|---|
+| Motor-side hub | [6408K11](https://www.mcmaster.com/6408K11/) | L050 keyed hub, 16 mm bore | Iron; keyed bore |
+| Leadscrew-side hub | [6408K92](https://www.mcmaster.com/6408K92/) | L050 hub, 1/4 in bore | Iron; set-screw shaft mount |
+| Flexible spider | [6408K91](https://www.mcmaster.com/6408K91/) | L050 spider | Hytrel |
+
+The two hubs must have the same L050 coupling trade size as the spider. McMaster identifies the 6408K11 hub as a keyed 16 mm option and the 6408K92 hub as an iron set-screw hub available with a 1/4 in bore. The selected spider is the L050 Hytrel version.
+
+**Important fit verification:** The motor output shaft is 16 mm in diameter and has a D-shaped profile. Although the selected motor-side hub has a 16 mm bore, McMaster lists it as a keyed hub. A keyed bore is not automatically a confirmed match for a D-shaped shaft. The shaft must be checked against the hub drawing, and the set-screw/retention arrangement must be verified before ordering or manufacturing. The 1/4 in leadscrew-side bore also needs to be checked against the actual leadscrew end.
+
+### 2. Coupling Specifications
+
+| Specification | Selected L050 Spider Coupling |
 |---|---:|
-| Manufacturer | NBK |
-| Part number | MJC-30-WH-6.35-16 |
-| Coupling type | Jaw-type flexible coupling |
-| Outside diameter, $D_o$ | 30 mm |
-| Motor-side bore, $D_{i,1}$ | 16 mm |
-| Leadscrew-side bore, $D_{i,2}$ | 6.35 mm |
-| Overall length | 35 mm |
-| Hub material | A2017 aluminum |
-| Spider material | Polyurethane |
-| Rated torque | 7.5 N·m |
-| Maximum torque | 15 N·m |
+| Manufacturer / supplier | McMaster-Carr |
+| Coupling type | L050 spider (jaw) coupling |
+| Motor-side hub | 6408K11 |
+| Leadscrew-side hub | 6408K92 |
+| Spider | 6408K91 |
+| Hub material | Iron |
+| Spider material | Hytrel |
+| Motor-side nominal bore | 16 mm |
+| Leadscrew-side nominal bore | 1/4 in (6.35 mm) |
+| Maximum catalog torque for selected spider | 50 in·lbf |
+| Maximum catalog speed | 18,000 RPM |
+| Catalog parallel misalignment capability | 0.015 in |
+| Catalog angular misalignment capability | 0.5° |
 
-### NBK Coupler Link (CAD FILES CAN BE FOUND IN LINK):
+McMaster describes Hytrel as a relatively stiff spider material that provides direct torque transfer and less vibration damping than softer spider materials. The spider coupling's flexible center accommodates limited misalignment; it does not eliminate the need to align the motor and leadscrew carefully.
 
-https://www.nbk1560.com/en-US/products/coupling/couplicon/jaw_type/MJC-WH/MJC-30-WH/MJC-30-WH-6.35-16/
+### 3. Design Torque and Catalog Capacity Check
 
-The selected coupling has a rated torque of 7.5 N·m. The required design torque is 2.54 N·m, giving a rated-torque margin of:
+Each motor drives one leadscrew, so each coupling transmits the torque from one motor.
+
+The operating torque per motor is:
 
 $$
-\text{Torque Margin}=\frac{7.5}{2.54}=2.95
+T_{op}=0.635\text{ N}\cdot\text{m}
 $$
 
-Therefore, the coupling's published rated torque is approximately 2.95 times the required design torque.
+Using the design factor of safety of 4:
 
-### 2. Known and Unknown Variables
+$$
+T_d=4T_{op}
+$$
+
+$$
+T_d=4(0.635)
+$$
+
+$$
+\boxed{T_d=2.54\text{ N}\cdot\text{m}}
+$$
+
+Converting the design torque to pound-inches:
+
+$$
+T_d=2.54(8.8507)
+$$
+
+$$
+\boxed{T_d\approx22.48\text{ in}\cdot\text{lbf}}
+$$
+
+The selected L050 Hytrel spider has a published maximum torque of 50 in·lbf. The ratio of the catalog maximum torque to the required design torque is:
+
+$$
+\text{Torque Ratio}=\frac{50}{22.48}
+$$
+
+$$
+\boxed{\text{Torque Ratio}\approx2.22}
+$$
+
+The published maximum torque is greater than the calculated design torque. This is a preliminary catalog-capacity check; the manufacturer's maximum torque value should not be treated as a substitute for checking the complete coupling's service conditions, duty cycle, and shaft retention.
+
+### 4. Torsional Loading and Analysis
+
+Each coupling transmits the design torque from one motor to one leadscrew:
+
+$$
+\boxed{T_d=2.54\text{ N}\cdot\text{m}}
+$$
+
+The torque is transferred from the motor shaft into the motor-side iron hub, through the Hytrel spider, into the leadscrew-side iron hub, and finally into the leadscrew.
+
+The coupling components do not have the same geometry as the previously considered NBK MJC-30-WH coupling. Therefore, the earlier calculations based on a 30 mm outside diameter, 16 mm and 6.35 mm hub bores, and A2017 aluminum hubs do **not** describe this L050 coupling and should not be used as its hub stress results.
+
+A numerical torsional shear-stress calculation for the iron hubs requires the actual hub cross-sectional dimensions from the McMaster/manufacturer drawings. Those dimensions have not yet been verified. The spider's published maximum torque provides a separate catalog-level capacity check, but it does not replace a detailed stress analysis of the hubs or verification of the shaft-to-hub connections.
+
+### 5. Known and Unknown Variables
 
 **Known variables**
 
@@ -397,198 +461,36 @@ Therefore, the coupling's published rated torque is approximately 2.95 times the
 | $T_{op}$ | Operating torque per motor | 0.635 N·m |
 | $N$ | Design factor of safety | 4 |
 | $T_d$ | Design torque per coupling | 2.54 N·m |
-| $D_o$ | Coupling outside diameter | 30 mm |
-| $D_{i,1}$ | Motor-side bore diameter | 16 mm |
-| $D_{i,2}$ | Leadscrew-side bore diameter | 6.35 mm |
-| $S_{rated}$ | Manufacturer rated torque | 7.5 N·m |
+| $T_d$ | Design torque per coupling, converted | 22.48 in·lbf |
+| Hub trade size | Coupling size | L050 |
+| Motor-side nominal bore | Hub 6408K11 | 16 mm |
+| Leadscrew-side nominal bore | Hub 6408K92 | 1/4 in (6.35 mm) |
+| Spider material | Spider 6408K91 | Hytrel |
+| Hub material | Hubs 6408K11 and 6408K92 | Iron |
+| Spider maximum torque | McMaster catalog value | 50 in·lbf |
+| Maximum catalog speed | L050 spider | 18,000 RPM |
 
-The design torque is:
+**Unknown variables and required verification**
 
-$$
-T_d=NT_{op}
-$$
+- Confirm that the keyed 16 mm motor-side hub can securely retain the motor's D-shaped output shaft.
+- Confirm the motor shaft engagement length and set-screw location.
+- Confirm that the 1/4 in hub bore and set screw securely fit the actual leadscrew end.
+- Verify the complete coupling dimensions and hub cross-sections using the supplier drawings.
+- Verify that the coupling's catalog torque and speed limits are suitable for the actual operating duty and service conditions.
+- Confirm that the motor and leadscrew are aligned within the coupling's published misalignment limits.
 
-$$
-T_d=4(0.635)=2.54\text{ N}\cdot\text{m}
-$$
+### 6. Coupler Selection Summary
 
-**Unknown variables and assumptions**
+The updated design uses two iron L050 hubs and one Hytrel spider. The motor-side hub has a nominal 16 mm bore, and the leadscrew-side hub has a nominal 1/4 in bore. The selected spider has a published maximum torque of 50 in·lbf, compared with the required design torque of approximately 22.48 in·lbf.
 
-- The exact A2017 aluminum alloy temper and corresponding yield strength need to be confirmed.
-- The actual internal geometry of the coupling hubs must be verified from the manufacturer's drawing.
-- The torsional analysis initially treats each hub as a uniform hollow circular shaft.
-- The coupling's published torque rating is used as a separate catalog-level capacity check.
+The catalog torque check is promising, but the coupling is not yet a confirmed drop-in fit because the motor-side hub is listed as keyed while the motor shaft is D-shaped. That shaft-retention detail must be resolved before the coupling is finalized.
 
-### 3. Free-Body Diagram — Torsional Loading
+McMaster-Carr component links:
 
-Each motor drives one leadscrew through its own coupling. Therefore, each coupling transmits the torque from one motor rather than the combined torque of both motors.
-
-The applied design torque is:
-
-$$
-T_d=2.54\text{ N}\cdot\text{m}
-$$
-
-The internal resisting torque in the coupling is equal in magnitude and opposite in direction to the applied torque.
-
-<img width="876" height="653" alt="image" src="https://github.com/user-attachments/assets/dd41d27a-2cf3-4982-9163-7312ab5e4e06" />
-
-
-The coupling is modeled as a hollow circular shaft under pure torsion.
-
-### 4. Torsional Shear Stress Equations
-
-The maximum torsional shear stress in a hollow circular shaft is:
-
-$$
-\tau_{max}=\frac{Tc}{J}
-$$
-
-For a hollow circular cross-section:
-
-$$
-J=\frac{\pi}{32}(D_o^4-D_i^4)
-$$
-
-Since the maximum radial distance is:
-
-$$
-c=\frac{D_o}{2}
-$$
-
-Substituting these relationships gives:
-
-$$
-\tau_{max}=
-\frac{16TD_o}
-{\pi(D_o^4-D_i^4)}
-$$
-
-The radial wall thickness is:
-
-$$
-t=\frac{D_o-D_i}{2}
-$$
-
-For a material-based design, the allowable shear stress would also need to be established from the verified material properties and selected safety factor.
-
-### 5. Numerical Solution
-
-I evaluated the two coupling bores separately because the motor shaft and leadscrew have different diameters.
-
-All dimensions are converted to meters for the stress calculations.
-
-**Motor-side hub**
-
-Given:
-
-$$
-T=2.54\text{ N}\cdot\text{m}
-$$
-
-$$
-D_o=0.030\text{ m}
-$$
-
-$$
-D_{i,1}=0.016\text{ m}
-$$
-
-Calculate the polar moment of inertia:
-
-$$
-J_1=\frac{\pi}{32}
-\left(0.030^4-0.016^4\right)
-$$
-
-$$
-J_1=7.309\times10^{-8}\text{ m}^4
-$$
-
-Calculate the maximum shear stress:
-
-$$
-\tau_{max,1}=
-\frac{2.54(0.030/2)}
-{7.309\times10^{-8}}
-$$
-
-$$
-\boxed{\tau_{max,1}=0.5213\text{ MPa}}
-$$
-
-Calculate the radial wall thickness:
-
-$$
-t_1=\frac{30-16}{2}
-$$
-
-$$
-\boxed{t_1=7.00\text{ mm}}
-$$
-
-**Leadscrew-side hub**
-
-Given:
-
-$$
-T=2.54\text{ N}\cdot\text{m}
-$$
-
-$$
-D_o=0.030\text{ m}
-$$
-
-$$
-D_{i,2}=0.00635\text{ m}
-$$
-
-Calculate the polar moment of inertia:
-
-$$
-J_2=\frac{\pi}{32}
-\left(0.030^4-0.00635^4\right)
-$$
-
-$$
-J_2=7.936\times10^{-8}\text{ m}^4
-$$
-
-Calculate the maximum shear stress:
-
-$$
-\tau_{max,2}=
-\frac{2.54(0.030/2)}
-{7.936\times10^{-8}}
-$$
-
-$$
-\boxed{\tau_{max,2}=0.4801\text{ MPa}}
-$$
-
-Calculate the radial wall thickness:
-
-$$
-t_2=\frac{30-6.35}{2}
-$$
-
-$$
-\boxed{t_2=11.825\text{ mm}}
-$$
-
-### 6. Results and Selection
-
-| Parameter | Motor-Side Hub | Leadscrew-Side Hub |
-|---|---:|---:|
-| Outside diameter | 30 mm | 30 mm |
-| Inside diameter | 16 mm | 6.35 mm |
-| Radial wall thickness | 7.00 mm | 11.825 mm |
-| Polar moment of inertia | $7.309\times10^{-8}$ m⁴ | $7.936\times10^{-8}$ m⁴ |
-| Maximum shear stress | 0.5213 MPa | 0.4801 MPa |
-
-The motor-side hub experiences the greater calculated torsional shear stress because its larger bore leaves less material to resist the applied torque.
-
-The selected coupling has a manufacturer-rated torque of 7.5 N·m, compared with the required design torque of 2.54 N·m. Based on the catalog torque rating, the selected coupling has sufficient rated torque capacity for this selection.
+- Motor-side hub: https://www.mcmaster.com/6408K11/
+- Leadscrew-side hub: https://www.mcmaster.com/6408K92/
+- Hytrel spider: https://www.mcmaster.com/6408K91/
+- Spider coupling catalog: https://www.mcmaster.com/products/spider-couplings/
 
 ## Lessons Learned
 
@@ -596,7 +498,7 @@ Throughout this design process, I learned the importance of translating the requ
 
 I also learned that designing mounting hardware requires careful attention to hole patterns, fastener dimensions, alignment, and load transfer. The motor already included a mounting bracket, so I designed an adapter plate to connect that bracket to the frame rather than unnecessarily redesigning the motor mount itself. I also recognized the importance of distinguishing between a clearance-hole diameter and the actual fastener diameter.
 
-For the coupler, I learned that compatibility involves more than matching shaft diameters. I needed to consider the coupling's torque capacity, shaft bores, physical dimensions, and fastening method. Selecting a commercially available flexible coupling provided a practical way to connect the motor and leadscrew while accommodating minor misalignment.
+For the coupler, I learned that compatibility involves more than matching shaft diameters. I needed to consider the hub bores, shaft-retention method, spider material, torque capacity, and allowable misalignment. The updated design uses two iron L050 hubs with a Hytrel spider. I also learned that a catalog bore diameter alone does not prove compatibility with a D-shaped motor shaft; the hub's keyed geometry and retention method must be checked against the actual shaft.
 
 Finally, I learned that engineering calculations must be tied to the actual geometry and assumptions of the design. A calculated minimum thickness is not automatically the same as a sensible manufacturing thickness. I chose a 1/8-inch adapter plate, recognizing that practical considerations such as rigidity, fabrication, and fastener engagement also matter when finalizing a design.
 
