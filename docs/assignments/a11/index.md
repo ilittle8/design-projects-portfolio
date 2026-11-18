@@ -364,9 +364,10 @@ The selected L050 assembly uses the following three components:
 
 | Component | McMaster-Carr Part Number | Description | Material / Shaft Interface |
 |---|---|---|---|
-| Motor-side hub | [6408K11](https://www.mcmaster.com/6408K11/) | L050 keyed hub, 16 mm bore | Iron; keyed bore |
-| Leadscrew-side hub | [6408K92](https://www.mcmaster.com/6408K92/) | L050 hub, 1/4 in bore | Iron; set-screw shaft mount |
+| Motor-side hub | [6408K11](https://www.mcmaster.com/6408K11-6413K119/) | L050 keyed hub, 16 mm bore | Iron; keyed bore |
+| Leadscrew-side hub | [6408K92](https://www.mcmaster.com/6408K92-6408K111/) | L050 hub, 1/4 in bore | Iron; set-screw shaft mount |
 | Flexible spider | [6408K91](https://www.mcmaster.com/6408K91/) | L050 spider | Hytrel |
+
 
 The two hubs must have the same L050 coupling trade size as the spider. McMaster identifies the 6408K11 hub as a keyed 16 mm option and the 6408K92 hub as an iron set-screw hub available with a 1/4 in bore. The selected spider is the L050 Hytrel version.
 
@@ -487,8 +488,8 @@ The catalog torque check is promising, but the coupling is not yet a confirmed d
 
 McMaster-Carr component links:
 
-- Motor-side hub: https://www.mcmaster.com/6408K11/
-- Leadscrew-side hub: https://www.mcmaster.com/6408K92/
+- Motor-side hub: https://www.mcmaster.com/6408K11-6413K119/
+- Leadscrew-side hub: https://www.mcmaster.com/6408K92-6408K111/
 - Hytrel spider: https://www.mcmaster.com/6408K91/
 - Spider coupling catalog: https://www.mcmaster.com/products/spider-couplings/
 
