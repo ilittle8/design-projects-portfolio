@@ -354,6 +354,131 @@ I designed the adapter plate with four tapped 10-32 holes to secure it to the fr
 
 <img width="950" height="792" alt="image" src="https://github.com/user-attachments/assets/4241f902-8a71-44e1-be51-c8cf3da11a57" />
 
+## 6. Task 2 — Motor Mount Design RECISION
+
+### Knowns
+
+| Parameter | Value |
+|---|---:|
+| Mount configuration | Custom motor bracket mounted between the motor and tester frame |
+| Bracket width | 2.90 in |
+| Bracket length | 2.90 in |
+| Bracket overall height | 1.71875 in |
+| Central coupling bore diameter | 1.078125 in |
+| Inner motor-side holes | Four tapped blind holes |
+| Inner tapped-hole depth | 0.859375 in |
+| Outer frame-side holes | Four tapped through-holes |
+| Plate/bracket material | AISI 1018 cold-drawn steel (previously selected; verify for revised part) |
+| Assumed material yield strength | 53,700 psi |
+| Motor-side mounting pattern | 1.95 in × 1.95 in (verify against current CAD) |
+| Motor bracket hole diameter | 0.217 in (existing motor-bracket interface dimension) |
+| Frame-side mounting pattern | 2.40 in × 2.40 in |
+| Frame-side thread | 10-32 tapped through-holes |
+| Number of inner motor-side mounting locations | 4 |
+| Number of outer frame-side mounting locations | 4 |
+
+### Unknowns
+
+| Parameter | Information Needed |
+|---|---|
+| Motor-side fasteners | Final fastener diameter, thread size, and length for the four inner tapped holes |
+| Inner blind-hole engagement | Verify that 0.859375 in of tapped depth provides sufficient thread engagement |
+| Frame-side fasteners | Final 10-32 fastener length, grade, and engagement |
+| Coupling clearance | Verify the actual coupling outside diameter and whether additional clearance is needed around the 1.078125 in bore |
+| Coupling installation | Verify that both hubs and the spider can be installed and rotate without contacting the bracket |
+| Frame material | Exact material and properties of the tester frame |
+| Alignment | Verify that the motor output shaft, coupling, and leadscrew are properly aligned |
+| Structural validation | Verify the revised bracket, tapped holes, fasteners, and complete torque load path using the final CAD geometry |
+
+### 6.1 Revised Motor Bracket Design
+
+I redesigned the motor bracket to accommodate the McMaster-Carr L050 spider coupling. The revised geometry provides a central opening for the coupling and separate mounting locations for attaching the motor and the bracket to the tensile tester frame.
+
+The updated bracket has an overall height of **1.71875 in**. I selected this dimension to match the full assembled height of the L050 spider coupling.
+
+I also added a central through-hole with a diameter of **1.078125 in**. This opening is sized to match the outside diameter of the coupling so that the coupling can occupy the center of the bracket without interfering with its rotation. The actual coupling dimensions should be checked against the supplier drawing, and the bore clearance should be verified before manufacturing.
+
+The revised bracket uses two separate sets of tapped holes:
+
+- **Inner motor-mounting holes:** I added four tapped blind holes to secure the motor to the bracket. Each hole has a tapped depth equal to one-half of the bracket's overall height.
+
+$$
+d_{\text{inner}}=\frac{1.71875}{2}
+$$
+
+$$
+\boxed{d_{\text{inner}}=0.859375\text{ in}}
+$$
+
+- **Outer frame-mounting holes:** I added four tapped holes that extend completely through the bracket. These holes secure the bracket to the tensile tester frame.
+
+The inner holes are used exclusively to attach the motor, while the outer holes are used to attach the bracket to the frame. Separating these mounting locations allows the motor and coupling to be positioned within the bracket while maintaining a separate frame attachment.
+
+The existing material selection is AISI 1018 cold-drawn steel, with an assumed yield strength of:
+
+$$
+S_y=53,700\text{ psi}
+$$
+
+The material selection and assumed yield strength must be verified for the revised bracket before completing the final structural analysis.
+
+<img width="743" height="962" alt="image" src="https://github.com/user-attachments/assets/555e6371-8495-4a90-9fd5-a275b322631e" />
+
+### 6.2 Revised Bracket Geometry and Mounting Arrangement
+
+The final bracket geometry incorporates the following dimensions:
+
+| Feature | Dimension |
+|---|---:|
+| Overall bracket height | 1.71875 in |
+| Central through-hole diameter | 1.078125 in |
+| Inner tapped-hole depth | 0.859375 in |
+| Frame-side mounting pattern | 2.40 in × 2.40 in |
+| Frame-side thread | 10-32 |
+| Number of inner tapped holes | 4 |
+| Number of outer tapped through-holes | 4 |
+
+The center opening accommodates the L050 coupling, while the inner and outer tapped holes provide the two separate mounting interfaces.
+
+The four outer frame-side holes are arranged in a square pattern with a center-to-center spacing of 2.40 in in both directions. This pattern replaces my previous 2.65 in spacing and 1/4 in fastener selection. I selected the 2.40 in pattern to keep the mounting holes within the 2.90 in bracket length and width.
+
+The four inner tapped blind holes secure the motor to the bracket. Their tapped depth is 0.859375 in, which is half of the bracket's overall height.
+
+<img width="950" height="792" alt="image" src="https://github.com/user-attachments/assets/4241f902-8a71-44e1-be51-c8cf3da11a57" />
+
+### 6.3 Structural Analysis and Verification
+
+The previous bearing-stress calculation used the older 2.65 in frame-side mounting pattern and a 0.250 in fastener diameter. Those assumptions no longer represent the revised bracket geometry.
+
+Therefore, the previous calculated minimum thickness of 0.000224 in should not be treated as a verified result for the updated design.
+
+The revised bracket requires a new structural analysis that accounts for its actual geometry, including:
+
+- The 1.71875 in overall height.
+- The 1.078125 in central coupling opening.
+- The four inner tapped blind holes.
+- The four outer tapped through-holes.
+- The final fastener dimensions and thread engagement.
+- The actual material properties.
+
+The inner blind holes must provide sufficient thread engagement to secure the motor without breaking through the bracket. The outer through-tapped holes must provide adequate engagement with the selected frame fasteners.
+
+The central opening also removes material from the bracket, so its effect on the bracket's strength and stiffness must be considered. The bracket should be checked for bearing, shear, bending, and deflection as appropriate to the actual loading and attachment arrangement.
+
+The revised CAD geometry will be used for the updated calculations rather than relying on the previous mounting-plate analysis.
+
+### 6.4 CAD Design Files
+
+The updated SolidWorks part and STEP model are available below:
+
+**SolidWorks Part File:**
+
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket.SLDPRT
+
+**STEP File:**
+
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket.STEP
+
 ## Task 3 — Coupler Selection and Torsional Analysis
 
 ### 1. Coupler Selection
