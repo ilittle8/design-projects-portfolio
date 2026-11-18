@@ -355,7 +355,7 @@ I designed the adapter plate with four tapped 10-32 holes to secure it to the fr
 
 <img width="950" height="792" alt="image" src="https://github.com/user-attachments/assets/4241f902-8a71-44e1-be51-c8cf3da11a57" />
 
-## 6. Task 2 — Motor Mount Design RECISION
+## 6. Task 2 — Motor Mount Design REVISION
 
 ### Knowns
 
@@ -423,7 +423,6 @@ $$
 
 The material selection and assumed yield strength must be verified for the revised bracket before completing the final structural analysis.
 
-<img width="743" height="962" alt="image" src="https://github.com/user-attachments/assets/555e6371-8495-4a90-9fd5-a275b322631e" />
 
 ### 6.2 Revised Bracket Geometry and Mounting Arrangement
 
@@ -445,7 +444,8 @@ The four outer frame-side holes are arranged in a square pattern with a center-t
 
 The four inner tapped blind holes secure the motor to the bracket. Their tapped depth is 0.859375 in, which is half of the bracket's overall height.
 
-<img width="950" height="792" alt="image" src="https://github.com/user-attachments/assets/4241f902-8a71-44e1-be51-c8cf3da11a57" />
+<img width="710" height="506" alt="image" src="https://github.com/user-attachments/assets/c1b1e081-ebb6-478b-9bd1-45f9dc671cf7" />
+
 
 ### 6.3 Structural Analysis and Verification
 
