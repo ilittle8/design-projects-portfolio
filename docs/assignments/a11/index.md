@@ -3,11 +3,12 @@
 ## Motor Bracket CAD Files below:
 
 ### Solidworks Part File:
-https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket.SLDPRT
+
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket%20(Remake).SLDPRT
 
 ### STEP File:
-https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket.STEP
 
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket%20(Remake).STEP
 
 ## 1. Project Overview
 
@@ -466,18 +467,6 @@ The inner blind holes must provide sufficient thread engagement to secure the mo
 The central opening also removes material from the bracket, so its effect on the bracket's strength and stiffness must be considered. The bracket should be checked for bearing, shear, bending, and deflection as appropriate to the actual loading and attachment arrangement.
 
 The revised CAD geometry will be used for the updated calculations rather than relying on the previous mounting-plate analysis.
-
-### 6.4 CAD Design Files
-
-The updated SolidWorks part and STEP model are available below:
-
-**SolidWorks Part File:**
-
-https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket.SLDPRT
-
-**STEP File:**
-
-https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket.STEP
 
 ## Task 3 — Coupler Selection and Torsional Analysis
 
