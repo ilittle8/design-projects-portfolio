@@ -358,6 +358,33 @@ I designed the adapter plate with four tapped 10-32 holes to secure it to the fr
 
 ### 1. Coupler Selection
 
+#### Known and Unknown Variables
+
+**Known variables**
+
+| Variable | Description | Value |
+|---|---|---:|
+| $T_{op}$ | Operating torque per motor | 0.635 N·m |
+| $N$ | Design factor of safety | 4 |
+| $T_d$ | Design torque per coupling | 2.54 N·m |
+| $T_d$ | Design torque per coupling, converted | 22.48 in·lbf |
+| Hub trade size | Coupling size | L050 |
+| Motor-side nominal bore | Hub 6408K11 | 16 mm |
+| Leadscrew-side nominal bore | Hub 6408K92 | 1/4 in (6.35 mm) |
+| Spider material | Spider 6408K91 | Hytrel |
+| Hub material | Hubs 6408K11 and 6408K92 | Iron |
+| Spider maximum torque | McMaster catalog value | 50 in·lbf |
+| Maximum catalog speed | L050 spider | 18,000 RPM |
+
+**Unknown variables and required verification**
+
+- Confirm that the keyed 16 mm motor-side hub can securely retain the motor's D-shaped output shaft.
+- Confirm the motor shaft engagement length and set-screw location.
+- Confirm that the 1/4 in hub bore and set screw securely fit the actual leadscrew end.
+- Verify the complete coupling dimensions and hub cross-sections using the supplier drawings.
+- Verify that the coupling's catalog torque and speed limits are suitable for the actual operating duty and service conditions.
+- Confirm that the motor and leadscrew are aligned within the coupling's published misalignment limits.
+
 I changed the coupling selection from a one-piece NBK jaw coupling to a **McMaster-Carr L050 spider coupling**. A spider coupling consists of two metal hubs with a flexible center element (the spider) between them. The spider transmits torque while allowing a limited amount of angular and parallel misalignment.
 
 The selected L050 assembly uses the following three components:
@@ -390,6 +417,13 @@ The two hubs must have the same L050 coupling trade size as the spider. McMaster
 | Maximum catalog speed | 18,000 RPM |
 | Catalog parallel misalignment capability | 0.015 in |
 | Catalog angular misalignment capability | 0.5° |
+
+<img width="724" height="554" alt="image" src="https://github.com/user-attachments/assets/6fbdb7e9-d73b-4462-bc3c-3a25f51e00ca" />
+
+<img width="749" height="493" alt="image" src="https://github.com/user-attachments/assets/bcfd0c28-ad29-430c-9fcf-85c321f0432d" />
+
+<img width="710" height="547" alt="image" src="https://github.com/user-attachments/assets/22213e33-a531-4367-b74c-4bd55ed638af" />
+
 
 McMaster describes Hytrel as a relatively stiff spider material that provides direct torque transfer and less vibration damping than softer spider materials. The spider coupling's flexible center accommodates limited misalignment; it does not eliminate the need to align the motor and leadscrew carefully.
 
@@ -453,34 +487,9 @@ The coupling components do not have the same geometry as the previously consider
 
 A numerical torsional shear-stress calculation for the iron hubs requires the actual hub cross-sectional dimensions from the McMaster/manufacturer drawings. Those dimensions have not yet been verified. The spider's published maximum torque provides a separate catalog-level capacity check, but it does not replace a detailed stress analysis of the hubs or verification of the shaft-to-hub connections.
 
-### 5. Known and Unknown Variables
 
-**Known variables**
 
-| Variable | Description | Value |
-|---|---|---:|
-| $T_{op}$ | Operating torque per motor | 0.635 N·m |
-| $N$ | Design factor of safety | 4 |
-| $T_d$ | Design torque per coupling | 2.54 N·m |
-| $T_d$ | Design torque per coupling, converted | 22.48 in·lbf |
-| Hub trade size | Coupling size | L050 |
-| Motor-side nominal bore | Hub 6408K11 | 16 mm |
-| Leadscrew-side nominal bore | Hub 6408K92 | 1/4 in (6.35 mm) |
-| Spider material | Spider 6408K91 | Hytrel |
-| Hub material | Hubs 6408K11 and 6408K92 | Iron |
-| Spider maximum torque | McMaster catalog value | 50 in·lbf |
-| Maximum catalog speed | L050 spider | 18,000 RPM |
-
-**Unknown variables and required verification**
-
-- Confirm that the keyed 16 mm motor-side hub can securely retain the motor's D-shaped output shaft.
-- Confirm the motor shaft engagement length and set-screw location.
-- Confirm that the 1/4 in hub bore and set screw securely fit the actual leadscrew end.
-- Verify the complete coupling dimensions and hub cross-sections using the supplier drawings.
-- Verify that the coupling's catalog torque and speed limits are suitable for the actual operating duty and service conditions.
-- Confirm that the motor and leadscrew are aligned within the coupling's published misalignment limits.
-
-### 6. Coupler Selection Summary
+### 5. Coupler Selection Summary
 
 The updated design uses two iron L050 hubs and one Hytrel spider. The motor-side hub has a nominal 16 mm bore, and the leadscrew-side hub has a nominal 1/4 in bore. The selected spider has a published maximum torque of 50 in·lbf, compared with the required design torque of approximately 22.48 in·lbf.
 
