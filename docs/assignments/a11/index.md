@@ -472,6 +472,8 @@ The revised CAD geometry will be used for the updated calculations rather than r
 
 ### 1. Coupler Selection
 
+<img width="2388" height="1668" alt="38711" src="https://github.com/user-attachments/assets/9428dbdf-8c5b-45ad-a9b2-01ab5acd3a0f" />
+
 #### Known and Unknown Variables
 
 **Known variables**
