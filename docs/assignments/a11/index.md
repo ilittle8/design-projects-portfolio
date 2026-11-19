@@ -10,9 +10,13 @@ https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments
 
 https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket%20(Remake).STEP
 
-### Solidworks Drawing File:
+### Motor Mount SolidWorks Drawing File:
 
 https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket%20(Remake).SLDDRW
+
+<img width="1500" height="1151" alt="image" src="https://github.com/user-attachments/assets/0d66c746-da42-420e-a386-1db363f278bd" />
+
+
 
 ## 1. Project Overview
 
