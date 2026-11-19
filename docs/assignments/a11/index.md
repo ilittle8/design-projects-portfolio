@@ -636,6 +636,330 @@ For the coupler, I learned that compatibility involves more than matching shaft 
 
 Finally, I learned that engineering calculations must be tied to the actual geometry and assumptions of the design. A calculated minimum thickness is not automatically the same as a sensible manufacturing thickness. I chose a 1/8-inch adapter plate, recognizing that practical considerations such as rigidity, fabrication, and fastener engagement also matter when finalizing a design.
 
+# FEA of Vertical Components of Frame, Floating Bearing Mount Design, CAD Assembly, Drawings - Jack Brandon
+
+## FEA of Vertical Components of Frame
+
+The first task I had was to run an FEA simulation on the frame by applying the transverse and axial loads to the motor mounts. In order to prepare the assembly for this evaluation, I first checked that all of the components were properly aligned and constrained in the design. Moving to the simulation, I did the same by using the "automatic contacts" function in Fusion which ensured that all of the components were constrained to each other via the L-brackets.
+
+**Model Setup**
+
+<img width="1305" height="683" alt="Screenshot 2026-11-18 182433" src="https://github.com/user-attachments/assets/0c59dd41-489e-4fea-90ba-4861e1c36793" />
+
+Here, I applied the fixed constraints to the "feet" of the tester to ensure it was on a stable base.
+
+<img width="992" height="446" alt="Screenshot 2026-11-18 200543" src="https://github.com/user-attachments/assets/7a7ef6f7-a5db-4a61-9440-26b06cec6aad" />
+
+Next I a applied the 2.54 N-M torque/moment to the motor mounts.
+
+<img width="1242" height="516" alt="Screenshot 2026-11-18 182810" src="https://github.com/user-attachments/assets/050fab5a-a315-4408-8881-9357c689b8ee" />
+
+The compressive axial load of 1000 N per mount was then applied.
+
+<img width="547" height="776" alt="Screenshot 2026-11-18 182905" src="https://github.com/user-attachments/assets/beeb3965-f14b-42ca-beb3-ebf7d620650c" />
+
+All four of the independent loads applied to the two motor mounts.
+
+**Meshing and Verification 1**
+
+<img width="1025" height="511" alt="Screenshot 2026-11-18 205548" src="https://github.com/user-attachments/assets/ee9f9741-2d8b-4f87-aa45-e3d5dea9b274" />
+
+The mesh size selected for the first pass was the maximum (10%).
+
+<img width="1917" height="910" alt="Screenshot 2026-11-18 201819" src="https://github.com/user-attachments/assets/936db4fd-80de-4515-be99-6802784c7c22" />
+
+<img width="1917" height="887" alt="Screenshot 2026-11-18 202031" src="https://github.com/user-attachments/assets/72cf205a-8959-459f-8c1c-4fc26dde7560" />
+
+<img width="1917" height="888" alt="Screenshot 2026-11-18 202337" src="https://github.com/user-attachments/assets/c5d43682-f177-4102-9d22-40078bda051e" />
+
+**Meshing and Verification 2**
+
+<img width="1027" height="510" alt="Screenshot 2026-11-18 205457" src="https://github.com/user-attachments/assets/31cb88a4-8223-4652-abf8-b05f275c8489" />
+
+The next pass was performed with a medium (~6%) mesh size.
+
+<img width="1917" height="890" alt="Screenshot 2026-11-18 204726" src="https://github.com/user-attachments/assets/bb7acacc-745b-4840-b976-7b2078eb7f6a" />
+
+<img width="1917" height="946" alt="Screenshot 2026-11-18 204756" src="https://github.com/user-attachments/assets/af5fdc88-8a58-4daf-b238-d305275eccd3" />
+
+<img width="1917" height="917" alt="Screenshot 2026-11-18 204827" src="https://github.com/user-attachments/assets/893e549f-d1c5-4d8e-9cc7-b8a7bc44ff2f" />
+
+**Meshing and Verification 3**
+
+<img width="1030" height="512" alt="Screenshot 2026-11-18 220331" src="https://github.com/user-attachments/assets/d8f23c09-456d-4b7f-b905-b0f68ff62d9f" />
+
+Finally, the last pass was performed with the finest mesh (1%).
+
+<img width="1917" height="917" alt="Screenshot 2026-11-18 215853" src="https://github.com/user-attachments/assets/8da3843b-9ee1-43e3-9455-8bbf6382ddcb" />
+
+<img width="1917" height="945" alt="Screenshot 2026-11-18 215930" src="https://github.com/user-attachments/assets/1ca854a8-a12d-4f1d-b9f2-28759349635d" />
+
+<img width="1917" height="943" alt="Screenshot 2026-11-18 215942" src="https://github.com/user-attachments/assets/d565b849-7006-4a21-9fed-57ea83fa28bf" />
+
+**Results**
+
+| Iteration | Mesh Size | Max Von Mises Stress & Location | Max Vertical Deflection at Grip Line | Factor of Safety |
+|---|---|---|---|---|
+| 1 | Coarse | 12.5 MPa (top and bottom of columns and center of top horizontal beam) | 0.001 mm | 31.9 |
+| 2 | Medium | 10.8 MPa (same locations) | 0.001 mm | 32.6 |
+| 3 | Fine | 15.3 MPa (same locations) | 0.001 mm | 13.6 |
+
+As can be seen from the table, the results never converged to a 2% difference for the von mises stress (14% difference between coarse and medium) and so the fine mesh was used.
+
+**Optimization Pass**
+
+<img width="566" height="682" alt="Screenshot 2026-11-18 224333" src="https://github.com/user-attachments/assets/82f771c0-840d-4f6e-b394-7cc1d8f953f4" />
+
+Although the columns were already well above the required safety factor of 4, I wanted to see how much stronger they and the frame could be made. In order to do this I added plates to the front and back of the columns to increase their rigidity. These in effect increased the cross sectional area of the columns, therefore increasing their stiffness.
+
+<img width="1917" height="945" alt="Screenshot 2026-11-18 230428" src="https://github.com/user-attachments/assets/fec7fa57-21b3-4d73-8c50-867a1e54c57a" />
+
+<img width="1917" height="946" alt="Screenshot 2026-11-18 230454" src="https://github.com/user-attachments/assets/d518eead-932e-4ea9-9c55-252ca959cb95" />
+
+<img width="1917" height="912" alt="Screenshot 2026-11-18 230511" src="https://github.com/user-attachments/assets/dec81d0d-51a7-468a-8378-6dbc7748baac" />
+
+| Iteration | Mesh Size | Max Von Mises Stress & Location | Max Vertical Deflection at Grip Line | Factor of Safety |
+|---|---|---|---|---|
+| Optimization | Fine | 14.9 MPa (top and bottom of columns and center of top horizontal beam) | 0.001 mm | 13.9 |
+
+As can be seen from the table above, the optimization performed as expected. The maximum stress decreased slightly from 15.3 to 14.9 MPa. The factor of safety increased from 13.6 to 13.9 and the maximum z displacement stayed the same. Overall, the optimization would likely not be worth it due to the increase in mass and cost for a marginal increase in strength.
+
+## Floating Bearing Mount Design
+
+The second task I had was to design the floating bearing mount. For this, I figured that at the very least a plate would be necessary a bearing system to be attached to the T-slot. I considered adding supplier bearings but since that was not detailed in the instructions for the assignment, I simply made the plate with the appropriate RC3 class fit for the lead screw and correct size/spacing for the bolts.
+
+<img width="783" height="618" alt="Screenshot 2026-11-17 183607" src="https://github.com/user-attachments/assets/094c22cb-5b23-4dc9-8f89-0d67d34cbd01" />
+
+The sketch for the bearing mount. The lead screw hole dimension is such that there is a 0.001" total clearance between the screw and hole, given the 1/4" nominal lead screw diameter. This falls within the standard specifications of an RC3 fit. Also, worth mentioning, is that the actual size of the lead screw can and likely will vary slightly, is a threaded surface, and needs to be able to rotate freely, so the hole was made larger to account for these factors. Typically, the dimensions would be between 0.2491 - 0.2495" and 0.25 - 0.2506" for the shaft and hole diameters respectively.
+
+The holes for the 1/4-20 screws to be used to fasten the plate were sized 0.266" as per the recommendation for a clearance hole.
+
+<img width="822" height="562" alt="Screenshot 2026-11-17 195318" src="https://github.com/user-attachments/assets/3c87c278-ba4c-492c-af16-17895049f382" />
+
+Next, the sketch profile was extruded to 0.5". This height was chosen to provide strength to the bearing mount without causing potential unnecessary friction between the hole and lead screw in the case that the two touch while the tester is running.
+
+<img width="668" height="480" alt="Screenshot 2026-11-18 093328" src="https://github.com/user-attachments/assets/960f19b4-74ea-4d1b-9ec6-0105b3ab1bd2" />
+
+The completed bearing mount.
+
+<img width="596" height="687" alt="Screenshot 2026-11-18 174211" src="https://github.com/user-attachments/assets/22d2c399-5a86-4192-b782-0c85d2260757" />
+
+The bearing mounts installed on the top and bottom of the tensile tester assembly.
+
+**CAD File Downloads**
+
+Frame Only: https://a360.co/4A5ueqb
+
+Full Assembly: https://a360.co/4sRWwSe
+
+## Lessons Learned
+
+This project revealed two crucial aspects of a team engineering effort. First, was the importance of communication. Due to the way that our team's tasks were divided, some of us had overlapping tasks. For example, Aidan and I were both doing our own FEA on two separate parts of the frame. Because of this, we each arrived at different bracket solutions in order to complete the assembly and prepare it for verification. I later realized that we had different brackets (Grainger vs McMaster Carr) being used to connect the top horizontal beam to the vertical columns. This caused a delay in getting the FEA verifications completed as one of our assemblies had to be changed to maintain consistent brackets. Second, another issue occurred when the tester assembly file was not shared early enough in the process. This created issues with the motor mount and coupling designs. Once the file was shared, the designs were updated accordingly. The lesson was that these problems could have been avoided if communication was taken more seriously by myself.
+
+Second, this project highlighted the importance of critical thinking when running an FEA. In this instance, the supplied brackets came with mounting hardware (bolts and t-slot parts) which created many extra small components in the frame. When it came time to run the first FEA simulation, the mesh failed. It took some time to figure out why but after going through the error messages, it became clear that the assembly was not constrained and there were too many complex surfaces for the mesh. These two issues were solved by using the automatic contacts function to fix all the components together as an assembly as designed and by removing the unnecessary hardware from the L-brackets. Finally the mesh was able to be produced and the FEA could be run.
+
+## Drawings
+
+<img width="1115" height="722" alt="Screenshot 2026-11-18 114536" src="https://github.com/user-attachments/assets/63657c34-4b15-459c-8172-d8a49d167427" />
+
+<img width="940" height="610" alt="Screenshot 2026-11-18 232600" src="https://github.com/user-attachments/assets/1e8ac8c8-b1a0-4a4c-a998-798a18da9e7a" />
+
+<img width="1120" height="728" alt="Screenshot 2026-11-18 233740" src="https://github.com/user-attachments/assets/f6d7684f-a023-410c-878e-e484b8c71ca3" />
+
+## T Slot Connectors - Aidan Cadle
+
+In designing the frame, the top must be rigid enough to support the moment induced by the motors.
+The material of the bracket candidate, the 90 degree flush L bracket, is listed on Mcmaster as 6063 T6 Aluminum, which has a yield strength of 214 MPA, or 214 N/mm^2.
+The moment induced from each motor is known, with a stall torque of 2931 in-ozf, which converted into metric, is 20.7 N*m per motor.
+The interior width of the frame is 12in, add the column width, and the total length of the beam is known, at 15.15 in. Solving for the distance between the leadscrew hole and the face of the bar, the distance is 3.575 in, or 90.8mm.
+Since the beam is symmetric about the center, one side of the beam will be analyzed to simplify the analysis.
+Summing moments around the leadscrew hole, and treating the resultant reaction force as a single-point force at the furthest edge of beam, a force acting on the bracket can be calculated. 
+
+<img width="3929" height="4936" alt="A11 Work_page-0001" src="https://github.com/user-attachments/assets/770edb44-83c4-4f91-b499-37472d371e48" />
+
+The bracket is treated as a beam that is fixed on one end, and loaded at the other. Since the first mounting point on the bracket is 20mm away from the edge of the bracket, this is treated as the effective beam length. 
+The width of the bracket is doubled, as there is one bracket on each side of the column. 
+Using the appropriate equation for stress and section modulus, as found in the Machinery's Handbook, the maximum bending stress is determined to be 4.87 MPa.
+Since this is significantly lower than the yield strength of the material, 2 L brackets are more than adequate to support the top of the frame. 
+
+The link for the bracket can be found [here](https://www.mcmaster.com/3136N924/)
+
+
+## Frame FEA - Aidan Cadle
+
+The top of the frame was analyzed to ensure adequate strength and minimal deflection given the 2kN axial load and moments induced by the 2 chosen electric motors.
+The stall torque from the electric motors data sheet was used in order to design for the 'worst case' scenario.
+In an attempt to accurately conduct the FEA, the column brackets were mated to a double 40 series beam, as that is how our frame is assembled.
+
+<img width="1513" height="1007" alt="initial model" src="https://github.com/user-attachments/assets/35e8d7fb-5593-4589-a701-0d44ed5259f7" />
+
+The column brackets were set as fixed geometry, and center holes were placed where the leadscrews would go. The loading was centered around these holes. 
+
+<img width="1896" height="906" alt="initial load" src="https://github.com/user-attachments/assets/9516322e-2643-4331-a9b3-c35d871a64d9" />
+
+Then, the FEA was attempted. However, unlike previous assignments, the end results were not clear. The first pass was conducted on the coarse setting within Solidworks.
+
+### Initial Results
+<img width="1896" height="895" alt="assembly fea test" src="https://github.com/user-attachments/assets/9dc6ef62-87aa-4227-89dc-e4892c214e15" />
+
+Stress
+
+<img width="1851" height="748" alt="assemb disp" src="https://github.com/user-attachments/assets/5274ca81-42d9-4df6-8551-52769f7926d4" />
+
+Strain
+
+<img width="1749" height="725" alt="assemb FOS" src="https://github.com/user-attachments/assets/0314cbf7-c434-475e-bd64-e593155fd56b" />
+
+Factor of Safety
+
+As can be seen in both the stress and factor of safety images, there is almost no color variation, and yet the plot ranges all the way to 21 GPa, well outside of the yield strength of aluminum.
+Despite this, the deformation plot seemed to be accurate, showing gradual variation, and a peak displacement of only 0.0078 mm. 
+
+In an attempt to fix this, a finer mesh was used. However, despite multiple attempts, Solidworks would not run the same simulation on a finer mesh
+
+<img width="253" height="159" alt="fea failure" src="https://github.com/user-attachments/assets/522d5d37-0f36-4aba-970c-5d5309bbb27d" />
+
+One of many error codes.
+
+### Second Assembly Configuration
+
+Since motor mount plates were designed and now available as Solidworks parts, those were added to the assembly in an attempt to resolve this issue.
+The loads were applied through the motor mounts, as that is how the loads would be distributed on a physical frame.
+
+<img width="1126" height="679" alt="load" src="https://github.com/user-attachments/assets/a32800f1-f8ca-478d-bfb5-f5152bfeac0f" />
+
+Despite the computer's best efforts, often exceeding 77 degrees Celsius, this did not solve the problem. The stress and factor of safety again came out monochromatic, and the displacement plot appeared to be properly scaled. 
+
+<img width="1399" height="1026" alt="run 2 stress" src="https://github.com/user-attachments/assets/c3a09a4f-b1e2-4c34-99e3-aa0f6f98469f" />
+
+Stress
+
+<img width="974" height="854" alt="disp 2" src="https://github.com/user-attachments/assets/b105fcad-b126-4873-b796-ec24b47e27e6" />
+
+Displacement
+
+<img width="923" height="787" alt="run 2 fos" src="https://github.com/user-attachments/assets/ef921a3f-ead0-45fc-8688-d00563f25cca" />
+
+Factor of Safety
+
+In addition to adding the motor mounts, the scale of the charts were adjusted in an attempt to view a rough idea of the maximum stress. The upper limit was set to that of the yield strength of aluminum, 275 MPa. Despite this, the charts remained monochromatic. 
+
+A finer mesh was used, however the computer took over 10 minutes to complete it, and the results were not significantly different or more conclusive than the coarser mesh. 
+
+### Final Assembly Config
+
+In a final attempt to 'correctly' conduct the FEA, the column L brackets were removed, but the motor mounts remained. In this configuration, the ends of the beams were treated as fixed geometry, but the loads were still applied through the motor mounts. 
+
+<img width="1494" height="639" alt="fea 3 fixtures" src="https://github.com/user-attachments/assets/970bdc74-9c3b-4730-b666-b2002dd5109e" />
+
+The model was meshed on coarse, and the FEA simulation was run.
+
+Worth noting, for every FEA conducted for this assignment, Solidworks always had a warning pop-up saying the mesh contained distorted elements. It did not matter the mesh density, although the number was generally higher the finer the mesh.
+
+Despite the new constraints, the results did not change.
+
+<img width="954" height="815" alt="stress 3" src="https://github.com/user-attachments/assets/7682a2e5-3b67-4408-9a6b-fef135e2951f" />
+
+Stress
+
+<img width="961" height="684" alt="disp 3" src="https://github.com/user-attachments/assets/a3b7a37a-64ce-4d45-a129-12345c29964e" />
+
+Displacement
+
+<img width="946" height="747" alt="fos 3" src="https://github.com/user-attachments/assets/6dc3dd94-c7df-400d-b377-eabed9693d21" />
+
+Factor of Safety
+
+The stress plots appear to be inconclusive, but the displacement plots tell another story. They show minimal deflection in every test, suggesting that the beam is indeed rigid enough to support the given loading. 
+
+### Final FEA attempt
+
+In a final attempt to gain usable data, FEA was conducted on the beam only. 
+The ends were set as fixed geometry, and the force and torque were applied around vertical walls of the clearance holes for the lead screw. 
+
+<img width="1690" height="748" alt="part load and fixture" src="https://github.com/user-attachments/assets/eea4604a-a9a6-4575-9abb-d870cb1e797c" />
+
+The mesh was set to coarse, and the simulation was run.
+
+Finally, the simulation resulted in usable results. 
+
+<img width="1343" height="604" alt="stress" src="https://github.com/user-attachments/assets/4cbf3bea-dc82-489a-87c7-e621e50480d8" />
+
+Stress. Peak 116 MPa
+
+<img width="921" height="785" alt="disp 4 1" src="https://github.com/user-attachments/assets/5d3477e2-33c1-4c7e-b224-1d8f16f87094" />
+
+Displacement. Peak 0.042 mm
+
+<img width="860" height="744" alt="fos 4 1" src="https://github.com/user-attachments/assets/7bfd108c-3cc7-4b0e-88b1-1f793c86c582" />
+
+Factor of Safety. Minimum 2.4
+
+All plots now show a gradient, and appear to show correct stresses and factors of safety. Now, the mesh was refined in order to gather more data, and to look for possible convergence. 
+
+According to Solidworks, for both the coarse and medium fine mesh, there were no distorted elements. This is significantly different than the previous attempts.
+
+<img width="1408" height="772" alt="stress 4 2" src="https://github.com/user-attachments/assets/624aaf54-e8e6-459a-bc28-549fecbecbe2" />
+
+Stress. Peak 120 MPa
+
+<img width="885" height="749" alt="displacement 4 2" src="https://github.com/user-attachments/assets/f9c8475b-8f38-46aa-b097-b790300c0b3e" />
+
+Displacement. Peak 0.042mm
+
+<img width="845" height="690" alt="fos 4 2" src="https://github.com/user-attachments/assets/dd7f1997-425c-49da-af73-44d4b0366bf7" />
+
+Factor of Safety. Minimum 2.3
+
+These values converge within 4.2% of one another, so further refinements are not necessary. 
+
+Although the factor of safety is not 4, the beam itself appears to be adequate to support the loading scenario for the frame. There is not significant deflection, there appears to be no torsion, and the stress is less than half of the yield strength. If Solidworks could properly analyze the assembly, further modifications to the final product may not be necessary. Additionally, the areas experiencing the highest stress are the surfaces of the clearance hole, which in a real application, would not see the direct axial force or moment induced by the motors. 
+
+### Possible Refinements
+
+For refinements, the frame may not need double wide framing, and that would drastically cut down on both weight and material cost. 
+
+The beam was loaded and fixed in the same manner as the previous beam.
+
+Initially, the part was meshed at a coarse setting. However, after many failed attempts, the mesh size was increased to medium, and the mesh quality was reduced to draft, at which point it successfully meshed.
+
+The results were similar to the previous test, although stress distribution changed.
+
+<img width="639" height="1013" alt="stress 5 1" src="https://github.com/user-attachments/assets/5e447413-988d-4f29-8070-90a996c966a0" />
+
+Stress. Peak 96 MPa
+
+<img width="622" height="708" alt="disp 5 1" src="https://github.com/user-attachments/assets/2f094ea5-48aa-439a-a673-2190e47da90e" />
+
+Displacement. Peak 0.32 mm
+
+<img width="632" height="667" alt="fos 5 1" src="https://github.com/user-attachments/assets/94df4ca8-b507-4d71-8b33-77763e345843" />
+
+Factor of Safety. Minimum 2.88
+
+Initially, these appear to be better results than the unrefined pass, and save almost 50% of the weight. However, to verify the results, the mesh must be refined, and the analysis re-ran. 
+
+The mesh size was then increased to medium fine (~75% towards fine on the slider).
+
+<img width="1554" height="923" alt="stress 5 2" src="https://github.com/user-attachments/assets/322f5f2d-7ad8-41a0-9960-7bc06a319fef" />
+
+Stress. Peak 104 MPa
+
+<img width="1441" height="831" alt="disp 5 2" src="https://github.com/user-attachments/assets/c5da71db-6295-4022-a340-56acc913c987" />
+
+Displacement. Peak 0.32 mm
+
+<img width="1578" height="810" alt="fos 5 2" src="https://github.com/user-attachments/assets/f8b5d464-494a-4b2f-bfd0-3d7c79303b5f" />
+
+Factor of Safety, Minimum 2.66
+
+These results converge within 10%, with a maximum difference of 8.3%. The results of the finer mesh are used for analysis.
+
+Since the results converge, conclusions can be drawn regarding the proposed change. While stress remains high around the leadscrew clearance hole, the stress has increased near the ends of the beam, showing how the stress distribution has changed. The displacement and factor of safety plots do not show a significant change in the distribution. Overall, the single wide frame appears to be a better solution for this application, although it would require a redesign of the motor mount. 
+
+## Lessons Learned - Aidan Cadle
+I learned that using Solidworks for assembly analysis is not ideal, and that I need more information about assemblies in order to adequately use the function. Additionally, I was able to find 'bandaid' workarounds, showcasing the problem solving required of engineers at any given moment. This portion of the assignment took around 6 hours.
+
 
 
 
