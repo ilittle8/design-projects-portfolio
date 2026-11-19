@@ -960,6 +960,27 @@ Since the results converge, conclusions can be drawn regarding the proposed chan
 ## Lessons Learned - Aidan Cadle
 I learned that using Solidworks for assembly analysis is not ideal, and that I need more information about assemblies in order to adequately use the function. Additionally, I was able to find 'bandaid' workarounds, showcasing the problem solving required of engineers at any given moment. This portion of the assignment took around 6 hours.
 
+## Tabulating Costs - Group Effort, Aidan Formatting
+| Item Number | Quantity | Name | Cost per Item | Total Cost | Link |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 1 | 2 | Toggle Clamp Holding Screw | $7.09 | $14.18 | [link](https://www.mcmaster.com/5147A28/) | 
+| 2 | 1 | T-Slot Framing System: Rectangle, 40 Series, Smooth, Double, 3 m Nom Lg, 80 mm x 40 mm, 6 Slots, Std | $245.87 | $245.87 | [link](https://www.grainger.com/product/80-20-T-Slot-Framing-System-Rectangle-804T48) | 
+| 3 | 2 | Acme Lead Screw, 1/4 – 20, RH, Steel | $27.96 | $55.92 | [link](https://www.mcmaster.com/99030A984/) | 
+| 4 | 2 | Precision Acme Externally Threaded Nut 360 Brass, 1/4"-20 Thread Size | $58.86 | $117.72 | [link](https://www.mcmaster.com/95072A171/) |
+| 5 | 2 | Precision Acme Flange Black-Oxide 1117 Carbon Steel, 9/16"-18 Thread Size | $61.78 | $123.56 | [link](https://www.mcmaster.com/1329K101/) |
+| 6 | 8 | 18-8 Stainless Steel Pan Head Phillips Screw, 1/4"-20 Thread, 1/4" Long | $0.18 | $1.44 | [link](https://www.mcmaster.com/91772A533/) |
+| 7 | 1 | 2"x 2"x 1' 6061 Aluminum Billet | $55.83 | $55.83 | [link](https://www.mcmaster.com/9008K53-9008K531/) |
+| 8 | 2 | McMaster-Carr 4801N14 NEMA 23 Planetary Gearmotor | $677.86  | $1355.72 | [link](https://www.mcmaster.com/4801N14/) |
+| 9 | 2 | (16mm bore) Flexible Shaft Coupling with Set Screw, 1-23/32" Overall Length, Keyed Shaft | $9.06 | $18.12 | [link](https://www.mcmaster.com/6408K11-6413K119/) |
+| 10 | 2 | (1/4” bore)Flexible Shaft Coupling with Set Screw, 1-23/32" Overall Length, Round Shaft | $9.84 | $19.68 | [link](https://www.mcmaster.com/6408K92-6408K111/) | 
+| 11 | 2 | 18000 rpm Hytrel Rubber Spider for 1-5/64" OD Flexible Shaft Coupling | $18.18  $36.36 | [link](https://www.mcmaster.com/6408K91/) |
+| 12 | 2 | Flush 90 Degree Angle Bracket for 40mm High Rail T-Slotted Framing | $22.20 | $44.40 | [link](https://www.mcmaster.com/3136N924/) |
+| 13 | 4 | Inside Corner Bracket: Wide Inside-Corner Bracket, 40 Series, 40 mm x 76 mm x 40 mm, 4 Holes, Silver | $10.92 | $43.68 | [link](https://www.grainger.com/product/80-20-Inside-Corner-Bracket-Wide-5JRU7) | 
+| 14 | 2 | Custom AISI 1018 Cold-Drawn Steel Motor Adapter Plates (2.90 in × 2.90 in × 1.72 in) | Custom | Custom | Custom fabricated | 
+| 15 | 31 | Design Labor, Total | $35.00/hour | $1085 | N/A | 
+|  |  |  | Total Cost | $3,217.48  |  |
+
+
 
 
 
