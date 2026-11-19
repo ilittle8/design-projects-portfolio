@@ -10,6 +10,10 @@ https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments
 
 https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket%20(Remake).STEP
 
+### Solidworks Drawing File:
+
+https://github.com/ilittle8/design-projects-portfolio/blob/main/docs/assignments/a11/A11%20Motor%20Bracket%20(Remake).SLDDRW
+
 ## 1. Project Overview
 
 The objective of this project is to design a motorized leadscrew system for a tensile tester. The system uses two leadscrews to produce controlled linear motion of the crosshead.
